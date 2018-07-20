@@ -26,6 +26,6 @@
 		<input type="button" value="·Î±×¾Æ¿ô" onclick="">
 	</c:if>
 	<%=session.getAttribute("userInfo") %>
-	
+	<h1>¾È³ç</h1>
 </body>
 </html>

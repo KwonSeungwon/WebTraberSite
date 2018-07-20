@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.acoda.biz.UserInfoBiz;
 import com.acoda.vo.MemberVO;
 
-import User.UserInfo;
 
 @Controller
 public class UserInfoController {
@@ -19,7 +19,7 @@ public class UserInfoController {
 	
 	//비즈 오토라이드
 	@Autowired
-	private InfoBiz infoBiz;
+	private UserInfoBiz infoBiz;
 	
 	
 	
@@ -38,7 +38,7 @@ public class UserInfoController {
 	//유저리스트 컨트롤러
 	@RequestMapping("/Select.do")
 	public ModelAndView select() {
-		List<MemberVO> list = infobiz.select();
+		List<MemberVO> list = infoBiz.select();
 		ModelAndView mav = new ModelAndView("customer/list", "list", list);
 
 		return mav;

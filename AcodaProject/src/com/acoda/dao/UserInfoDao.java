@@ -10,7 +10,7 @@ import com.acoda.vo.MemberVO;
 
 public class UserInfoDao {
 
-	@Autowired
+/*	@Autowired
 	private SqlSessionFactory factory; // springmvc 마이바티스 id와 매핑(변수명을)
 	private SqlSession sqlsession;
 
@@ -91,6 +91,6 @@ public class UserInfoDao {
 
 		return false;
 
-	}
+	}*/
 
 }

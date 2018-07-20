@@ -17,7 +17,8 @@
 
 
 	<delete id="deleteUser" parameterType="userInfo">
-		delete from member where id = #{id} AND pw = #{pw}
+		delete from member where
+		id = #{id} AND pw = #{pw}
 	</delete>
 
 	<update id="updateUser" parameterType="userInfo">
@@ -28,7 +29,8 @@
 
 
 	<select id="login" parameterType="String" resultType="userInfo">
-		select * from member where id = #{id} and pw = #{pw}
+		select *
+		from member where id = #{id} and pw = #{pw}
 	</select>
 
 </mapper>

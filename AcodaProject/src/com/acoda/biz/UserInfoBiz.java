@@ -8,7 +8,7 @@ import com.acoda.dao.UserInfoDao;
 import com.acoda.vo.MemberVO;
 
 public class UserInfoBiz {
-
+/*
 	@Autowired
 	private UserInfoDao UserDao;
 
@@ -34,5 +34,5 @@ public class UserInfoBiz {
 	public boolean logincheck(MemberVO vo) {
 		System.out.println("로그인체크비즈");
 		return UserDao.logincheck(vo);
-	}
+	}*/
 }

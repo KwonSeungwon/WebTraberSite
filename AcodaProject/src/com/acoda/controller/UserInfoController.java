@@ -17,7 +17,7 @@ import com.acoda.vo.MemberVO;
 public class UserInfoController {
 	
 	
-	//비즈 오토라이드
+/*	//비즈 오토라이드
 	@Autowired
 	private UserInfoBiz infoBiz;
 	
@@ -54,5 +54,5 @@ public class UserInfoController {
 		infoBiz.delete(vo);
 		return mav;
 	}
-
+*/
 }

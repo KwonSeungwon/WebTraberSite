@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
    <typeAliases>
-      <typeAlias alias="userInfo" type="User.UserInfo"/>
+      <typeAlias alias="userInfo" type="com.acoda.vo.MemberVO"/>
    </typeAliases>
    
    <mappers>
-      <mapper resource="Nomal-Mapping.xml"/>
+      <mapper resource="Sql-Mapping.xml"/>
    </mappers>
 
 </configuration>

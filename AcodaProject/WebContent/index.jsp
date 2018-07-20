@@ -27,6 +27,5 @@
 	</c:if>
 	<%=session.getAttribute("userInfo") %>
 	
-	<h1>∫∏¿Ã∑Á</h1>
 </body>
 </html>

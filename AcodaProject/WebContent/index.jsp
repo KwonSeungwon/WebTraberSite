@@ -26,5 +26,7 @@
 		<input type="button" value="로그아웃" onclick="">
 	</c:if>
 	<%=session.getAttribute("userInfo") %>
+	
+	<h1>보이루</h1>
 </body>
 </html>

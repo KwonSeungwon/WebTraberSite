@@ -4,9 +4,9 @@ Ecore Web & Bigdata Project
 
 Product by Team Acoda 
 
-JDK 1.8 & Spring 4.0 & Oracle 10g
+language : JDK 1.8 & Spring 4.0 / Database : Oracle 10g
 
 
-The period of manufacture : 2018.07.01 ~ 
+Production periode : 2018.07.01 ~ 
 
 Boys be ambitious !!!

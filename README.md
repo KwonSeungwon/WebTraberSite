@@ -1,11 +1,12 @@
 # Encore_1jo
-엔코아 1조 웹 프로젝트 2018.07.01 ~ 
+
+Ecore Web & Bigdata Project 
+
+Product by Team Acoda 
+
+JDK 1.8 & Spring 4.0 & Oracle 10g
 
 
-
-
-1조 팀프로젝트 국내 여행객 매핑 홈페이지 제작!
-
-2018.07.01 ~ 
+The period of manufacture : 2018.07.01 ~ 
 
 Boys be ambitious !!!

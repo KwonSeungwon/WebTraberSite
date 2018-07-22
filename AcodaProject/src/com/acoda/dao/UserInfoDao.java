@@ -5,12 +5,14 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.acoda.vo.MemberVO;
 
+@Repository
 public class UserInfoDao {
 
-/*	@Autowired
+	@Autowired
 	private SqlSessionFactory factory; // springmvc 마이바티스 id와 매핑(변수명을)
 	private SqlSession sqlsession;
 
@@ -91,6 +93,6 @@ public class UserInfoDao {
 
 		return false;
 
-	}*/
+	}
 
 }

@@ -3,12 +3,14 @@ package com.acoda.biz;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.acoda.dao.UserInfoDao;
 import com.acoda.vo.MemberVO;
 
+@Service
 public class UserInfoBiz {
-/*
+
 	@Autowired
 	private UserInfoDao UserDao;
 
@@ -34,5 +36,5 @@ public class UserInfoBiz {
 	public boolean logincheck(MemberVO vo) {
 		System.out.println("로그인체크비즈");
 		return UserDao.logincheck(vo);
-	}*/
+	}
 }

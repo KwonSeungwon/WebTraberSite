@@ -11,16 +11,16 @@
 <body>
 	<h2>**메인페이지**</h2>
 	<input type="button" value="회원리스트"
-		onclick="location.href ='/TeamProject/Select.do'">
+		onclick="location.href ='input/AcodaProject/Select.do'">
 	<input type="button" value="회원가입"
-		onclick="location.href ='/TeamProject/insert.jsp'">
+		onclick="location.href ='input/AcodaProject/insert.jsp'">
 	<input type="button" value="회원탈퇴"
-		onclick="location.href ='/TeamProject/outuser.jsp'">
+		onclick="location.href ='input/AcodaProject/UserDelete.jsp'">
 	<input type="button" value="회원정보수정"
-		onclick="location.href ='/TeamProject/changeinfo.jsp'">
+		onclick="location.href ='input/AcodaProject/UserChangeInfo.jsp'">
 	<c:if test="${userInfo == null}">
 		<input type="button" value="로그인"
-			onclick="location.href ='/TeamProject/login_form.jsp'">
+			onclick="location.href ='input/AcodaProject/login_form.jsp'">
 	</c:if>
 	<c:if test="${userInfo!= null}">
 		<input type="button" value="로그아웃" onclick="">

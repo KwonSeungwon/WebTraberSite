@@ -6,7 +6,7 @@ Product by Team Acoda
 
 A website that matches travelers with guides
 
-Language : JDK 1.8 & Spring 4.0 & HTML5+CSS
+Language : JDK 1.8 & Spring 4.3.14 & HTML5+CSS
 
 Database : Oracle 10g
 

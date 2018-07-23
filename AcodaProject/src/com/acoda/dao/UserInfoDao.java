@@ -13,12 +13,12 @@ import com.acoda.vo.MemberVO;
 public class UserInfoDao {
 
 	@Autowired
-	private SqlSessionFactory factory; // springmvc 마이바티스 id와 매핑(변수명을)
-	private SqlSession sqlsession;
+	private SqlSessionFactory sqlSessionFactory; // springmvc 마이바티스 id와 매핑(변수명을)
+	private SqlSession sqlsesion;
 
 	public List<MemberVO> select() {
 		List<MemberVO> list = null;
-		try (SqlSession session = factory.openSession()) {
+		try (SqlSession session = sqlSessionFactory.openSession()) {
 			list = session.selectList("userInfo.selectalluser");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -30,7 +30,7 @@ public class UserInfoDao {
 
 	public String insertUser(MemberVO vo) {
 		String result = "";
-		try (SqlSession session = factory.openSession()) {
+		try (SqlSession session = sqlSessionFactory.openSession()) {
 			int n = session.insert("userInfo.insertUser", vo);
 			System.out.println("다오도착");
 			if (n > 0) {
@@ -47,7 +47,7 @@ public class UserInfoDao {
 	}
 
 	public int DeleteUser(MemberVO vo) {
-		try (SqlSession session = factory.openSession()) {
+		try (SqlSession session = sqlSessionFactory.openSession()) {
 			int n = session.delete("userInfo.deleteUser", vo);
 			System.out.println("삭제다오도착");
 			if (n > 0) {
@@ -63,7 +63,7 @@ public class UserInfoDao {
 	}
 
 	public int UpdateUser(MemberVO vo) {
-		try (SqlSession session = factory.openSession()) {
+		try (SqlSession session = sqlSessionFactory.openSession()) {
 			int n = session.update("userInfo.updateUser", vo);
 			System.out.println("수정다오도착");
 			if (n > 0) {

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.acoda.biz.UserInfoBiz;
 import com.acoda.dao.UserLoginDao;
 import com.acoda.vo.MemberVO;
 
@@ -19,7 +20,7 @@ import com.acoda.vo.MemberVO;
 public class UserloginController {
 	
 	@Autowired
-	UserLoginDao userlogindao;
+	UserInfoBiz userBiz;
 	
 
 	@RequestMapping(value ="/input/logincheck.do")
@@ -36,7 +37,7 @@ public class UserloginController {
 			
 		}
 		
-		if(userlogindao.LoginCheck(vo) == false) {
+		if(userBiz.logincheck(vo) == false) {
 			out.println("<script>alert('로그인 정보확인'); history.go(-1)</script>");
 			out.flush();
 			out.close();

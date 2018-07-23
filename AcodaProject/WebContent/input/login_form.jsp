@@ -7,7 +7,7 @@
 <title>Login Form</title>
 </head>
 <body>
-<form action="/TeamProject/login.do" method= "POST">
+<form action="/AcodaProject/login.do" method= "POST">
 <input type = "text" name = "id">
 <input type = "password" name = "pw">
 <input type = "submit" value = "·Î±×ÀÎ">

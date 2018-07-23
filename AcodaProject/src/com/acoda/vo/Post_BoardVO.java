@@ -14,6 +14,7 @@ public class Post_BoardVO {
 	private String post_contents; //게시글내용
 	private String registration_date; //등록일자
 	private int view; //조회수
+	private String path;//사진 파일경로
 	
 	
 	public Post_BoardVO() {
@@ -21,8 +22,11 @@ public class Post_BoardVO {
 	}
 
 
+	
+
+
 	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
-			String post_contents, String registration_date, int view) {
+			String post_contents, String registration_date, int view, String path) {
 		super();
 		this.p_type = p_type;
 		this.title = title;
@@ -33,7 +37,11 @@ public class Post_BoardVO {
 		this.post_contents = post_contents;
 		this.registration_date = registration_date;
 		this.view = view;
+		this.path = path;
 	}
+
+
+
 
 
 	public int getP_type() {
@@ -126,6 +134,20 @@ public class Post_BoardVO {
 	}
 
 
+
+	public String getPath() {
+		return path;
+	}
+
+
+
+
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	
 	
 	
 	

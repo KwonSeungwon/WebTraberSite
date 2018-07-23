@@ -8,7 +8,7 @@
 </head>
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
 	<h3>회원정보수정</h3> 
-	<form action="/TeamProject/deleteuser.do" method="POST">
+	<form action="/AcodaProject/deleteuser.do" method="POST">
 	회원아이디입력 : <input type="text" name="id"> 
 	비밀번호입력 : <input type="text" name="pw">  	 
 	<input type="submit" value="수정완료">

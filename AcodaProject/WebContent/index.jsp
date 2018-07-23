@@ -11,21 +11,17 @@
 <body>
 	<h2>**메인페이지**</h2>
 	<input type="button" value="회원리스트"
-		onclick="location.href ='input/AcodaProject/Select.do'">
+		onclick="location.href ='input/Select.do'">
 	<input type="button" value="회원가입"
-		onclick="location.href ='input/AcodaProject/insert.jsp'">
+		onclick="location.href ='input/insert.jsp'">
 	<input type="button" value="회원탈퇴"
-		onclick="location.href ='input/AcodaProject/UserDelete.jsp'">
+		onclick="location.href ='input/UserDelete.jsp'">
 	<input type="button" value="회원정보수정"
-		onclick="location.href ='input/AcodaProject/UserChangeInfo.jsp'">
-	<c:if test="${userInfo == null}">
+		onclick="location.href ='input/UserChangeInfo.jsp'">
 		<input type="button" value="로그인"
-			onclick="location.href ='input/AcodaProject/login_form.jsp'">
-	</c:if>
-	<c:if test="${userInfo!= null}">
-		<input type="button" value="로그아웃" onclick="">
-	</c:if>
+		onclick="location.href ='input/login_form.jsp'">
+		
+		
 	<%=session.getAttribute("userInfo") %>
-	<h1>hh</h1>
 </body>
 </html>

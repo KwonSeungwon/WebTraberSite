@@ -3,12 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-   <typeAliases>
-      <typeAlias alias="userInfo" type="com.acoda.vo.MemberVO"/>
-   </typeAliases>
-   
-   <mappers>
-      <mapper resource="Sql-Mapping.xml"/>
-   </mappers>
+	<typeAliases>
+		<typeAlias alias="userInfo" type="com.acoda.vo.MemberVO" />
+		<typeAlias alias="LoginResult" type = "com.acoda.vo.MemberVO"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="Sql-Mapping.xml" />
+	</mappers>
 
 </configuration>

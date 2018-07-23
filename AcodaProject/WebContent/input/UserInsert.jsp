@@ -8,7 +8,7 @@
 </head>
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
 	<h3>회원가입</h3> 
-	<form action="/TeamProject/abc.do" method="POST">
+	<form action="/AcodaProject/abc.do" method="POST">
 	회원번호 : <input type="text" name="usernumber">
 	등급코드 : <input type="text" name="rating"><br> 
 	아이디 : <input type="text" name="id"><br> 

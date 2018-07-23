@@ -14,7 +14,6 @@ public class UserInfoDao {
 
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory; // springmvc 마이바티스 id와 매핑(변수명을)
-	private SqlSession sqlsesion;
 
 	public List<MemberVO> select() {
 		List<MemberVO> list = null;
@@ -78,21 +77,5 @@ public class UserInfoDao {
 
 	}
 
-	public boolean logincheck(MemberVO vo) {
-		System.out.println("로그인 체크 다오");
-		int count = Integer.parseInt(sqlsession.selectOne("userInfo.check", vo).toString()),
-				totalCount = sqlsession.selectOne("userInfo.totalcount");
-
-		if (totalCount > 0) {
-			if (count > 0) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-
-		return false;
-
-	}
 
 }

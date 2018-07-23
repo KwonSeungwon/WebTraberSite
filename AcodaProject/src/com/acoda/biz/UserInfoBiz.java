@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.acoda.dao.UserInfoDao;
+import com.acoda.dao.UserLoginDao;
 import com.acoda.vo.MemberVO;
 
 @Service
@@ -13,6 +14,9 @@ public class UserInfoBiz {
 
 	@Autowired
 	private UserInfoDao UserDao;
+	@Autowired
+	private UserLoginDao LoginDao;
+	
 
 	public List<MemberVO> select() {
 		return UserDao.select();
@@ -33,8 +37,8 @@ public class UserInfoBiz {
 		return UserDao.UpdateUser(vo);
 	}
 
-	public boolean logincheck(MemberVO vo) {
+	public int logincheck(MemberVO vo) {
 		System.out.println("로그인체크비즈");
-		return UserDao.logincheck(vo);
+		return LoginDao.LoginCheck(vo);
 	}
 }

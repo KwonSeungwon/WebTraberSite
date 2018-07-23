@@ -13,31 +13,27 @@ import com.acoda.vo.MemberVO;
 public class UserLoginDao {
 
 	@Autowired
-	private SqlSession sql;
-	
-	public boolean LoginCheck(MemberVO vo) {
-		
-		int count = Integer.parseInt(sql.selectOne("logidncheck",vo).toString()),
-				totalcount = sql.selectOne("totalAcount");
-		
-		if(totalcount>0) {
-			if(count>0) {
-				return true;
-			}else {
-				return false;
+	private SqlSessionFactory sqlSessionFactory;
+
+	public int LoginCheck(MemberVO vo) {
+
+		int result = 0;
+		System.out.println("로그인체크다오");
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int count = Integer.parseInt(sqlSession.selectOne("logidncheck", vo).toString()),
+				totalcount = sqlSession.selectOne("totalAcount");
+		System.out.println(count);
+
+		if (totalcount > 0) {
+			if (count > 0) {
+				result = 0;
+			} else {
+				result = 1;
 			}
 		}
-		
-		
-		return false;
-		
+
+		return result;
+
 	}
-	
-	
-	
-	
-
-
-
 
 }

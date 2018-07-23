@@ -3,11 +3,61 @@ package com.acoda.vo;
 public class MemberVO {
 
 	
-	public int getUsernumber() {
-		return usernumber;
+	private Member_TypeVO member_typevo;
+	
+	private int user_number ; //회원고유번호(P)
+	private int rating; //등급코드(F)
+	private String name; //이름
+	private String id; //이름
+	private String sex; //성별
+	private String pw; //비밀번호
+	private String phone; //휴대폰번호
+	private String address; //주소
+	private String email; //이메일
+	private String joindate; //가입일
+	private String birth ; //생년월일
+	private String job; //직업
+	private String profile; // 프로필(가이드용)
+	private String place; //담당구역(가이드용)
+	
+	
+	
+	
+	//기본생성자
+	public MemberVO() {
+		super();
 	}
-	public void setUsernumber(int usernumber) {
-		this.usernumber = usernumber;
+	
+	
+	
+	//매개변수를 모두 포함한 생성자
+	public MemberVO(int user_number, int rating, String name, String id, String sex, String pw, String phone,
+			String address, String email, String joindate, String birth, String job, String profile, String place) {
+		super();
+		this.user_number = user_number;
+		this.rating = rating;
+		this.name = name;
+		this.id = id;
+		this.sex = sex;
+		this.pw = pw;
+		this.phone = phone;
+		this.address = address;
+		this.email = email;
+		this.joindate = joindate;
+		this.birth = birth;
+		this.job = job;
+		this.profile = profile;
+		this.place = place;
+	}
+
+
+
+
+	public int getUser_number() {
+		return user_number;
+	}
+	public void setUser_number(int user_number) {
+		this.user_number = member_typevo.getRating();
 	}
 	public int getRating() {
 		return rating;
@@ -87,18 +137,5 @@ public class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private int usernumber ;
-	private int rating;
-	private String id;
-	private String pw;
-	private String phone;
-	private String address;
-	private String email;
-	private String joindate ;
-	private String job;
-	private String birth ;
-	private String profile;
-	private String place;
-	private String sex;
-	private String name;
+	
 	}

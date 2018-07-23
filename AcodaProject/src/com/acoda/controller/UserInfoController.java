@@ -22,7 +22,7 @@ public class UserInfoController {
 	// 인서트 컨트롤러
 	@RequestMapping(value = "/abc.do", method = RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute("userInfo") MemberVO vo) {
-		System.out.println("컨트롤러 도착" + vo.getUsernumber());
+		System.out.println("컨트롤러 도착" + vo.getUser_number());
 		String result = infoBiz.insert(vo);
 		ModelAndView mav = new ModelAndView("UserView/InsertResult", "myresult", result);
 		// 출력파일 : result.jsp, 꺼내올 객체명(request객체) : myresult, 전송할 객체 : result

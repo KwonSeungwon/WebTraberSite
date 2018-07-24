@@ -33,7 +33,7 @@ public class Post_BoardBIZ {
 		return post_boardDAO.getInsertPost_Board(pvo);
 	}
 	
-	public Post_BoardVO getFind_Post_Board(String name) {
+	public Post_BoardVO getFindPost_Board(String name) {
 		return null;
 	
 	}

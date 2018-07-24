@@ -36,7 +36,7 @@ public class Post_BoardServlet {
 	}
 	
 	@RequestMapping(value="/insert_page.do")
-	 public String insert_page() {
+	 public String post_board_insertpage() {
 		 return "post_board/input_post_board";
 	 }
 	

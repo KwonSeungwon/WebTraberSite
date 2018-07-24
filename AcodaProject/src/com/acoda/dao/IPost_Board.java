@@ -16,4 +16,5 @@ public interface IPost_Board {
 	String insert_post="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(?,?,?,?,?,?,?,?,?,?)";
 	String find_post="select post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_number=?";
 	String update_post="update post_board set p_type=?,title=?,title_number=?,user_number=?,post_title=?,post_contents=?,registration_date=?,views=?,id=? where post_number=? ";
+	String delete_post="";
 }

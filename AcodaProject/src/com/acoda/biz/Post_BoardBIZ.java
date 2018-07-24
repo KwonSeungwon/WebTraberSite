@@ -38,4 +38,14 @@ public class Post_BoardBIZ {
 	
 	}
 
+	
+	
+	public int getDelPost_Board(String del_name) {
+		return 0;
+		
+	}
+	
+	public int getUpdatePost_Board(Post_BoardVO vo) {
+		return 0;
+	}
 }

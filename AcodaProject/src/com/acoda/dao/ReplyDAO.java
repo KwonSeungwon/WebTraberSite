@@ -10,7 +10,7 @@ import com.acoda.vo.ReplyVO;
 
 
 @Repository
-public class ReplyDAO {
+public class ReplyDAO implements IReply{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;

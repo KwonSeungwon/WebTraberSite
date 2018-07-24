@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.acoda.vo.BuyVO;
 
 @Repository
-public class BuyDAO {
+public class BuyDAO implements IBuy {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;

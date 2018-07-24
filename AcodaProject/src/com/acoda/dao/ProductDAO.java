@@ -10,7 +10,7 @@ import com.acoda.vo.ProductVO;
 
 
 @Repository
-public class ProductDAO {
+public class ProductDAO implements IProduct{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;

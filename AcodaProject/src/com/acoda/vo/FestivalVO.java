@@ -130,7 +130,7 @@ public class FestivalVO {
 		this.user_number = membervo.getUser_number();
 	}
 	
-	
+
 	
 
 }

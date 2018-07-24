@@ -19,6 +19,7 @@
 		onclick="location.href ='input/UserDelete.jsp'">
 	<input type="button" value="회원정보수정"
 		onclick="location.href ='input/UserChangeInfo.jsp'">
+
 		<%
 		   MemberVO vo = (MemberVO) session.getAttribute("login");			
 		if(session.getAttribute("login") != null){

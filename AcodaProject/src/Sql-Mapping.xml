@@ -11,6 +11,18 @@
 </resultMap>
 
 
+
+
+<select id="emailcount" parameterType="String" resultType="Integer">
+select count(*) from member where email = #{email}
+</select>
+
+<select id="idcount" parameterType="com.acoda.vo.MemberVO" resultType="Integer">
+select count(*) from member where id = #{id}
+</select>
+
+
+
 <select id="logidncheck" resultType="Integer" parameterType="LoginResult">
 select count(*) from member where id = #{id} and pw = #{pw}
 </select>
@@ -25,9 +37,15 @@ select count(*) from member
 		select * from member
 	</select>
 
-	<insert id="insertUser" parameterType="userInfo">
+	<insert id="insertGuide" parameterType="com.acoda.vo.MemberVO">
 		insert into member
-		values(#{usernumber},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
+		member(user_number,name,sex,rating, id, pw, phone , address,email,join_date,birth,job,profile,place)
+		values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
+	</insert>
+	
+		<insert id="insertNomal" parameterType="userInfo">
+		insert into member(user_number,name,sex,rating,id, pw, phone,address,email,join_date,birth,job)
+		values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job})
 	</insert>
 
 
@@ -47,5 +65,8 @@ select count(*) from member
 		select *
 		from member where id = #{id} and pw = #{pw}
 	</select>
+
+
+
 
 </mapper>

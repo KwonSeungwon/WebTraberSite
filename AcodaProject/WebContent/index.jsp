@@ -22,26 +22,12 @@
 		onclick="location.href ='/AcodaProject/logout.do'">
 	<input type="button" value="회원정보수정"
 		onclick="location.href ='input/UserChangeInfo.jsp'">
-<<<<<<< HEAD
 	<%=vo.getId() + "님 환영합니다!"%>
 	<%
 		} else {
-	%>
+		%>
 	<input type="button" value="로그인"
-=======
-
-		<%
-		   MemberVO vo = (MemberVO) session.getAttribute("login");			
-		if(session.getAttribute("login") != null){
-		%>		
-		<input type="button" value="로그아웃"
-		onclick="location.href ='/AcodaProject/logout.do'">
-	<%=vo.getId()+ "님 환영합니다!" %>	
-	<%}else{ %>
-		<input type="button" value="로그인"
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 		onclick="location.href ='input/login_form.jsp'">
-<<<<<<< HEAD
 	<input type="button" value="회원리스트" onclick="location.href ='Select.do'">
 	<input type="button" value="회원가입"
 		onclick="location.href ='input/UserInsert.jsp'">
@@ -49,11 +35,9 @@
 	<%
 		}
 	%>
-=======
-	<%} %>
-	
-	<h2>게시판기능</h2><br>
+
+	<h2>게시판기능</h2>
+	<br>
 	<a href="/AcodaProject/post_board/select.do">전체게시판글보기</a>
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 </body>
 </html>

@@ -30,10 +30,11 @@ public class Post_BoardServlet {
 	
 	@RequestMapping(value="/insert.do",method=RequestMethod.GET)
 	public String post_board_Insert(@ModelAttribute Post_BoardVO vo) {
+		System.out.println("Post_BoardServlet ÀÇ post_board_Insert ½ÇÇà");
 		int r = post_boardBIZ.getInsertPost_Board(vo);
-		return "select_post_board.do";
-		
+		return "/AcodaProject/post_board/select.do";
 	}
+	
 	
 	@RequestMapping(value="/insert_page.do")
 	 public String post_board_insertpage() {
@@ -45,9 +46,6 @@ public class Post_BoardServlet {
 	public String post_board_find(@RequestParam("find_name") String name,Model m ) {
 			return null;
 		}
-	
-	
-	
 	
 	
 }

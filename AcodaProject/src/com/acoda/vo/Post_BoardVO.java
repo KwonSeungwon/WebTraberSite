@@ -35,11 +35,10 @@ public class Post_BoardVO {
 			this.views = views;
 			this.id = id;
 		}
-	
 
-		//insert_find쿼리용 생성자
-	public Post_BoardVO(int p_type, String title, int title_number,String id, int post_number, String post_title,
-			String post_contents, String registration_date, int views, String path, int user_number ) {
+
+	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
+			String post_contents, String registration_date, int views, String path) {
 		super();
 		this.p_type = p_type;
 		this.title = title;
@@ -51,12 +50,7 @@ public class Post_BoardVO {
 		this.registration_date = registration_date;
 		this.views = views;
 		this.path = path;
-		this.id = id;
 	}
-
-
-
-
 
 	public int getP_type() {
 		return p_type;

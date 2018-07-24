@@ -21,6 +21,7 @@ public class Post_BoardBIZ {
 	}
 	
 	public int getInsertPost_Board(Post_BoardVO vo) {
+		System.out.println("Post_BoardBIZÀÇ getInsertPost_Board ½ÇÇà");
 		Post_BoardVO pvo = new Post_BoardVO();
 		pvo.setP_type(vo.getP_type());
 		pvo.setTitle(vo.getTitle());
@@ -29,7 +30,9 @@ public class Post_BoardBIZ {
 		pvo.setPost_number(vo.getPost_number());
 		pvo.setPost_title(vo.getPost_title());
 		pvo.setPost_contents(vo.getPost_contents());
+		pvo.setRegistration_date(vo.getRegistration_date());
 		pvo.setViews(vo.getViews());
+		pvo.setPath(vo.getPath());
 		return post_boardDAO.getInsertPost_Board(pvo);
 	}
 	

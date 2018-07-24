@@ -12,6 +12,7 @@
 <title>게시판 출력</title>
 </head>
 <body>
+<%= session.getAttribute("login") %>
 <table border="1">
 	<thead style="text-align:center;">
 		<tr>
@@ -31,7 +32,7 @@
 		</c:forEach>
 	</tbody>
 </table>
-<a href="/AcodaProject/insert_post_board.do">게시글작성</a>
+<a href="/AcodaProject/insert_page.do">게시글작성</a>
 <a href="index.jsp">메인페이지로</a>
 
 </body>

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.acoda.biz.Post_BoardBIZ;
 import com.acoda.vo.Post_BoardVO;
@@ -32,6 +33,19 @@ public class Post_BoardServlet {
 		return "select_post_board.do";
 		
 	}
+	
+	@RequestMapping(value="/insert_page.do")
+	 public String insert_page() {
+		 return "post_board/input_post_board";
+	 }
+	
+	
+	@RequestMapping(value="/find.do", method=RequestMethod.GET)
+	public String post_board_find(@RequestParam("find_name") String name,Model m ) {
+			Post_BoardVO r= post_boardBIZ.getInsert_Find_Post_Board(name);
+			m.addAttribute("find",r);
+			return "post_board/input_post_board";
+		}
 	
 	
 	

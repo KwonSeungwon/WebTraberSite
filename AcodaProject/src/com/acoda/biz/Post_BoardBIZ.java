@@ -33,5 +33,9 @@ public class Post_BoardBIZ {
 		pvo.setId(vo.getId());
 		return post_boardDAO.getInsertPost_Board(pvo);
 	}
+	
+	public Post_BoardVO getInsert_Find_Post_Board(String name) {
+		return post_boardDAO.getInsert_Find_Post_Board(name);
+	}
 
 }

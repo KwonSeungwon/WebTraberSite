@@ -29,6 +29,9 @@ constraint post_type_p_type_pk primary key(p_type)
  insert into post_type values(1,'댓글게시판');
 insert into post_type values(2,'사진게시판');
 
+select * from post_type;
+select * from post_board;
+
 
 
 

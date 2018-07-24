@@ -30,12 +30,12 @@ public class Post_BoardBIZ {
 		pvo.setPost_title(vo.getPost_title());
 		pvo.setPost_contents(vo.getPost_contents());
 		pvo.setViews(vo.getViews());
-		pvo.setId(vo.getId());
 		return post_boardDAO.getInsertPost_Board(pvo);
 	}
 	
-	public Post_BoardVO getInsert_Find_Post_Board(String name) {
-		return post_boardDAO.getInsert_Find_Post_Board(name);
+	public Post_BoardVO getFind_Post_Board(String name) {
+		return null;
+	
 	}
 
 }

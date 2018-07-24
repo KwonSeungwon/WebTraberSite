@@ -32,7 +32,7 @@
 		</c:forEach>
 	</tbody>
 </table>
-<a href="/AcodaProject/insert_page.do">게시글작성</a>
+<a href="/AcodaProject/post_board/insert_page.do">게시글작성</a>
 <a href="index.jsp">메인페이지로</a>
 
 </body>

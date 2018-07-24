@@ -30,5 +30,8 @@
 		<input type="button" value="로그인"
 		onclick="location.href ='input/login_form.jsp'">
 	<%} %>
+	
+	<h2>게시판기능</h2><br>
+	<a href="/AcodaProject/select_post_board.do">전체게시판글보기</a>
 </body>
 </html>

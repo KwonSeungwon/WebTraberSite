@@ -13,20 +13,33 @@ public class Post_BoardVO {
 	private String post_title; //게시글제목
 	private String post_contents; //게시글내용
 	private String registration_date; //등록일자
-	private int view; //조회수
+	private int views; //조회수
 	private String path;//사진 파일경로
+	
+	private String id;
 	
 	
 	public Post_BoardVO() {
 		super();
 	}
 
-
+	//select_post 쿼리문용 생성자
+	
+		public Post_BoardVO(int post_number,String title, String id, String post_title, String registration_date, int views
+				) {
+			super();
+			this.title = title;
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.id = id;
+		}
 	
 
 
 	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
-			String post_contents, String registration_date, int view, String path) {
+			String post_contents, String registration_date, int views, String path) {
 		super();
 		this.p_type = p_type;
 		this.title = title;
@@ -36,7 +49,7 @@ public class Post_BoardVO {
 		this.post_title = post_title;
 		this.post_contents = post_contents;
 		this.registration_date = registration_date;
-		this.view = view;
+		this.views = views;
 		this.path = path;
 	}
 
@@ -124,13 +137,13 @@ public class Post_BoardVO {
 	}
 
 
-	public int getView() {
-		return view;
+	public int getViews() {
+		return views;
 	}
 
 
-	public void setView(int view) {
-		this.view = view;
+	public void setViews(int views) {
+		this.views = views;
 	}
 
 
@@ -145,6 +158,14 @@ public class Post_BoardVO {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = membervo.getId();
 	}
 
 	

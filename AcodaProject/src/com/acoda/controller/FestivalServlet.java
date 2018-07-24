@@ -10,6 +10,8 @@ public class FestivalServlet {
 	
 	@Autowired
 	FestivalBIZ festivalBIZ;
+	
+	
 
 	
 	

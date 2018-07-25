@@ -35,13 +35,13 @@ public class Post_BoardServlet {
 	@RequestMapping(value="/insert.do",method=RequestMethod.GET)
 	public ModelAndView post_board_Insert(@ModelAttribute Post_BoardVO vo) {
 		System.out.println("Post_BoardServlet ÀÇ post_board_Insert ½ÇÇà");
-		int r = post_boardBIZ.getInsertPost_Board(vo);
+		int r = post_boardBIZ.getInsert_User_Post_Board(vo);
 		InternalResourceView irv = new InternalResourceView("/post_board/select.do");
 		return new ModelAndView(irv);
 	}
 	
 	
-	@RequestMapping(value="/insert_page.do")
+	@RequestMapping(value="/insert_user_page.do")
 	 public ModelAndView post_board_insertpage() {
 		InternalResourceView irv = new InternalResourceView("/input/input_post_board.jsp");
 		 return new ModelAndView(irv);
@@ -53,5 +53,17 @@ public class Post_BoardServlet {
 			return null;
 		}
 	
+	@RequestMapping(value="/delete.do", method=RequestMethod.GET)
+	public ModelAndView post_board_delete(@RequestParam("del_id") String id) {
+		
+		int r=post_boardBIZ.getDelPost_Board(id);
+		InternalResourceView irv = new InternalResourceView("/post_board/select.do");
+		
+		if(r>0) {
+			return new ModelAndView(irv);
+		}else {
+			return null;
+		}
+	}
 	
 }

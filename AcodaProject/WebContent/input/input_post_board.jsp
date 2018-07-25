@@ -12,11 +12,15 @@
 <%=session.getAttribute("login") %>
 
 <form action="/AcodaProject/post_board/insert.do" method="get">
-게시글입력<br><br>
+유저게시판 게시글입력<br><br>
 
-게시판타입번호(F) : <input type="text" name="p_type"/><br>
-게시판이름 : <input type="text" name="title"/><br>
-게시판번호 :  <input type="text" name="title_number"/><br>
+<!-- 게시판타입번호(F) : <input type="text" name="p_type"/><br>
+게시판선택 :<select name="title">
+			<option value="">게시판선택</option>
+			<option value="유저게시판">유저게시판</option>
+			<option value="후기게시판">후기게시판</option>
+		</select><br>
+게시판번호 :  <input type="text" name="title_number"/><br> -->
 회원고유번호 : <input type="text" name="user_number"/><br>
 게시글번호(P) : <input type="text" name="post_number"/><br>
 게시글제목 : <input type="text" name="post_title"/><br>

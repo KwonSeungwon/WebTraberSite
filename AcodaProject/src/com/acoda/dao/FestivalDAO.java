@@ -42,12 +42,12 @@ public class FestivalDAO implements IFestival {
 	public int getDelFestival(String del_name) {
 		int f = jdbcTemplate.update(delete_festival,del_name );
 		
-		
 		return f;
 		
 	}
 	
 	public int getInsertFestival(FestivalVO vo) {
+		System.out.println("여기는 인서트 다오");
 		int f=jdbcTemplate.update(insert_festival,new Object[] {vo.getF_number(), vo.getSeason(), vo.getF_name(), vo.getF_start_date(),
                 vo.getF_end_date(), vo.getF_local(), vo.getF_contents(), vo.getUser_number()} );
 		 

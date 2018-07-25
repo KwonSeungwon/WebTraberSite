@@ -14,17 +14,16 @@
 <form action="<%=url%>/post_board/insert.do" method="get">
 게시글입력<br><br>
 
-게시판타입번호(F) : <input type="text"  name="post_number"  /><br>
+게시판타입번호(F) : <input type="text"  name="p_type"  /><br>
 게시판이름 : <input type="text"   name="title"  /><br>
 게시판번호 :  <input type="text"   name="title_number"  /><br>
 회원고유번호 : <input type="text"  name="user_number" /><br>
-<%-- 게시글번호(P) : <input type="text"  readonly="readonly" name="post_number"  value='${find.post_number}' /><br> --%>
 게시글번호(P) : <input type="text"  name="post_number"  /><br>
 게시글제목 : <input type="text" name="post_title"/><br>
 게시글내용 : <input type="text" name="post_contents"/><br>
-등록일자 : <input type="date" name="registration_date"/><br>
+등록일자 : <input type="text" name="registration_date"/><br>
 조회수 : <input type="text" name="views"/><br>
-사진파일경로 : <input type="text" name="path"/><br>
+사진파일경로 : <input type="text" name="path"/><br>	
 		<input type="submit" value="확인 "/>
        <input type="reset" value="취소 "/>
 </form>

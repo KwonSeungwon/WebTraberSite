@@ -24,7 +24,9 @@ public class UserInfoBiz {
 
 	public String insert(MemberVO vo) {
 		System.out.println("인서트비즈도착");
-		return UserDao.insertUser(vo);
+		UserDao.insertUser(vo);
+		String guide = "";
+		return guide;
 	}
 
 	public int delete(MemberVO vo) {
@@ -40,5 +42,17 @@ public class UserInfoBiz {
 	public int logincheck(MemberVO vo) {
 		System.out.println("로그인체크비즈");
 		return LoginDao.LoginCheck(vo);
+	}
+
+	public String insertNomal(MemberVO vo) {
+		System.out.println("인서트노말비즈도착");
+		UserDao.insertNomalUser(vo);	
+		String nomal = "";
+		return nomal;
+	}
+	
+	public int checkId(MemberVO vo) {
+		System.out.println("아이디 중복 체크");
+		return UserDao.IdCheck(vo);
 	}
 }

@@ -26,11 +26,29 @@ public class UserInfoDao {
 		return list;
 
 	}
+	
+	public String insertNomalUser(MemberVO vo) {
+		String result = "";
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			int n = session.insert("userInfo.insertNomal", vo);
+			System.out.println("´Ù¿ÀµµÂø");
+			if (n > 0) {
+				result = vo.getId();
+				System.out.println("µ¥ÀÌÅÍ ÀúÀåÀÌ ¿Ï·áµÊ.");
+				session.commit();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+
+	}
 
 	public String insertUser(MemberVO vo) {
 		String result = "";
 		try (SqlSession session = sqlSessionFactory.openSession()) {
-			int n = session.insert("userInfo.insertUser", vo);
+			int n = session.insert("userInfo.insertGuide", vo);
 			System.out.println("´Ù¿ÀµµÂø");
 			if (n > 0) {
 				result = vo.getId();
@@ -75,6 +93,19 @@ public class UserInfoDao {
 		}
 		return 0;
 
+	}
+
+	public int IdCheck(MemberVO vo) {
+		int result = 0 ;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int count = Integer.parseInt(sqlSession.selectOne("Idcheck", vo));
+		
+			if (count > 0) {
+				result = 0;
+			} else {
+				result = 1;
+			}
+		return result;
 	}
 
 

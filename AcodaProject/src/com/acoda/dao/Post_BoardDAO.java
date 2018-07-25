@@ -38,12 +38,15 @@ public class Post_BoardDAO implements IPost_Board {
 	
 	public int getInsertPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post,
-				new Object[] {vo.getP_type(),vo.getTitle(),vo.getTitle_number(),vo.getUser_number(),vo.getPost_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath()});
+				new Object[] {vo.getP_type(),vo.getTitle(),vo.getTitle_number(),vo.getUser_number(),vo.getPost_number(),vo.getPost_title()
+						,vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath()});
 		if (r > 0) {
+			System.out.println("Post_BarodDAO 의 InsertPost_Board if문 r>0");
 			return r;
 		} else {
+			System.out.println("Post_BarodDAO 의 InsertPost_Board if문 else");
 			return 0;
-		}
+		} 
 	}
 	
 	

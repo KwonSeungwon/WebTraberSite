@@ -18,7 +18,7 @@
 <th>가입일</th><th>직업</th><th>생년월일</th><th>프로필</th><th>담당구역</th></tr>    
    <c:forEach items="${list}" var="list1">
 <tr>
-<td>${list1.usernumber}</td>
+<td>${list1.user_number}</td>
 <td>${list1.rating}</td>
 <td>${list1.id}</td>
 <td>${list1.pw}</td>

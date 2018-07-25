@@ -45,7 +45,6 @@ public class UserloginController {
 			out.println("alert('Please Check your ID&PW');");
 			out.println("history.back();");
 			out.println("</script>");
-			out.print("¾Ó¤±³¶³²¤±¾Æ");
 			System.out.println("false");
 			out.flush();
 			out.close();

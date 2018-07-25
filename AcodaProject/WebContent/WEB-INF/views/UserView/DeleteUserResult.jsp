@@ -10,16 +10,11 @@
 <body>
 <body style="font-size : 2em;margin :150px 150px 150px 150px" >
 <c:if test="${empty myid}">
-<h3>회원탈퇴 실패</h3>
-<a href = "/TeamProject/outuser.jsp">다시시도하기</a>
+<h3>회원탈퇴 성공 ! 이용해 주셔서 감사합니다!</h3>
+<a href = "/AcodaProject/index.jsp">홈화면으로</a>
 
 </c:if>
 
-
-<c:if test="${!empty myid}">
-<h3>회원탈퇴 성공</h3>
-<a href = "/TeamProject/index.html">홈 화면으로 이동</a>
-</c:if>
 
 
 

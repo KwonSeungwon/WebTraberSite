@@ -19,8 +19,6 @@ public class FestivalVO {
 		super();
 	}
 
-
-
 	public FestivalVO(int f_number, String f_name, String season, String f_start_date, String f_end_date,
 			String f_local, String f_contents, int user_number) {
 		super();

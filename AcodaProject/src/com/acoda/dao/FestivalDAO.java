@@ -18,22 +18,24 @@ public class FestivalDAO implements IFestival {
 	JdbcTemplate jdbcTemplate;
 	
 	public List<FestivalVO> getAllFestival(){
-		List<FestivalVO> list=jdbcTemplate.query(select_festival,new RowMapper<FestivalVO>() {
+		
+		
+		List<FestivalVO> all=jdbcTemplate.query(select_festival,new RowMapper<FestivalVO>() {
 
 			@Override
 			public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				FestivalVO vo=new FestivalVO();
+				System.out.println(rs.getInt("f_number"));
 				vo.setF_number(rs.getInt("f_number"));
 				vo.setF_name(rs.getString("f_name"));
 				vo.setSeason(rs.getString("season"));
 				vo.setF_start_date(rs.getString("f_start_date"));
 				vo.setF_end_date(rs.getString("f_end_date"));
 				vo.setF_local(rs.getString("f_local"));
-				vo.setUser_number(rs.getInt("user_number"));
 				return vo;
 			}
 		});
-		return list;
+		return all;
 		
 	}
 	
@@ -71,7 +73,7 @@ public class FestivalDAO implements IFestival {
 			vo.setF_start_date(rs.getString("f_start_date"));
 			vo.setF_end_date(rs.getString("f_end_date"));
 			vo.setF_local(rs.getString("f_local"));
-			vo.setUser_number(rs.getInt("user_number"));
+			//vo.setUser_number(rs.getInt("user_number"));
 				return vo;
 			}
 			

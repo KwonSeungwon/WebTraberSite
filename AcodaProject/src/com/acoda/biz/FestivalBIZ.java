@@ -15,8 +15,10 @@ public class FestivalBIZ {
 	FestivalDAO festivalDAO;
 	
 	public List<FestivalVO> getAllFestival(){
-		return null;
-		
+		System.out.println("여긴 비즈");
+		System.out.println(festivalDAO.getAllFestival().toString());
+		return festivalDAO.getAllFestival();
+	
 	}
 	
 	public int getInsertFestival(FestivalVO vo) {

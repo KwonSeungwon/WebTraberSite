@@ -34,5 +34,6 @@
 	
 	<h2>게시판기능</h2><br>
 	<a href="/AcodaProject/post_board/select.do">전체게시판글보기</a>
+<a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
 </body>
 </html>

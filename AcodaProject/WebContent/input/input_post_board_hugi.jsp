@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@page import="com.acoda.vo.MemberVO"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,11 +9,12 @@
 <title>게시글작성</title>
 </head>
 <body>
+<%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
 <h3>
 
 <%=session.getAttribute("login") %>
 
-<form action="/AcodaProject/post_board/insert.do" method="get">
+<form action="/AcodaProject/post_board/insert_hugi.do" method="get">
 유저게시판 게시글입력<br><br>
 
 <!-- 게시판타입번호(F) : <input type="text" name="p_type"/><br>
@@ -32,7 +35,7 @@
        <input type="reset" value="취소 "/>
        
 </form>
-<a href="/AcodaProject/post_board/select.do">게시글목록으로</a><br>
+<a href="/AcodaProject/post_board/select_hugi.do">후기게시글목록으로</a><br>
 <a href="/AcodaProject/index.jsp">홈으로</a>
 </h3>
 

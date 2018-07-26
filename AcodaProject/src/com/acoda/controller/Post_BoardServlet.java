@@ -23,41 +23,78 @@ public class Post_BoardServlet {
 	@Autowired
 	Post_BoardBIZ post_boardBIZ;
 	
-	
-	
-	@RequestMapping("/select.do")
-	public String post_board_Select(Model m) {
-		List<Post_BoardVO> all = post_boardBIZ.getAllPost_Board();
+	@RequestMapping("/select_hugi.do")
+	public String post_board_Select_hugi(Model m) {
+		List<Post_BoardVO> all = post_boardBIZ.getHugiPost_Board();
 		m.addAttribute("all",all);
-		return "post_boardView/list_post_board";
+		return "post_boardView/hugi_post_board";
 	}
 	
-	@RequestMapping(value="/insert.do",method=RequestMethod.GET)
-	public ModelAndView post_board_Insert(@ModelAttribute Post_BoardVO vo) {
-		System.out.println("Post_BoardServlet ÀÇ post_board_Insert ½ÇÇà");
+	@RequestMapping("/select_user.do")
+	public String post_board_Select_user(Model m) {
+		List<Post_BoardVO> all = post_boardBIZ.getUserPost_Board();
+		m.addAttribute("all",all);
+		return "post_boardView/user_post_board";
+	}
+	
+	
+	@RequestMapping(value="/insert_user.do",method=RequestMethod.GET)
+	public ModelAndView post_board_Insert_user(@ModelAttribute Post_BoardVO vo) {
+		
 		int r = post_boardBIZ.getInsert_User_Post_Board(vo);
-		InternalResourceView irv = new InternalResourceView("/post_board/select.do");
+		InternalResourceView irv = new InternalResourceView("/post_board/select_user.do");
 		return new ModelAndView(irv);
 	}
 	
 	
 	@RequestMapping(value="/insert_user_page.do")
-	 public ModelAndView post_board_insertpage() {
-		InternalResourceView irv = new InternalResourceView("/input/input_post_board.jsp");
+	 public ModelAndView post_board_insertpage_user() {
+		InternalResourceView irv = new InternalResourceView("/input/input_post_board_user.jsp");
+		 return new ModelAndView(irv);
+	 }
+	
+	@RequestMapping(value="/insert_hugi.do",method=RequestMethod.GET)
+	public ModelAndView post_board_Insert_hugi(@ModelAttribute Post_BoardVO vo) {
+		
+		int r = post_boardBIZ.getInsert_Hugi_Post_Board(vo);
+		InternalResourceView irv = new InternalResourceView("/post_board/select_hugi.do");
+		return new ModelAndView(irv);
+	}
+	
+	
+	@RequestMapping(value="/insert_hugi_page.do")
+	 public ModelAndView post_board_insertpage_hugi() {
+		InternalResourceView irv = new InternalResourceView("/input/input_post_board_hugi.jsp");
 		 return new ModelAndView(irv);
 	 }
 	
 	
 	@RequestMapping(value="/find.do", method=RequestMethod.GET)
-	public String post_board_find(@RequestParam("find_name") String name,Model m ) {
-			return null;
+	public ModelAndView post_board_find(@RequestParam("find_post_number") String find_post_number,Model m ) {
+			Post_BoardVO vo = post_boardBIZ.getFindPost_Board(find_post_number);
+			m.addAttribute("find",vo);
+			InternalResourceView irv = new InternalResourceView("/input/update_post_board.jsp");
+			return new ModelAndView(irv);
 		}
 	
-	@RequestMapping(value="/delete.do", method=RequestMethod.GET)
-	public ModelAndView post_board_delete(@RequestParam("del_id") String id) {
+	@RequestMapping(value="/delete_user.do", method=RequestMethod.GET)
+	public ModelAndView post_board_delete_user(@RequestParam("del_post_number") String post_number) {
 		
-		int r=post_boardBIZ.getDelPost_Board(id);
-		InternalResourceView irv = new InternalResourceView("/post_board/select.do");
+		int r=post_boardBIZ.getDelPost_Board(post_number);
+		InternalResourceView irv = new InternalResourceView("/post_board/select_user.do");
+		
+		if(r>0) {
+			return new ModelAndView(irv);
+		}else {
+			return null;
+		}
+	}
+	
+	@RequestMapping(value="/delete_hugi.do", method=RequestMethod.GET)
+	public ModelAndView post_board_delete_hugi(@RequestParam("del_post_number") String del_post_number) {
+		
+		int r=post_boardBIZ.getDelPost_Board(del_post_number);
+		InternalResourceView irv = new InternalResourceView("/post_board/select_hugi.do");
 		
 		if(r>0) {
 			return new ModelAndView(irv);

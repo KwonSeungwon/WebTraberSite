@@ -8,10 +8,14 @@ post_title varchar2(50) not null,
 post_contents varchar2(4000) not null,
 registration_date varchar2(50) not null,
 views number default 0 not null,
-path varchar2(4000),
+path varchar2(4000)
+);
+
+,
 constraint postboard_usernumber_fk foreign key(user_number) references member,
 constraint postboard_p_type_fk foreign key(p_type) references post_type
-);
+
+
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views)
 values(2,'후기게시판1',1,6,postboard_seq.nextval,'여행1','정말 좋은 여행이었다',sysdate,1);
 
@@ -33,6 +37,6 @@ select * from post_type;
 select * from post_board;
 select * from member;
 
-
+drop table post_board;
 
 

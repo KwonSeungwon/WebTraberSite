@@ -12,8 +12,11 @@ public interface IPost_Board {
 	int views; //조회수
 	String path;//사진 파일경로
 	String id*/
+	
 	String select_post="select post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number";
-	String insert_post="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(?,?,?,?,?,?,?,?,?,?)";
+	String click_post="select title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_numer=?";
+	String insert_post_user="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(1,'유저게시판',1,?,?,?,?,?,?,?)";
+	String insert_post_hugi="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(2,'후기게시판',2,?,?,?,?,?,?,?)";
 	String find_post="select post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_number=?";
 	String update_post="update post_board set p_type=?,title=?,title_number=?,user_number=?,post_title=?,post_contents=?,registration_date=?,views=?,id=? where post_number=? ";
 	String delete_post="";

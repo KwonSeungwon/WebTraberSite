@@ -30,15 +30,17 @@ public class Post_BoardDAO implements IPost_Board {
 		
 	}
 	
-	public int getDelPost_Board(String del_name) {
-		return 0;
+	
+	public int getDelPost_Board(String del_id) {
+		int r = jdbcTemplate.update(delete_post,del_id);
+		return r;
 		
 		
 	}
 	
-	public int getInsertPost_Board(Post_BoardVO vo) {
-		int r = jdbcTemplate.update(insert_post,
-				new Object[] {vo.getP_type(),vo.getTitle(),vo.getTitle_number(),vo.getUser_number(),vo.getPost_number(),vo.getPost_title()
+	public int getInsert_UserPost_Board(Post_BoardVO vo) {
+		int r = jdbcTemplate.update(insert_post_user,
+				new Object[] {vo.getUser_number(),vo.getPost_number(),vo.getPost_title()
 						,vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath()});
 		if (r > 0) {
 			System.out.println("Post_BarodDAO ÀÇ InsertPost_Board if¹® r>0");

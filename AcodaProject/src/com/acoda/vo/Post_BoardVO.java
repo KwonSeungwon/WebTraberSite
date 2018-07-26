@@ -58,7 +58,7 @@ public class Post_BoardVO {
 
 
 	public void setP_type(int p_type) {
-		this.p_type = post_typevo.getP_type();
+		this.p_type = p_type;
 	}
 
 
@@ -88,7 +88,7 @@ public class Post_BoardVO {
 
 
 	public void setUser_number(int user_number) {
-		this.user_number = membervo.getUser_number();
+		this.user_number = user_number;
 	}
 
 

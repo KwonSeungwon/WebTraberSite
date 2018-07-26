@@ -17,10 +17,10 @@ constraint postboard_p_type_fk foreign key(p_type) references post_type
 
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views)
-values(2,'후기게시판1',1,6,postboard_seq.nextval,'여행1','정말 좋은 여행이었다',sysdate,1);
+values(2,'후기게시판',1,6,postboard_seq.nextval,'여행1','후기게시판test',sysdate,1);
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path)
-values(2,'유저게시판1',2,5,postboard_seq.nextval,'불란서','흥미있는 여행이었다',sysdate,0,'c://img..');
+values(2,'유저게시판',2,5,postboard_seq.nextval,'불란서','유저게시판test',sysdate,0,'c://img..');
 
 -------------------------
 create table post_type(
@@ -39,4 +39,4 @@ select * from member;
 
 drop table post_board;
 
-
+commit

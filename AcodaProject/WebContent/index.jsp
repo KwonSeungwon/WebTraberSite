@@ -22,7 +22,7 @@
 		onclick="location.href ='/AcodaProject/logout.do'">
 	<input type="button" value="회원정보수정"
 		onclick="location.href ='input/UserChangeInfo.jsp'">
-	<%=vo.getId() + "님 환영합니다!"%>
+	<%=vo.getUser_number() + "님 환영합니다!"%>
 	<%
 		} else {
 		%>

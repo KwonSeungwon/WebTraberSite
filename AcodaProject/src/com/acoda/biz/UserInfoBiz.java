@@ -51,8 +51,12 @@ public class UserInfoBiz {
 		return nomal;
 	}
 	
-	public int checkId(MemberVO vo) {
-		System.out.println("아이디 중복 체크");
-		return UserDao.IdCheck(vo);
+	public boolean checkId(String id) {
+		if(UserDao.IdCheck(id) == true) {
+			return true;
+		}else { 
+			return false;
+		}
 	}
+
 }

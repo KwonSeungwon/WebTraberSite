@@ -27,8 +27,12 @@ public class UserLoginDao {
 		if (totalcount > 0) {
 			if (count > 0) {
 				result = 0;
+				sqlSession.commit();
+				sqlSession.close();
 			} else {
 				result = 1;
+				sqlSession.commit();
+				sqlSession.close();
 			}
 		}
 

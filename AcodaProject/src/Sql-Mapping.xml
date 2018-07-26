@@ -8,23 +8,19 @@
 <resultMap type="com.acoda.vo.MemberVO" id="LoginResult">
 <result column="ID" property="id"/>
 <result column="PW" property="pw"/>
+<result column="RATING" property="rating"/>
+<result column="USER_NUMBER" property="user_number"/>
 </resultMap>
 
 
-
-
-<select id="emailcount" parameterType="String" resultType="Integer">
-select count(*) from member where email = #{email}
-</select>
-
-<select id="idcount" parameterType="com.acoda.vo.MemberVO" resultType="Integer">
+<select id="idcount" parameterType="java.lang.String" resultType="java.lang.Integer">
 select count(*) from member where id = #{id}
 </select>
 
 
 
-<select id="logidncheck" resultType="Integer" parameterType="LoginResult">
-select count(*) from member where id = #{id} and pw = #{pw}
+<select id="logidncheck" resultType="Integer" parameterType="com.acoda.vo.MemberVO">
+select * from member where id = #{id} and pw = #{pw}
 </select>
 
 <select id="totalAcount" resultType="Integer">
@@ -33,38 +29,36 @@ select count(*) from member
 
 
 
-	<select id="selectalluser" resultType="userInfo">
-		select * from member
-	</select>
+<select id="selectalluser" resultType="userInfo">
+select * from member
+</select>
 
-	<insert id="insertGuide" parameterType="com.acoda.vo.MemberVO">
-		insert into member
-		member(user_number,name,sex,rating, id, pw, phone , address,email,join_date,birth,job,profile,place)
-		values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
-	</insert>
+<insert id="insertGuide" parameterType="com.acoda.vo.MemberVO">
+insert into member
+member(user_number,name,sex,rating,id,pw,phone,address,email,join_date,birth,job,profile,place)
+values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
+</insert>
 	
-		<insert id="insertNomal" parameterType="userInfo">
-		insert into member(user_number,name,sex,rating,id, pw, phone,address,email,join_date,birth,job)
-		values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job})
-	</insert>
+<insert id="insertNomal" parameterType="userInfo">
+insert into member(user_number,name,sex,rating,id,pw,phone,address,email,join_date,birth,job)
+values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job})
+</insert>
 
+<delete id="deleteUser" parameterType="userInfo">
+delete from member where id = #{id} AND pw = #{pw}
+</delete>
 
-	<delete id="deleteUser" parameterType="userInfo">
-		delete from member where
-		id = #{id} AND pw = #{pw}
-	</delete>
+<update id="updateNomalUser" parameterType="userInfo">
+update member set
+#{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth}
+where id=#{id};
+</update>
 
-	<update id="updateUser" parameterType="userInfo">
-		update member set
-		#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place}
-		where id=#{id};
-	</update>
-
-
-	<select id="login" parameterType="String" resultType="userInfo">
-		select *
-		from member where id = #{id} and pw = #{pw}
-	</select>
+<update id="updateGuideUser" parameterType="userInfo">
+update member set
+#{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth},#{profile},#{place}
+where id=#{id};
+</update>
 
 
 

@@ -11,7 +11,7 @@
 	<form action="/AcodaProject/deleteuser.do" method="POST">
 	회원아이디입력 : <input type="text" name="id"> 
 	비밀번호입력 : <input type="text" name="pw">  	 
-	<input type="submit" value="삭제하기">
+	<input type="submit" value="탈퇴하기">
 	<input type="button" value="취소" onclick="location.href ='/AcodaProject/index.jsp'">
 	</form>
 

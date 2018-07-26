@@ -1,61 +1,105 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.*, java.text.*"  %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".idtest").keyup(function() {
+			var iddd = $('.idtest').val();
+			$.ajax({
+				url : "../idcheck.do",
+				data : {
+					"id" : iddd
+				},
+				dataType : "text",
+				type : "GET",
+				success : function(login) {
+					var good = "good";
+					if (login == "good") {
+						$('.idt').val('ì‚¬ìš©ê°€ëŠ¥í•œ ì•„ì´ë”” ì…ë‹ˆë‹¤.');
+						login.focus();
+						return true;
+					} else {
+						$('.idt').val('ì‚¬ìš© ë¶ˆê°€ëŠ¥í•œ ì•„ì´ë”” ì…ë‹ˆë‹¤.');
+						result.focus();
+						return false;
+					}
+				}
+			});
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$(".testemail")
+								.keyup(
+										function() {
+											var emailV = $('.testemail').val();
+											var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+											if (!pattern.test(emailV)) {
+												$('.emailt').val(
+														'ì´ë©”ì¼ í˜•ì‹ì´ ì •í™•í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');
+												emailV.focus();
+												return false;
+											}
+											if (pattern.test(emailV)) {
+												$('.emailt').val(
+														'ì‚¬ìš©ê°€ëŠ¥í•œ ì´ë©”ì¼í˜•ì‹ì…ë‹ˆë‹¤.');
+												emailV.focus();
+												return true;
+											}
+										});
+					});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+ 	$("#infrom").submit(function() {
+		var name = $('.na').val();
+		var sex = $('.se').val();
+		var id = $('.idtest').val();
+		var pw = $('.ppw').val();
+		var phone = $('.phh').val();
+		var email = $('.testemail').val();
+		var job = $('.jo').val();
+		var birth = $('.bir').val();
+		var rating = $('#rating').val();
+		if(name == "" && sex == "" && id == "" && pw == "" && phone == "" && email == "" && job == "" && birth == "" && val == null){
+			alert("ë¯¸ì‘ì„±ëœ í•­ëª©ì´ ìˆìŠµë‹ˆë‹¤!")
+			history.go();
+		}
+		
+ 	}); 
+});
+</script>
 </head>
-
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
-	<h3>È¸¿ø°¡ÀÔ</h3> 
-	<form action="/AcodaProject/abc.do" method="POST">
-	°¡ÀÔÀ¯Çü : 
-	<input type = "radio" name = "rating" value = "1" onclick ="this.form.place.disabled=true ; this.form.profile.disabled=true">ÀÏ¹İÈ¸¿ø 
-	<input type = "radio" name = "rating" value = "2" onclick ="this.form.place.disabled=false ; this.form.profile.disabled=false">°¡ÀÌµåÈ¸¿ø<br> 
-	ÀÌ¸§ : <input type="text" name="name"><br>
-	¼ºº° : <input type="text" name="sex"><br>
-	¾ÆÀÌµğ : <input type="text" name="id" class = "idtest"/> <input type = "button" id = "idcheck" value ="¾ÆÀÌµğ Áßº¹Ã¼Å©"/>
-	<script type="text/javascript">
-	$(document).ready(function () {	
-		  $("#idcheck").click(function(){
-			var value = $(".idtest").val();
-			if(value == ""){
-				alert('¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä');
-				history.back();
-			}else{
-				alert(value);
-				location.href ='../idcheck.do?id =' + value;
-			}
-		});
-	});
-	</script>
-	ÆĞ½º¿öµå : <input type="password" name="pw"><br> 	
-	ÇÚµåÆù¹øÈ£ : <input type="text" name="phone"><br>	
-	ÁÖ¼Ò : <input 	type="text" name="address"><br> 
-	ÀÌ¸ŞÀÏ : <input type="text" name="email" class = "testemail"> <input type = "button" id = "emailcheck" value ="ÀÌ¸ŞÀÏ Áßº¹Ã¼Å©" onclick="location.href ='emailcheck.do'"><br>
-	<script type="text/javascript">	
-	$(document).ready(function () {	
-		  $("#emailcheck").click(function(){
-			var emailV = $('.testemail').val();
-			if(emailV == ""){
-				alert('ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä');
-				history.back();
-			}else{
-			alert(emailV);
-
-			}
-		});
-	});
-	</script> 	
-	Á÷¾÷ : <input type="text" name="job"><br> 	
-	»ı³â¿ùÀÏ : <input type="date" name="birth"><br> 
-	ÇÁ·ÎÇÊ : <input type="text" name="profile"><br> 
-	Áö¿ª : <input 	type="text" name="place"><br>  
-	<input type="submit" value="µî·Ï">
-	<input type="reset" value="ÀçÀÛ¼º">
+	<h3>íšŒì›ê°€ì…</h3> 
+	<form action="/AcodaProject/abc.do" method="POST" id = "infrom">
+	ê°€ì…ìœ í˜• : 
+	<input type = "radio" name = "rating" id = "nomal" value = "1" onclick ="this.form.place.disabled=true ; this.form.profile.disabled=true">ì¼ë°˜íšŒì› 
+	<input type = "radio" name = "rating" id = "guide" value = "2" onclick ="this.form.place.disabled=false ; this.form.profile.disabled=false">ê°€ì´ë“œíšŒì›<br> 
+	ì´ë¦„ : <input type="text" name="name" class = "na"><br>
+	ì„±ë³„ : <input type="text" name="sex" class = "se"><br>
+	ì•„ì´ë”” : <input type="text" name="id" class = "idtest"/> 
+	<input type="text"  readonly="readonly" class = "idt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"><br>
+	íŒ¨ìŠ¤ì›Œë“œ : <input type="password" name="pw" class = "ppw"><br> 	
+	í•¸ë“œí°ë²ˆí˜¸ : <input type="text" name="phone" class = "phh"><br>	
+	ì£¼ì†Œ : <input 	type="text" name="address"><br> 
+	ì´ë©”ì¼ : <input type="text" name="email" class = "testemail"> 
+	<input type="text"  readonly="readonly" class = "emailt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"><br>	
+	ì§ì—… : <input type="text" name="job" class = "jo"><br> 	
+	ìƒë…„ì›”ì¼ : <input type="date" name="birth" class = "bir"><br>â€‹
+	í”„ë¡œí•„ : <input type="text" name="profile" class = "pt"><br> 
+	ì§€ì—­ : <input 	type="text" name="place"><br>
+	<input type="submit" value="ë“±ë¡" id = "sub">
+	<input type="reset" value="ì¬ì‘ì„±">
 	</form>
 
 </body>

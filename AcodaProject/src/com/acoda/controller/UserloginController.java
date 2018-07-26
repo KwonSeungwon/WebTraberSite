@@ -28,8 +28,7 @@ public class UserloginController {
 			throws IOException {
 		PrintWriter out = response.getWriter();
 
-		System.out.println("로그인 체크 전달 값" + vo.getId() + vo.getPw());
-		/*if ((vo.getId() != null && !vo.getId().equals("") && vo.getPw() != null && !vo.getPw().equals("")))*/ 
+		System.out.println("로그인 체크 전달 값" + vo.getEmail());
 		if(userBiz.logincheck(vo) == 0){
 			System.out.println("true");
 			session.setAttribute("login", vo);

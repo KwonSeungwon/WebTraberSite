@@ -26,7 +26,7 @@ public class UserInfoDao {
 		return list;
 
 	}
-	
+
 	public String insertNomalUser(MemberVO vo) {
 		String result = "";
 		try (SqlSession session = sqlSessionFactory.openSession()) {
@@ -95,18 +95,19 @@ public class UserInfoDao {
 
 	}
 
-	public int IdCheck(MemberVO vo) {
-		int result = 0 ;
+	public boolean IdCheck(String id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		int count = Integer.parseInt(sqlSession.selectOne("Idcheck", vo));
-		
-			if (count > 0) {
-				result = 0;
-			} else {
-				result = 1;
-			}
-		return result;
+		int count = sqlSession.selectOne("userInfo.idcount", id);
+		System.out.println(count);
+		if (count == 0) {
+			sqlSession.commit();
+			sqlSession.close();
+			return true;
+		} else {
+			sqlSession.commit();
+			sqlSession.close();
+			return false;
+		}
 	}
-
 
 }

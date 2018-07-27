@@ -13,8 +13,8 @@
 
 <%=session.getAttribute("login") %>
 
-<form action="/AcodaProject/post_board/update.do" method="get">
-유저게시판 게시글입력<br><br>
+<form action="/AcodaProject/post_board/update_user.do" method="get">
+유저게시판 게시글수정<br><br>
 
 <!-- 게시판타입번호(F) : <input type="text" name="p_type"/><br>
 게시판선택 :<select name="title">
@@ -34,7 +34,7 @@
        <input type="reset" value="취소 "/>
        
 </form>
-<a href="/AcodaProject/post_board/select.do">게시글목록으로</a><br>
+<a href="/AcodaProject/post_board/select_user.do">유저게시판으로 돌아가기</a><br>
 <a href="/AcodaProject/index.jsp">홈으로</a>
 </h3>
 

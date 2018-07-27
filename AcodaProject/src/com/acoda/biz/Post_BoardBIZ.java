@@ -23,6 +23,11 @@ public class Post_BoardBIZ {
 		return post_boardDAO.getUserPost_Board();
 	}
 	
+	public List<Post_BoardVO> getClickPost_Board(String click_post_number) {
+		return post_boardDAO.getClickPost_Board(click_post_number);
+	
+	}
+	
 	public int getInsert_User_Post_Board(Post_BoardVO vo) {
 		System.out.println("Post_BoardBIZÀÇ getInsert_User_Post_Board ½ÇÇà");
 		Post_BoardVO pvo = new Post_BoardVO();
@@ -67,6 +72,9 @@ public class Post_BoardBIZ {
 		pvo.setRegistration_date(vo.getRegistration_date());
 		pvo.setViews(vo.getViews());
 		pvo.setPath(vo.getPath());
-		return post_boardDAO.getInsert_UserPost_Board(pvo);
+		return post_boardDAO.getUpdatePost_Board(pvo);
 	}
+	
+	
+	
 }

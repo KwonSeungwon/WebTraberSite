@@ -19,6 +19,8 @@ public class Post_BoardVO {
 	private String id;
 	
 	
+	
+
 	public Post_BoardVO() {
 		super();
 	}
@@ -35,18 +37,7 @@ public class Post_BoardVO {
 			this.views = views;
 			this.id = id;
 		}
-		//click_post 쿼리문용 생성자
-		public Post_BoardVO(String title, String id, String post_title,String post_contents, String registration_date, int views,int post_number
-				) {
-			super();
-			this.title = title;
-			this.post_number = post_number;
-			this.post_title = post_title;
-			this.registration_date = registration_date;
-			this.views = views;
-			this.id = id;
-			this.post_contents = post_contents;
-		}
+		
 		//find
 		public Post_BoardVO(String title, String id, String post_title, String registration_date, int views,int post_number
 				) {
@@ -59,9 +50,40 @@ public class Post_BoardVO {
 			this.id = id;
 			
 		}
+		
+		//click
+		public Post_BoardVO(int post_number, String post_title, String post_contents, String registration_date, int views,
+				String path, String id) {
+			super();
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.post_contents = post_contents;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.path = path;
+			this.id = id;
+		}
+		
+		
+		
 
 
 	
+
+		public Post_BoardVO(int p_type, String title, int title_number, int user_number,
+				String post_title, String post_contents, String registration_date, int views, String path,int post_number) {
+			super();
+			this.p_type = p_type;
+			this.title = title;
+			this.title_number = title_number;
+			this.user_number = user_number;
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.post_contents = post_contents;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.path = path;
+		}
 
 	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
 			String post_contents, String registration_date, int views, String path) {

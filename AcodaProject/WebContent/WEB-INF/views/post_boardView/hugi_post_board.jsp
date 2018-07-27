@@ -29,12 +29,12 @@
 				<td><c:out value="${se.post_number}"/></td>
 				<td><c:out value="${se.title}"/></td>
 				<td><c:out value="${se.id}"/></td>
-				<td><a href="#"><c:out value="${se.post_title}"/></a></td>
+				<td><a href="click.do?click_post_number=${se.post_number}"><c:out value="${se.post_title}"/></a></td>
 				<td><c:out value="${se.registration_date}"/></td>
 				<td><c:out value="${se.views}"/></td>
 				
 				<td><a href ="delete_hugi.do?del_post_number=${se.post_number}">삭제 </a></td>
-           		<td><a href ="find.do?find_post_number=${se.post_number}">수정 </a></td>
+           		<td><a href ="find_hugi.do?find_post_number=${se.post_number}">수정 </a></td>
            		
 			</tr>
 		</c:forEach>

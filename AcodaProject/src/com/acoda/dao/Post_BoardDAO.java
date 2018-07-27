@@ -57,6 +57,7 @@ public class Post_BoardDAO implements IPost_Board {
 		return pbvo;
 	}
 	
+	
 	public int getInsert_UserPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post_user,
 				new Object[] {vo.getUser_number(),vo.getPost_number(),vo.getPost_title()

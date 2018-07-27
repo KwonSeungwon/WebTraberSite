@@ -9,6 +9,7 @@
 <title>업데이트</title>
 </head>
 <body>
+<% MemberVO vo = (MemberVO) session.getAttribute("login"); %>
 <h3>
 
 <%=session.getAttribute("login") %>

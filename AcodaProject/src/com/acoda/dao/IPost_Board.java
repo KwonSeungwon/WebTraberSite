@@ -25,4 +25,8 @@ public interface IPost_Board {
 	String delete_post="delete from post_board where post_number=?";
 	
 	String click_post="select post_number,post_title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_number=?";
+	
+	String search_post="select post_number,post_title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_title like '%'||?||'%'";
+	
+	
 }

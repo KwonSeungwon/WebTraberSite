@@ -8,7 +8,6 @@
 <resultMap type="com.acoda.vo.MemberVO" id="LoginResult">
 <result column="ID" property="id"/>
 <result column="PW" property="pw"/>
-<result column="RATING" property="rating"/>
 <result column="USER_NUMBER" property="user_number"/>
 </resultMap>
 
@@ -18,8 +17,7 @@ select count(*) from member where id = #{id}
 </select>
 
 
-
-<select id="logidncheck" resultType="Integer" parameterType="com.acoda.vo.MemberVO">
+<select id="logidncheck" resultType="Integer" parameterType="userInfo">
 select * from member where id = #{id} and pw = #{pw}
 </select>
 
@@ -27,13 +25,11 @@ select * from member where id = #{id} and pw = #{pw}
 select count(*) from member
 </select>
 
-
-
 <select id="selectalluser" resultType="userInfo">
 select * from member
 </select>
 
-<insert id="insertGuide" parameterType="com.acoda.vo.MemberVO">
+<insert id="insertGuide" parameterType="userInfo">
 insert into member
 member(user_number,name,sex,rating,id,pw,phone,address,email,join_date,birth,job,profile,place)
 values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
@@ -48,7 +44,7 @@ values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{addres
 delete from member where id = #{id} AND pw = #{pw}
 </delete>
 
-<update id="updateNomalUser" parameterType="userInfo">
+<update id="updateNomalUser" parameterType="String">
 update member set
 #{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth}
 where id=#{id};

@@ -7,6 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".idtest").keyup(function() {
@@ -78,6 +80,12 @@ $(document).ready(function() {
  	}); 
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+$(function() { $("#abutton").postcodifyPopUp(); 
+	}); 
+}); 
+</script>
 </head>
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
 	<h3>회원가입</h3> 
@@ -89,9 +97,12 @@ $(document).ready(function() {
 	성별 : <input type="text" name="sex" class = "se"><br>
 	아이디 : <input type="text" name="id" class = "idtest"/> 
 	<input type="text"  readonly="readonly" class = "idt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"><br>
-	패스워드 : <input type="password" name="pw" class = "ppw"><br> 	
-	핸드폰번호 : <input type="text" name="phone" class = "phh"><br>	
-	주소 : <input 	type="text" name="address"><br> 
+	패스워드 : <input type="password" name="pw" class = "ppw"><br>		
+	핸드폰번호 : <input type="text" name="phone" class = "phh"><br>		
+	우편번호<input type="text" name="address" readonly="readonly" class="postcodify_postcode5"/>
+	<button type="button" id = "abutton">검색</button><br />
+	도로명 주소<input type="text" name="address" class="postcodify_address"/><br />
+	상세주소 <input type="text" name="address"/><br />
 	이메일 : <input type="text" name="email" class = "testemail"> 
 	<input type="text"  readonly="readonly" class = "emailt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"><br>	
 	직업 : <input type="text" name="job" class = "jo"><br> 	

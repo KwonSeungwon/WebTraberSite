@@ -23,16 +23,11 @@ public class UserLoginDao {
 		int count = Integer.parseInt(sqlSession.selectOne("logidncheck", vo).toString()),
 				totalcount = sqlSession.selectOne("totalAcount");
 		System.out.println(count);
-
 		if (totalcount > 0) {
 			if (count > 0) {
 				result = 0;
-				sqlSession.commit();
-				sqlSession.close();
 			} else {
 				result = 1;
-				sqlSession.commit();
-				sqlSession.close();
 			}
 		}
 

@@ -44,6 +44,19 @@ public class Post_BoardDAO implements IPost_Board {
 		
 	}
 	
+	public List<Post_BoardVO> getClickPost_Board(String click_post_number) {
+		List<Post_BoardVO> pbvo=jdbcTemplate.query(click_post, new Object[] {click_post_number},
+				new RowMapper<Post_BoardVO>() {
+
+					@Override
+					public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+						Post_BoardVO vo= new Post_BoardVO(rs.getInt("post_number"),rs.getString("post_title"),rs.getString("post_contents"),rs.getString("registration_date"),rs.getInt("views"),rs.getString("path"),rs.getString("id"));
+						return vo;
+					}
+		});
+		return pbvo;
+	}
+	
 	public int getInsert_UserPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post_user,
 				new Object[] {vo.getUser_number(),vo.getPost_number(),vo.getPost_title()
@@ -93,6 +106,9 @@ public class Post_BoardDAO implements IPost_Board {
 		return jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
 		
 	}
+	
+	
+	
 	
 	
 

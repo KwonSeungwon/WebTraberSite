@@ -1,21 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.acoda.vo.MemberVO"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>후기게시글작성</title>
+<title>업데이트</title>
 </head>
 <body>
-<%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
 <h3>
 
 <%=session.getAttribute("login") %>
 
-<form action="/AcodaProject/post_board/insert_hugi.do" method="get">
-후기게시판 게시글입력<br><br>
+<form action="/AcodaProject/post_board/update_user.do" method="get">
+후기게시판  게시글수정<br><br>
 
 <!-- 게시판타입번호(F) : <input type="text" name="p_type"/><br>
 게시판선택 :<select name="title">
@@ -25,7 +24,7 @@
 		</select><br>
 게시판번호 :  <input type="text" name="title_number"/><br> -->
 회원고유번호 : <input type="text" name="user_number"/><br>
-게시글번호(P) : <input type="text" name="post_number"/><br>
+게시글번호(P) : <input type="text" readonly="readonly" name="post_number" value="${find.post_number}"/><br>
 게시글제목 : <input type="text" name="post_title"/><br>
 게시글내용 : <input type="text" name="post_contents"/><br>
 등록일자 : <input type="text" name="registration_date"/><br>
@@ -35,7 +34,7 @@
        <input type="reset" value="취소 "/>
        
 </form>
-<a href="/AcodaProject/post_board/select_hugi.do">후기게시글목록으로</a><br>
+<a href="/AcodaProject/post_board/select_user.do">후기게시판으로 돌아가기</a><br>
 <a href="/AcodaProject/index.jsp">홈으로</a>
 </h3>
 

@@ -16,6 +16,7 @@ import com.acoda.biz.Post_BoardBIZ;
 import com.acoda.vo.Post_BoardVO;
 
 
+
 @Controller
 @RequestMapping("/post_board")
 public class Post_BoardServlet {
@@ -36,6 +37,14 @@ public class Post_BoardServlet {
 		m.addAttribute("all",all);
 		return "post_boardView/user_post_board";
 	}
+	
+	@RequestMapping(value="/click.do", method=RequestMethod.GET)
+	public String post_board_click(@RequestParam("click_post_number") String click_post_number,Model m ) {
+			List<Post_BoardVO> vo = post_boardBIZ.getClickPost_Board(click_post_number);
+			m.addAttribute("click",vo);
+			
+			return "post_boardView/click_post_board";
+		}
 	
 	
 	@RequestMapping(value="/insert_user.do",method=RequestMethod.GET)
@@ -69,11 +78,19 @@ public class Post_BoardServlet {
 	 }
 	
 	
-	@RequestMapping(value="/find.do", method=RequestMethod.GET)
-	public ModelAndView post_board_find(@RequestParam("find_post_number") String find_post_number,Model m ) {
+	@RequestMapping(value="/find_user.do", method=RequestMethod.GET)
+	public ModelAndView post_board_find_user(@RequestParam("find_post_number") String find_post_number,Model m ) {
 			Post_BoardVO vo = post_boardBIZ.getFindPost_Board(find_post_number);
 			m.addAttribute("find",vo);
-			InternalResourceView irv = new InternalResourceView("/input/update_post_board.jsp");
+			InternalResourceView irv = new InternalResourceView("/input/update_post_board_user.jsp");
+			return new ModelAndView(irv);
+		}
+	
+	@RequestMapping(value="/find_hugi.do", method=RequestMethod.GET)
+	public ModelAndView post_board_find_hugi(@RequestParam("find_post_number") String find_post_number,Model m ) {
+			Post_BoardVO vo = post_boardBIZ.getFindPost_Board(find_post_number);
+			m.addAttribute("find",vo);
+			InternalResourceView irv = new InternalResourceView("/input/update_post_board_hugi.jsp");
 			return new ModelAndView(irv);
 		}
 	
@@ -102,5 +119,14 @@ public class Post_BoardServlet {
 			return null;
 		}
 	}
+	
+	@RequestMapping(value="/update_user.do",method=RequestMethod.GET)
+	public ModelAndView my_update(@ModelAttribute("postboardvo") Post_BoardVO vo) {
+		int r =post_boardBIZ.getUpdate_User_Post_Board(vo);
+		InternalResourceView irv = new InternalResourceView("/post_board/select_user.do");
+		return new ModelAndView(irv);
+	}
+	
+	
 	
 }

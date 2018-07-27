@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>게시글작성</title>
+<title>유저게시글작성</title>
 </head>
 <body>
 <%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
@@ -24,7 +24,7 @@
 			<option value="후기게시판">후기게시판</option>
 		</select><br>
 게시판번호 :  <input type="text" name="title_number"/><br> -->
-회원고유번호 : <input type="text" name="user_number"/><br>
+회원고유번호 : <input type="text" name="user_number" value="<%=vo.getUser_number()%>"/><br>
 게시글번호(P) : <input type="text" name="post_number"/><br>
 게시글제목 : <input type="text" name="post_title"/><br>
 게시글내용 : <input type="text" name="post_contents"/><br>

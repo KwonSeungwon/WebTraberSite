@@ -57,7 +57,7 @@ public class MemberVO {
 		return user_number;
 	}
 	public void setUser_number(int user_number) {
-		this.user_number = member_typevo.getRating();
+		this.user_number = user_number;
 	}
 	public int getRating() {
 		return rating;

@@ -28,15 +28,20 @@ p_type number,
 p_title  varchar2(100) not null,
 constraint post_type_p_type_pk primary key(p_type)
 );
-
-
- insert into post_type values(1,'댓글게시판');
+insert into post_type values(1,'댓글게시판');
 insert into post_type values(2,'사진게시판');
+-------------------------------------
+create sequence postboard_seq
+increment by 1 start with 1;
+
+
+
 
 select * from post_type;
 select * from post_board;
 select * from member;
 
+drop sequence postboard_seq;
 drop table post_board;
 
 commit

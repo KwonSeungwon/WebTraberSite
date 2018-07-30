@@ -75,6 +75,10 @@ public class Post_BoardBIZ {
 		return post_boardDAO.getUpdatePost_Board(pvo);
 	}
 	
+	public List<Post_BoardVO> getSearch_Post_Board_User(String s){
+		return  post_boardDAO.getSearch_Post_Board_User(s);
+	}
+	
 	
 	
 }

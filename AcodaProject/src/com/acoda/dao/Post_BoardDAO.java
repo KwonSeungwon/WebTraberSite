@@ -60,7 +60,7 @@ public class Post_BoardDAO implements IPost_Board {
 	
 	public int getInsert_UserPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post_user,
-				new Object[] {vo.getUser_number(),vo.getPost_number(),vo.getPost_title()
+				new Object[] {vo.getUser_number(),vo.getPost_title()
 						,vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath()});
 		if (r > 0) {
 			System.out.println("Post_BarodDAO 의 getInsert_UserPost_Board if문 r>0");
@@ -107,6 +107,30 @@ public class Post_BoardDAO implements IPost_Board {
 		return jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
 		
 	}
+	
+	public List<Post_BoardVO> getSearch_Post_Board_User(String s){
+				RowMapper<Post_BoardVO> mapper=new RowMapper<Post_BoardVO>() {
+
+			@Override
+			public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				System.out.println("Post_BoardDAO->getSearch_Post_Board_User->mapRow실행");
+				Post_BoardVO vo=new Post_BoardVO();
+				vo.setPost_number(rs.getInt("post_number"));
+				vo.setPost_title(rs.getString("post_title"));
+				vo.setTitle(rs.getString("title"));
+				vo.setPost_contents(rs.getString("post_contents"));
+				vo.setRegistration_date(rs.getString("registration_date"));
+				vo.setViews(rs.getInt("views"));
+				vo.setPath(rs.getString("path"));
+				vo.setId(rs.getString("id"));
+				return vo;	
+			}
+		};
+		return jdbcTemplate.query(search_post_user, mapper, new Object[] {s});
+		
+	}
+	
+	
 	
 	
 	

@@ -7,6 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>유저게시글작성</title>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
@@ -25,10 +28,10 @@
 		</select><br>
 게시판번호 :  <input type="text" name="title_number"/><br> -->
 회원고유번호 : <input type="text" name="user_number" value="<%=vo.getUser_number()%>"/><br>
-게시글번호(P) : <input type="text" name="post_number"/><br>
+<!-- 게시글번호(P) : <input type="text" name="post_number"/><br> -->
 게시글제목 : <input type="text" name="post_title"/><br>
 게시글내용 : <input type="text" name="post_contents"/><br>
-등록일자 : <input type="text" name="registration_date"/><br>
+등록일자 : <input type="date" name="registration_date"/><br>
 조회수 : <input type="text" name="views"/><br>
 사진파일경로 : <input type="text" name="path"/><br>	
 		<input type="submit" value="확인 "/>

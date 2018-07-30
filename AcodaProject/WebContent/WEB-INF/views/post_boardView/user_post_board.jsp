@@ -37,8 +37,28 @@
            		
 			</tr>
 		</c:forEach>
+		<c:forEach var="fe" items="${requestScope.list}">
+			<tr>
+				<td><c:out value="${fe.post_number}"/></td>
+				<td><c:out value="${fe.title}"/></td>
+				<td><c:out value="${fe.id}"/></td>
+				<td><a href="click.do?click_post_number=${fe.post_number}"><c:out value="${fe.post_title}"/></a></td>
+				<td><c:out value="${fe.registration_date}"/></td>
+				<td><c:out value="${fe.views}"/></td>
+				
+				<td><a href ="delete_user.do?del_post_number=${fe.post_number}">삭제 </a></td>
+           		<td><a href ="find_user.do?find_post_number=${fe.post_number}">수정 </a></td>
+           		
+			</tr>
+		</c:forEach>
+		
+		
 	</tbody>
-</table>
+</table><br>
+<form action="/AcodaProject/post_board/search_user.do" method="get">
+	<input name="search_post_board_user" type="text" id="search_post_board_user"/>
+	<input type="submit" value="검색"/>
+</form>
 <a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 글작성하기</a>
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
 

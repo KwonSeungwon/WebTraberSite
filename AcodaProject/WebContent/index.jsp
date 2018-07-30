@@ -44,7 +44,15 @@
 
 	<h2>게시판기능</h2>
 	<br>
+<<<<<<< HEAD
+
+	<a href="/AcodaProject/post_board/select.do">전체게시판글보기</a>
+    <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
+	<a href="/AcodaProject/post_board/select.do">게시판</a>
+
+=======
 	<a href="/AcodaProject/post_board/select_user.do">유저게시판</a><br>
 	<a href="/AcodaProject/post_board/select_hugi.do">후기게시판</a>
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 </body>
 </html>

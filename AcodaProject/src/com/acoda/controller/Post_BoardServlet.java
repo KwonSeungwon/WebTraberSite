@@ -31,6 +31,13 @@ public class Post_BoardServlet {
 		return "post_boardView/hugi_post_board";
 	}
 	
+
+	@RequestMapping(value="/insert.do",method=RequestMethod.GET)
+	public ModelAndView post_board_Insert(@ModelAttribute Post_BoardVO vo) {
+		System.out.println("Post_BoardServlet ÀÇ post_board_Insert ½ÇÇà");
+		return null;
+	}
+
 	@RequestMapping("/select_user.do")
 	public String post_board_Select_user(Model m) {
 		List<Post_BoardVO> all = post_boardBIZ.getUserPost_Board();
@@ -49,10 +56,13 @@ public class Post_BoardServlet {
 	
 	@RequestMapping(value="/insert_user.do",method=RequestMethod.GET)
 	public ModelAndView post_board_Insert_user(@ModelAttribute Post_BoardVO vo) {
-		
+
 		int r = post_boardBIZ.getInsert_User_Post_Board(vo);
-		InternalResourceView irv = new InternalResourceView("/post_board/select_user.do");
-		return new ModelAndView(irv);
+
+		InternalResourceView irv = new InternalResourceView("/post_board/select.do");
+	return new ModelAndView(irv);
+
+	
 	}
 	
 	

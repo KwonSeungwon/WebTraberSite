@@ -26,14 +26,13 @@ public class UserloginController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public void loginCheck(Locale locale, Model model, MemberVO vo, HttpSession session, HttpServletResponse response)
 			throws IOException {
-		PrintWriter out = response.getWriter();
+			PrintWriter out = response.getWriter();
 
-		System.out.println("로그인 체크 전달 값" + vo.getEmail());
 		if(userBiz.logincheck(vo) == 0){
+			
 			System.out.println("true");
 			session.setAttribute("login", vo);
-
-			System.out.println("세션추가완료");
+			System.out.println("세션추가완료" + vo.getUser_number());
 			response.sendRedirect("index.jsp");
 			out.flush();
 			out.close();

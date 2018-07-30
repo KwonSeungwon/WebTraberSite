@@ -40,12 +40,12 @@ public class UserInfoController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String today = sdf.format(new Date());
 		vo.setJoindate(today);
-		ModelAndView mav = new ModelAndView();				
+		ModelAndView mav = new ModelAndView();
 		if (vo.getRating() == 2) {
 			String result = infoBiz.insert(vo);
 			mav = new ModelAndView("UserView/InsertResult", "myresult", result);
 			session.setAttribute("login", vo);
-		} else if(vo.getRating() == 1)  {
+		} else if (vo.getRating() == 1) {
 			String result2 = infoBiz.insertNomal(vo);
 			mav = new ModelAndView("UserView/InsertResult", "myresult", result2);
 			session.setAttribute("login", vo);
@@ -64,7 +64,8 @@ public class UserInfoController {
 
 	// 딜리트 컨트롤러
 	@RequestMapping(value = "deleteuser.do", method = RequestMethod.POST)
-	public ModelAndView delete(@ModelAttribute("userInfo") MemberVO vo, HttpServletResponse rep, HttpSession session) throws IOException {
+	public ModelAndView delete(@ModelAttribute("userInfo") MemberVO vo, HttpServletResponse rep, HttpSession session)
+			throws IOException {
 		System.out.println("받은 아이디 :" + vo.getId() + vo.getPw());
 		ModelAndView mav = new ModelAndView();
 		if (infoBiz.logincheck(vo) == 0) {
@@ -100,10 +101,26 @@ public class UserInfoController {
 			 return result;
 
 		 }
-		 
+	}
 	
-		 
 
+	@RequestMapping(value = "/usercheck.do", method = RequestMethod.GET)
+	public @ResponseBody MemberVO UpdateUser(Model mv, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		
+		
+		MemberVO vo = (MemberVO) session.getAttribute("login");
+		
+		if(vo.getRating() == 1 ||infoBiz.upadteusercheck(vo) != null) {
+			System.out.println("일반회원" + vo.getRating());			
+			mv.addAttribute("chec",vo);
+			
+		}else if(vo.getRating() == 2 || infoBiz.upadteusercheck(vo) != null) {
+			System.out.println("가이드" + vo.getRating());
+			mv.addAttribute("chec",vo);
+		}
+		
+		return vo;
 
 	}
 

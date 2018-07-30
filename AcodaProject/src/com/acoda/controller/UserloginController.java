@@ -28,10 +28,10 @@ public class UserloginController {
 			throws IOException {
 			PrintWriter out = response.getWriter();
 
-		if(userBiz.logincheck(vo) == 0){
-			
+		if(userBiz.logincheck(vo) != 0){
+			vo = userBiz.logincheck2(vo);
 			System.out.println("true");
-			session.setAttribute("login", vo);
+			session.setAttribute("login",vo);
 			System.out.println("세션추가완료" + vo.getUser_number());
 			response.sendRedirect("index.jsp");
 			out.flush();

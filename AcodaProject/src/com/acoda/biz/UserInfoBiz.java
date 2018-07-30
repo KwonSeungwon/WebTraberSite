@@ -59,4 +59,14 @@ public class UserInfoBiz {
 		}
 	}
 
+	public MemberVO upadteusercheck(MemberVO vo) {
+		System.out.println("업데이트 유저 체크");
+		return UserDao.updateCheckuser(vo);
+		
+	}
+
+	public MemberVO logincheck2(MemberVO vo) {
+		return LoginDao.LoginCheck2(vo);
+	}
+
 }

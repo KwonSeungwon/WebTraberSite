@@ -110,4 +110,11 @@ public class UserInfoDao {
 		}
 	}
 
+	public MemberVO updateCheckuser(MemberVO vo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		vo = sqlSession.selectOne("userInfo.ucheck");
+		
+		return vo;
+	}
+
 }

@@ -21,11 +21,16 @@
 		onclick="location.href ='input/UserDelete.jsp'">
 	<input type="button" value="로그아웃"
 		onclick="location.href ='/AcodaProject/logout.do'">
+	<%if(vo.getRating() == 1){ %>
 	<input type="button" value="회원정보수정"
-		onclick="location.href ='input/UserChangeInfo.jsp'">
+		onclick="location.href ='input/UserNomalUpdate.jsp'">
+		<%}else if(vo.getRating() == 2){ %>
+	<input type="button" value="회원정보수정"
+		onclick="location.href ='input/UserGuideUpdate.jsp'">
+		<%}%>
 	<%=vo.getUser_number() + "님 환영합니다!"%>
 	<%
-		} else {
+		} else if(session.getAttribute("login") == null) {
 		%>
 	<input type="button" value="로그인"
 		onclick="location.href ='input/login_form.jsp'">

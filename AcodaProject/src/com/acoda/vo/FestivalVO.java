@@ -31,6 +31,19 @@ public class FestivalVO {
 		this.f_contents = f_contents;
 		this.user_number = user_number;
 	}
+	
+	public FestivalVO(String f_name, String season, String f_start_date, String f_end_date,
+			String f_local, String f_contents, int user_number,int f_number) {
+		super();
+		this.f_number = f_number;
+		this.f_name = f_name;
+		this.season = season;
+		this.f_start_date = f_start_date;
+		this.f_end_date = f_end_date;
+		this.f_local = f_local;
+		this.f_contents = f_contents;
+		this.user_number = user_number;
+	}
 
 
 
@@ -122,11 +135,12 @@ public class FestivalVO {
 		return user_number;
 	}
 
-
-
 	public void setUser_number(int user_number) {
-		this.user_number = membervo.getUser_number();
+		this.user_number = user_number;
 	}
+
+
+
 	
 
 	

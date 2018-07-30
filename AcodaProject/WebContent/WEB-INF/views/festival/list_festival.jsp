@@ -22,17 +22,33 @@
 	<c:forEach var="fe" items="${requestScope.all}">
 			<tr>
 				<td><c:out value=" ${fe.f_number}"/></td>
-				<td><c:out value=" ${fe.f_name}"/></td>
+				<td><a href="#"><c:out value=" ${fe.f_name}"/></td>
 				<td><c:out value=" ${fe.season}"/></td>
 				<td><c:out value=" ${fe.f_start_date}"/></td>
 				<td><c:out value=" ${fe.f_end_date }"/></td>
 				<td><c:out value=" ${fe.f_local}"/></td>
+				<td> <a  href ="delete.do?del_name=${fe.f_number}"> 삭제  </a></td>
+                <td> <a  href ="find.do?find_number=${fe.f_number}"> 수정 </a>    </td>
 			</tr>
 			</c:forEach>
 			</tbody>
 </table>
+
+<form action="search.do" method="get">
+<table border="1" cellpadding="0" cellspacing="0" width="600">
+<tr>
+<td align="center">
+<select name="searchCondition">
+<option value="title">제목 
+</select>
+<input name="searchkeyword" type="text" id="searchkeyword"/>
+<input type="submit" value="검색"/>
+</td>
+</tr>
+</table>
+</form>
 <a href="/AcodaProject/festival/insert_page.do">축제 글작성</a>
-<a href="index.jsp">메인페이지로</a>
+<a href="/AcodaProject/index.jsp">메인페이지로</a>
 
 </body>
 </html>

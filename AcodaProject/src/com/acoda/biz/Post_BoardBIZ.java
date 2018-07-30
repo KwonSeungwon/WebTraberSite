@@ -20,12 +20,10 @@ public class Post_BoardBIZ {
 		return post_boardDAO.getAllPost_Board();
 	}
 	
-	public int getInsertPost_Board(Post_BoardVO vo) {
+	
+	public int getInsert_User_Post_Board(Post_BoardVO vo) {
 		System.out.println("Post_BoardBIZÀÇ getInsertPost_Board ½ÇÇà");
 		Post_BoardVO pvo = new Post_BoardVO();
-		pvo.setP_type(vo.getP_type());
-		pvo.setTitle(vo.getTitle());
-		pvo.setTitle_number(vo.getTitle_number());
 		pvo.setUser_number(vo.getUser_number());
 		pvo.setPost_number(vo.getPost_number());
 		pvo.setPost_title(vo.getPost_title());
@@ -33,7 +31,7 @@ public class Post_BoardBIZ {
 		pvo.setRegistration_date(vo.getRegistration_date());
 		pvo.setViews(vo.getViews());
 		pvo.setPath(vo.getPath());
-		return post_boardDAO.getInsertPost_Board(pvo);
+		return post_boardDAO.getInsert_UserPost_Board(pvo);
 	}
 	
 	public Post_BoardVO getFindPost_Board(String name) {
@@ -43,8 +41,9 @@ public class Post_BoardBIZ {
 
 	
 	
-	public int getDelPost_Board(String del_name) {
-		return 0;
+	public int getDelPost_Board(String del_id) {
+		
+		return post_boardDAO.getDelPost_Board(del_id);
 		
 	}
 	

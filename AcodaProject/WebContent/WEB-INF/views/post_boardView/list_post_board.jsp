@@ -16,11 +16,11 @@
 <table border="1">
 	<thead style="text-align:center;">
 		<tr>
-			<th>게시글번호</th><th>게시판이름</th><th>작성자</th><th>게시글제목</th><th>작성일</th><th>조회수</th>
+			<th>게시글번호</th><th>게시판이름</th><th>작성자</th><th>게시글제목</th><th>작성일</th><th>조회수</th><th>삭제</th><th>수정</th>
 		</tr>
 	</thead>
 	<tbody style="text-align:left;">
-		<c:forEach var="se" items="${requestScope.all }">
+		<c:forEach var="se" items="${requestScope.all}">
 			<tr>
 				<td><c:out value="${se.post_number}"/></td>
 				<td><c:out value="${se.title}"/></td>
@@ -28,11 +28,13 @@
 				<td><a href="#"><c:out value="${se.post_title}"/></a></td>
 				<td><c:out value="${se.registration_date}"/></td>
 				<td><c:out value="${se.views}"/></td>
+				<td><a href ="delete.do?del_id=${se.id}">삭제 </a></td>
+           		<td><a href ="find.do?find_id=${se.id}">수정 </a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
-<a href="/AcodaProject/post_board/insert_page.do">게시글작성</a>
+<a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 게시글작성하기</a>
 <a href="index.jsp">메인페이지로</a>
 
 </body>

@@ -20,24 +20,21 @@ public class FestivalBIZ {
 		return festivalDAO.getAllFestival();
 
 	}
-
-	public int getInsertFestival(FestivalVO vo) {
-		System.out.println("여기는 인서트 비즈임");
-		FestivalVO fe = new FestivalVO();
-		fe.setF_number(vo.getF_number());
-		fe.setF_name(vo.getF_name());
-		fe.setSeason(vo.getSeason());
-		fe.setF_start_date(vo.getF_start_date());
-		fe.setF_end_date(vo.getF_end_date());
-		fe.setF_local(vo.getF_local());
-		fe.setF_contents(vo.getF_local());
-		return festivalDAO.getInsertFestival(fe);
-
+	//검색
+	public List<FestivalVO> getsearch(String s){
+		System.out.println("여기서 검색한다....");
+		System.out.println(festivalDAO.getsearch(s).size());
+		return  festivalDAO.getsearch(s);
 	}
 
+	 public int getInsertFestival(FestivalVO vo) {
+
+	      return festivalDAO.getInsertFestival(vo);
+	   }
+
 	public FestivalVO getFindFestival(String name) {
-		
-		return null;
+		System.out.println("여기는 파인드 비즈"+name);
+		return festivalDAO.getFindFestival(name);
 
 	}
 
@@ -48,7 +45,18 @@ public class FestivalBIZ {
 	}
 
 	public int getUpdateFestival(FestivalVO vo) {
-		return 0;
+		
+		FestivalVO f=new FestivalVO();
+		f.setF_number(vo.getF_number());
+		f.setF_name(vo.getF_name());
+		f.setSeason(vo.getSeason());
+		f.setF_start_date(vo.getF_start_date());
+		f.setF_end_date(vo.getF_end_date());
+		f.setF_local(vo.getF_local());
+		f.setF_contents(vo.getF_contents());
+		f.setUser_number(vo.getUser_number());
+		
+		return festivalDAO.getUpdateFestival(f);
 	}
 
 }

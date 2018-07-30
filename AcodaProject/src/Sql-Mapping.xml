@@ -8,6 +8,7 @@
 <resultMap type="com.acoda.vo.MemberVO" id="LoginResult">
 <result column="ID" property="id"/>
 <result column="PW" property="pw"/>
+<result column="USER_NUMBER" property="user_number"/>
 </resultMap>
 
 

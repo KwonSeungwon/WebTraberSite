@@ -19,11 +19,13 @@ public class Post_BoardVO {
 	private String id;
 	
 	
+	
+
 	public Post_BoardVO() {
 		super();
 	}
 
-	//select_post 쿼리문용 생성자
+	//select_post_user 쿼리문용 생성자
 	
 		public Post_BoardVO(int post_number,String title, String id, String post_title, String registration_date, int views
 				) {
@@ -35,7 +37,53 @@ public class Post_BoardVO {
 			this.views = views;
 			this.id = id;
 		}
+		
+		//find
+		public Post_BoardVO(String title, String id, String post_title, String registration_date, int views,int post_number
+				) {
+			super();
+			this.title = title;
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.id = id;
+			
+		}
+		
+		//click
+		public Post_BoardVO(int post_number, String post_title, String post_contents, String registration_date, int views,
+				String path, String id) {
+			super();
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.post_contents = post_contents;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.path = path;
+			this.id = id;
+		}
+		
+		
+		
 
+
+	
+
+		public Post_BoardVO(int p_type, String title, int title_number, int user_number,
+				String post_title, String post_contents, String registration_date, int views, String path,int post_number) {
+			super();
+			this.p_type = p_type;
+			this.title = title;
+			this.title_number = title_number;
+			this.user_number = user_number;
+			this.post_number = post_number;
+			this.post_title = post_title;
+			this.post_contents = post_contents;
+			this.registration_date = registration_date;
+			this.views = views;
+			this.path = path;
+		}
 
 	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
 			String post_contents, String registration_date, int views, String path) {
@@ -50,6 +98,24 @@ public class Post_BoardVO {
 		this.registration_date = registration_date;
 		this.views = views;
 		this.path = path;
+	}
+	
+	
+
+	public Post_BoardVO(int p_type, String title, int title_number, int user_number, int post_number, String post_title,
+			String post_contents, String registration_date, int views, String path, String id) {
+		super();
+		this.p_type = p_type;
+		this.title = title;
+		this.title_number = title_number;
+		this.user_number = user_number;
+		this.post_number = post_number;
+		this.post_title = post_title;
+		this.post_contents = post_contents;
+		this.registration_date = registration_date;
+		this.views = views;
+		this.path = path;
+		this.id = id;
 	}
 
 	public int getP_type() {

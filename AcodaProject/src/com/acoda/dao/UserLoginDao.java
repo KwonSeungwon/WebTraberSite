@@ -20,19 +20,22 @@ public class UserLoginDao {
 		int result = 0;
 		System.out.println("로그인체크다오");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		int count = Integer.parseInt(sqlSession.selectOne("logidncheck", vo).toString()),
-				totalcount = sqlSession.selectOne("totalAcount");
+		int count = sqlSession.selectOne("logidncheck", vo);			
 		System.out.println(count);
-		if (totalcount > 0) {
-			if (count > 0) {
+			if (count == 0) {
 				result = 0;
 			} else {
 				result = 1;
 			}
-		}
 
 		return result;
 
+	}
+
+	public MemberVO LoginCheck2(MemberVO vo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		return vo = sqlSession.selectOne("totalAcount",vo);
+	
 	}
 
 }

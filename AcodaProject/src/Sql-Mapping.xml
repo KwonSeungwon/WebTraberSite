@@ -18,11 +18,11 @@ select count(*) from member where id = #{id}
 
 
 <select id="logidncheck" resultType="Integer" parameterType="userInfo">
-select * from member where id = #{id} and pw = #{pw}
+select count(*) from member where id = #{id} and pw = #{pw}
 </select>
 
-<select id="totalAcount" resultType="Integer">
-select count(*) from member
+<select id="totalAcount" parameterType="userinfo" resultType="userInfo">
+select * from member where id = #{id} and pw = #{pw}
 </select>
 
 <select id="selectalluser" resultType="userInfo">
@@ -55,6 +55,11 @@ update member set
 #{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth},#{profile},#{place}
 where id=#{id};
 </update>
+
+
+<select id="ucheck" parameterType="userInfo" resultType="userInfo">
+select * from member where id = #{id} and pw = #{pw}
+</select>
 
 
 

@@ -12,7 +12,6 @@
 <body>
 
 	<h2>**메인페이지**</h2>
-
 	<%
 		MemberVO vo = (MemberVO) session.getAttribute("login");
 		if (session.getAttribute("login") != null) {
@@ -27,14 +26,15 @@
 		<%}else if(vo.getRating() == 2){ %>
 	<input type="button" value="회원정보수정"
 		onclick="location.href ='input/UserGuideUpdate.jsp'">
-		<%}%>
-	<%=vo.getUser_number() + "님 환영합니다!"%>
+		<%}else{%>
+		<input type="button" value="회원리스트" onclick="location.href ='Select.do'">
+		<%} %>
+	<%=vo.getId() + "님 환영합니다!"%>
 	<%
 		} else if(session.getAttribute("login") == null) {
 		%>
 	<input type="button" value="로그인"
 		onclick="location.href ='input/login_form.jsp'">
-	<input type="button" value="회원리스트" onclick="location.href ='Select.do'">
 	<input type="button" value="회원가입"
 		onclick="location.href ='input/UserInsert.jsp'">
 
@@ -44,15 +44,16 @@
 
 	<h2>게시판기능</h2>
 	<br>
-<<<<<<< HEAD
 
 	<a href="/AcodaProject/post_board/select.do">전체게시판글보기</a>
     <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
 	<a href="/AcodaProject/post_board/select.do">게시판</a>
 
-=======
 	<a href="/AcodaProject/post_board/select_user.do">유저게시판</a><br>
 	<a href="/AcodaProject/post_board/select_hugi.do">후기게시판</a>
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+	
+	
+	<a href="/AcodaProject/UserOrderList.do">주문상품보기</a>
+	
 </body>
 </html>

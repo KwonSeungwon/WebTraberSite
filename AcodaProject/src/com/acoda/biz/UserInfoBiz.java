@@ -22,11 +22,9 @@ public class UserInfoBiz {
 		return UserDao.select();
 	}
 
-	public String insert(MemberVO vo) {
-		System.out.println("인서트비즈도착");
-		UserDao.insertUser(vo);
-		String guide = "";
-		return guide;
+	public int insert(MemberVO vo) {
+		System.out.println("인서트가이드비즈도착");
+		return UserDao.insertUser(vo);
 	}
 
 	public int delete(MemberVO vo) {
@@ -34,21 +32,16 @@ public class UserInfoBiz {
 		return UserDao.DeleteUser(vo);
 	}
 
-	public int update(MemberVO vo) {
-		System.out.println("업데이트");
-		return UserDao.UpdateUser(vo);
-	}
 
 	public int logincheck(MemberVO vo) {
 		System.out.println("로그인체크비즈");
 		return LoginDao.LoginCheck(vo);
 	}
 
-	public String insertNomal(MemberVO vo) {
+	public int insertNomal(MemberVO vo) {
 		System.out.println("인서트노말비즈도착");
-		UserDao.insertNomalUser(vo);	
-		String nomal = "";
-		return nomal;
+		return UserDao.insertNomalUser(vo);	
+
 	}
 	
 	public boolean checkId(String id) {
@@ -59,9 +52,15 @@ public class UserInfoBiz {
 		}
 	}
 
-	public MemberVO upadteusercheck(MemberVO vo) {
-		System.out.println("업데이트 유저 체크");
-		return UserDao.updateCheckuser(vo);
+	public int UpdateGuide(MemberVO vo) {
+		System.out.println("업데이트 가이드");
+		return UserDao.UpdateGuide(vo);
+		
+	}
+	
+	public int UpdateNomal(MemberVO vo) {
+		System.out.println("업데이트 가이드");
+		return UserDao.UpdateNomal(vo);
 		
 	}
 

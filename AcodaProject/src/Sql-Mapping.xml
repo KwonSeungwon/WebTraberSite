@@ -21,7 +21,7 @@ select count(*) from member where id = #{id}
 select count(*) from member where id = #{id} and pw = #{pw}
 </select>
 
-<select id="totalAcount" parameterType="userinfo" resultType="userInfo">
+<select id="LoginUserView" parameterType="userinfo" resultType="userInfo">
 select * from member where id = #{id} and pw = #{pw}
 </select>
 
@@ -31,7 +31,7 @@ select * from member
 
 <insert id="insertGuide" parameterType="userInfo">
 insert into member
-member(user_number,name,sex,rating,id,pw,phone,address,email,join_date,birth,job,profile,place)
+(user_number,name,sex,rating,id,pw,phone,address,email,join_date,birth,job,profile,place)
 values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{address},#{email},#{joindate},#{birth},#{job},#{profile},#{place})
 </insert>
 	
@@ -44,24 +44,18 @@ values(member_seq.nextval,#{name},#{sex},#{rating},#{id},#{pw},#{phone},#{addres
 delete from member where id = #{id} AND pw = #{pw}
 </delete>
 
-<update id="updateNomalUser" parameterType="String">
+<update id="updateNomalUser" parameterType="userInfo">
 update member set
-#{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth}
-where id=#{id};
+pw = #{pw},sex = #{sex},phone = #{phone},address = #{address},job = #{job},birth = #{birth}
+where id=#{id}
 </update>
+
 
 <update id="updateGuideUser" parameterType="userInfo">
 update member set
-#{rating},#{pw},#{sex},#{phone},#{address},#{job},#{birth},#{profile},#{place}
-where id=#{id};
+pw=#{pw},sex=#{sex},phone=#{phone},address=#{address},job=#{job},birth=#{birth},profile=#{profile},place=#{place}
+where id = #{id} 
 </update>
-
-
-<select id="ucheck" parameterType="userInfo" resultType="userInfo">
-select * from member where id = #{id} and pw = #{pw}
-</select>
-
-
 
 
 </mapper>

@@ -59,7 +59,6 @@ public class FestivalServlet {
 	public ModelAndView Festival_delete(@RequestParam("del_name") String name) {
 		System.out.println("여긴 컨트롤러 딜리트");
 		InternalResourceView irv = new InternalResourceView("/festival/select.do");
-
 		int r = festivalBIZ.getDelFestival(name);
 		if (r > 0) {
 			System.out.println("여기까지느 온다");

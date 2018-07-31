@@ -7,9 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
-		<% 
-		MemberVO vo = (MemberVO) session.getAttribute("login");
-		%>
+<%MemberVO vo = (MemberVO) session.getAttribute("login");%>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script type="text/javascript">
@@ -22,8 +20,10 @@ $(function() { $("#abutton").postcodifyPopUp();
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
 	<h3>가이드회원정보수정</h3>  
 	<form action="/AcodaProject/changeGuideuser.do" method="POST">
-	새 비밀번호 입력 : <input type="password" name="pw"><br>
+	아이디 : <input type="text" name="id" readonly="readonly" value = <%= vo.getId() %>><br>
+	새 비밀번호 입력 : <input type="password" name="pw" value = <%= vo.getPw() %>><br>
 	전화번호 입력 : <input type="text" name="phone" value = <%= vo.getPhone() %>><br>
+	성별 : <input type="text" name="sex" value = <%= vo.getSex() %>><br>
 	우편번호<input type="text" name="address" readonly="readonly" class="postcodify_postcode5"/>
 	<button type="button" id = "abutton">검색</button><br />
 	도로명 주소<input type="text" name="address" class="postcodify_address"/><br />

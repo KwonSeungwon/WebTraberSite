@@ -33,12 +33,13 @@ public class FestivalDAO implements IFestival {
 				return vo;
 			}
 		});
+		
 		return all;
 		
 	}
 	//검색
 	public List<FestivalVO> getsearch(String s){
-		//List<FestivalVO> list=jdbcTemplate.query(se_festival,new Object[] {s},
+	
 				System.out.println("여기서 검색");
 				System.out.println(s);
 				RowMapper<FestivalVO> mapper=new RowMapper<FestivalVO>() {
@@ -59,6 +60,29 @@ public class FestivalDAO implements IFestival {
 		return jdbcTemplate.query(search_festival, mapper, new Object[] {s});
 		
 	}
+	//클릭
+	public List<FestivalVO> getClickfestival(String name) {
+		System.out.println("클릭 다오"+name);
+		//  List<FestivalVO> click_list=jdbcTemplate.query(click_festival, new Object[] {f},
+		RowMapper<FestivalVO> mapper = new RowMapper<FestivalVO>() {
+
+					@Override
+					public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+						FestivalVO vo=new FestivalVO();			
+						vo.setF_number(rs.getInt("f_number"));
+						vo.setF_name(rs.getString("f_name"));
+						vo.setSeason(rs.getString("season"));
+						vo.setF_start_date(rs.getString("f_start_date"));
+						vo.setF_end_date(rs.getString("f_end_date"));
+						vo.setF_local(rs.getString("f_local"));
+						vo.setF_contents(rs.getString("f_contents"));
+						return vo;		
+					}
+		  };
+		  
+		return jdbcTemplate.query(click_festival,mapper,new Object[]{name});
+		
+	}
 	
 	public int getDelFestival(String del_name) {
 		int f = jdbcTemplate.update(delete_festival,del_name );
@@ -70,11 +94,12 @@ public class FestivalDAO implements IFestival {
 	public int getInsertFestival(FestivalVO vo) {
 		System.out.println("여기는 인서트 다오");
 		int f=jdbcTemplate.update(insert_festival,new Object[] 
-				{ vo.getF_number(), vo.getF_name(),vo.getSeason(),  vo.getF_start_date(),
+				{vo.getF_name(),vo.getSeason(),  vo.getF_start_date(),
                 vo.getF_end_date(), vo.getF_local(), vo.getF_contents(), vo.getUser_number()} );
 		 
 		if (f > 0) {
-	         return f;
+	        
+			return f;
 	      } else {
 	         return 0;
 	      }
@@ -96,6 +121,7 @@ public class FestivalDAO implements IFestival {
 	    }
 	
 	public int getUpdateFestival(FestivalVO vo) {
+		System.out.println("여기는 다오 업데이트");
 		int f = jdbcTemplate.update(update_festival, new Object[] {vo.getSeason(),vo.getF_name(),vo.getF_start_date(),
 	            vo.getF_end_date(),vo.getF_local(),vo.getF_contents(),vo.getF_number()});
 		

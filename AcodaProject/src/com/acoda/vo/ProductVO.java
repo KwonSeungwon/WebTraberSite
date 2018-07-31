@@ -12,9 +12,23 @@ public class ProductVO {
 	private String sell_date; //등록일
 	private String schedule; //상세일정
 	private String trip_date; //여행기간
-	private String note; //참고사항
+	private String note;//참고사항
+	private String id;
 	
-	
+	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
+			String schedule, String trip_date, String note, String id) {
+		super();
+		this.item_number = item_number;
+		this.product_name = product_name;
+		this.user_number = user_number;
+		this.price = price;
+		this.head_count = head_count;
+		this.sell_date = sell_date;
+		this.schedule = schedule;
+		this.trip_date = trip_date;
+		this.note = note;
+		this.id = id;
+	}
 	//기본생성자
 	public ProductVO() {
 		super();
@@ -50,9 +64,9 @@ public class ProductVO {
 	public int getUser_number() {
 		return user_number;
 	}
-	//user_number를 MemberVO에서 불러와서 set
+	
 	public void setUser_number(int user_number) {
-		this.user_number = membervo.getUser_number();
+		this.user_number = user_number;
 	}
 	public int getPrice() {
 		return price;
@@ -92,4 +106,10 @@ public class ProductVO {
 	}
 	
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 }

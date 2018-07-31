@@ -16,12 +16,13 @@ public class ProductBIZ {
 	ProductDAO productDAO;
 	
 	public List<ProductVO> getAllProduct(){
-		return null;
+		return productDAO.getAllProduct();
 		
 	}
 	
 	public int getInsertProduct(ProductVO vo) {
-		return 0;
+		System.out.println("상품 추가 비즈");
+		return productDAO.getInsertProduct(vo);
 		
 	}
 	
@@ -29,9 +30,10 @@ public class ProductBIZ {
 		return null;
 		
 	}
-	
+	//삭제
 	public int getDelProduct(String del_name) {
-		return 0;
+		
+		return productDAO.getDelProduct(del_name);
 		
 	}
 	

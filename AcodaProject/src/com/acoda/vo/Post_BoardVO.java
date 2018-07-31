@@ -226,8 +226,9 @@ public class Post_BoardVO {
 	}
 
 	public void setId(String id) {
-		this.id = membervo.getId();
+		this.id = id;
 	}
+
 
 	
 	

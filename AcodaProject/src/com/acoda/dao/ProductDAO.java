@@ -51,7 +51,7 @@ public class ProductDAO implements IProduct{
 		int p=jdbcTemplate.update(insert_product, new Object[] {
 				vo.getProduct_name(),vo.getUser_number(),
 				vo.getPrice(),vo.getHead_count(),vo.getSell_date(),vo.getSchedule(),
-				vo.getTrip_date(),vo.getNote()
+				vo.getTrip_date(),vo.getNote(),vo.getPic()
 		});
 			if (p > 0) {     
 				return p;

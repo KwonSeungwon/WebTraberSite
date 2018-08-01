@@ -94,7 +94,7 @@ public class UserInfoController {
 
 		}
 	}
-
+	
 	@RequestMapping(value = "/idcheck.do", method = RequestMethod.GET)
 	public @ResponseBody String Idcheck(@RequestParam String id, Model mv, HttpServletResponse response)
 			throws IOException {

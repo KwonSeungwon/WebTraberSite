@@ -2,7 +2,7 @@ package com.acoda.vo;
 
 public class ProductVO {
 	
-	private MemberVO membervo;
+	
 	
 	private int item_number; //상품번호(P)
 	private String product_name; //상품이름
@@ -10,13 +10,20 @@ public class ProductVO {
 	private int price; //가격
 	private int head_count; //수용인원
 	private String sell_date; //등록일
+	public String getPic() {
+		return pic;
+	}
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
 	private String schedule; //상세일정
 	private String trip_date; //여행기간
 	private String note;//참고사항
-	private String id;
+	private String pic;//사진경로
+	private String id;//member에서 가져온 아이디
 	
 	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
-			String schedule, String trip_date, String note, String id) {
+			String schedule, String trip_date, String note, String id,String pic) {
 		super();
 		this.item_number = item_number;
 		this.product_name = product_name;
@@ -28,6 +35,7 @@ public class ProductVO {
 		this.trip_date = trip_date;
 		this.note = note;
 		this.id = id;
+		this.pic= pic;
 	}
 	//기본생성자
 	public ProductVO() {

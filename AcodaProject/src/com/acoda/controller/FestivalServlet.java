@@ -71,32 +71,30 @@ public class FestivalServlet {
 	}
 	//파인드
 	@RequestMapping(value = "/find.do", method = RequestMethod.GET)
-	public ModelAndView Festival_find(@RequestParam("find_number") String find_number, Model m) {
-		System.out.println("여기는 파인드" + find_number);
-		FestivalVO v = festivalBIZ.getFindFestival(find_number);
-		m.addAttribute("find", v);
-		
+	public ModelAndView Festival_find(@RequestParam("find_number") String f_number,Model m) {
+		System.out.println("여기는 파인드" + f_number);
+		FestivalVO v = festivalBIZ.getFindFestival(f_number);
+		m.addAttribute("find",v);	
 		InternalResourceView irv = new InternalResourceView("/input/update_festival.jsp");
-		ModelAndView mav=new ModelAndView(irv);
-		return mav;
+		return new ModelAndView(irv);
 	}
 	//업데이트
-	@RequestMapping(value="/update.do")
+	@RequestMapping(value="update.do",method=RequestMethod.GET)
 	public ModelAndView Festival_update(@ModelAttribute("festivalvo") FestivalVO vo) {
 		System.out.println("여기는 업데이트 서블릿");
 		
-		int f = festivalBIZ.getUpdateFestival(vo);
+	    int f = festivalBIZ.getUpdateFestival(vo);
 		InternalResourceView irv = new InternalResourceView("/festival/select.do");
-		
-		return new ModelAndView(irv) ;
+		ModelAndView mav=new ModelAndView(irv);
+		return mav;
 	}
+	
 	//검색
 	@RequestMapping(value="/search.do",method=RequestMethod.GET)
  public String search(HttpServletRequest request,Model m) {
 		String s=request.getParameter("searchkeyword");
-		List<FestivalVO> list= festivalBIZ.getsearch(s);
-		
-	 System.out.println("여기는 서치");
+		List<FestivalVO> list= festivalBIZ.getsearch(s);	
+	    System.out.println("여기는 서치");
 		
 		m.addAttribute("list",list);
 		

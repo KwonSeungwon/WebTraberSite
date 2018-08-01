@@ -22,7 +22,7 @@
 	<c:forEach var="pr" items="${requestScope.list}">
 			<tr>
 				<td><c:out value="${pr.item_number}"/></td>
-				<td><a href="#"><c:out value="${pr.product_name}"/></a></td>
+				<td><a href="click.do?click_number=${pr.item_number}"><c:out value="${pr.product_name}"/></a></td>
 				<td><c:out value="${pr.id}"/></td>
 				<td><c:out value="${pr.price}"/></td>
 				<td><c:out value="${pr.head_count }"/></td>
@@ -30,16 +30,33 @@
 			<%-- 	<td><c:out value="${pr.schedule}"/></td>
 				<td><c:out value="${pr.trip_date}"/></td> 
 				<td><c:out value="${pr.note}"/></td>  --%>
-				
+			<c:if test="${vo.id == pr.id || vo.rating==3}">
 				 <td> <a  href ="delete.do?del_number=${pr.item_number}">삭제  </a></td>
-               <%-- <td> <a  href ="find.do?find_number=${pr.f_number}">수정 </a></td> --%>
+			</c:if> 
+			<c:if test="${vo.id == pr.id }">
+             <td> <a  href ="find.do?find_number=${pr.item_number}">수정 </a></td> 
+			</c:if>
 			</tr>
 			</c:forEach>
 			</tbody>
 </table>
+<form action="search.do" method="get">
+<table border="1" cellpadding="0" cellspacing="0" width="600">
+<tr>
+<td align="center">
+<select name="searchCondition">
+<option value="title">제목 
 
+</select>
+<input name="searchkeyword" type="text" id="searchkeyword"/>
+<input type="submit" value="검색"/>
+</td>
+</tr>
+</table>
+</form>
+<c:if test="${vo.rating==2}">
 <a href="/AcodaProject/input/input_product.jsp">상품 등록</a>
-
+</c:if>
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
 
 </body>

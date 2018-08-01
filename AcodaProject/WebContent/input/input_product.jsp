@@ -19,9 +19,10 @@
 		수용인원 :<input type="text"name="head_count" /><br> 
 		등록일  :<input type="text" name="sell_date" /><br>
 		상세일정  :<input type="text" name="schedule" /><br> 
-		가이드 하는 날 :<input type="text" name="trip_date" /><br> 
+		가이드  날짜 :<input type="text" name="trip_date" /><br> 
 		참고사항  :<input type="text" name="note" /><br>  
 		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br> 
+		사진경로<input type="text" name="pic" /><br> 
 		<input type="submit" value="등록" /> 
 		<input type="reset" value="취소 " />
 	</form>

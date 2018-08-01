@@ -25,6 +25,15 @@ public class ProductBIZ {
 		return productDAO.getInsertProduct(vo);
 		
 	}
+	//검색
+	public List<ProductVO> getSearch_product(String name){
+		System.out.println("상품검색 비즈"+productDAO.getSearch_product(name).size());
+		return productDAO.getSearch_product(name);
+	}
+	//클릭
+	public List<ProductVO> getClickProduct(int number){
+		return productDAO.getClickProduct(number);
+	}
 	
 	public ProductVO getFindProduct(String name) {
 		return null;

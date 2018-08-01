@@ -2,6 +2,8 @@ package com.acoda.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceView;
 
+import com.acoda.biz.FestivalBIZ;
 import com.acoda.biz.ProductBIZ;
+import com.acoda.vo.FestivalVO;
 import com.acoda.vo.ProductVO;
 
 @Controller
@@ -40,6 +44,23 @@ public class ProductServlet {
 		
 		return m;
 	}
+	//클릭<대기할것.>
+	@RequestMapping(value="/click.do",method=RequestMethod.GET)
+	public ModelAndView Click_Product(@RequestParam("click_number") int number) {
+		List<ProductVO> pvo=productBIZ.getClickProduct(number);
+		ModelAndView m=new ModelAndView("product/click_product","pvo",pvo);
+		return m;	
+	}
+	//검색
+	@RequestMapping(value="/search.do",method=RequestMethod.GET)
+	public String search(HttpServletRequest req,Model m) {
+	System.out.println("상품 검색 컨드롤러");
+		String name=req.getParameter("searchkeyword");
+		List<ProductVO> pvo=productBIZ.getSearch_product(name);
+		m.addAttribute("pvo",pvo);
+		return "product/get_product_List";
+	}
+	
 	
 	public String Product_find() {
 		return null;
@@ -54,6 +75,7 @@ public class ProductServlet {
 		m=new ModelAndView("/product/list_product","list",list);
 		
 		return m;
+		
 		}else {
 			return null;
 		}

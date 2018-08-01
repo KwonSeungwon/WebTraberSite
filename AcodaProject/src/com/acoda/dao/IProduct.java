@@ -10,4 +10,6 @@ public interface IProduct {
 	String delete_product="delete from product where item_number=?  ";
 	
 	String click_product="select * from prodcut where item_number=?";
+	
+	String select_detail = "select * from product where item_number = ?";
 }

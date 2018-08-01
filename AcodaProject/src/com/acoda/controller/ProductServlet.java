@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceView;
 
 import com.acoda.biz.ProductBIZ;
+import com.acoda.vo.MemberVO;
 import com.acoda.vo.ProductVO;
 
 @Controller
@@ -29,7 +32,9 @@ public class ProductServlet {
 	
 	@Autowired
 	ProductBIZ productBIZ;
-
+	
+	
+	// 전체출력이지만 일부만 출력함.////////////////////////////////////////////////////////
 	@RequestMapping("/select.do")
 	public String Product_Select(Model m) {
 		
@@ -39,7 +44,7 @@ public class ProductServlet {
 	}
 	
 	
-	//실제 인서트
+	//실제 추가 /////////////////////////////////////////////////////////
 	@RequestMapping(value ="/insert.do",method=RequestMethod.POST)
 	public ModelAndView Product_Insert(@ModelAttribute ProductVO vo) throws IOException {
 
@@ -55,9 +60,26 @@ public class ProductServlet {
 		return m;
 	}
 	
-	public String Product_find() {
+	
+	@RequestMapping(value = "/productdetail.do",method=RequestMethod.POST)
+	public ModelAndView Product_deatail(HttpSession session) {
+		
+		MemberVO mvo = (MemberVO) session.getAttribute("login");
+		int item_num = mvo.getUser_number();// 조건을 주기위한 것임
+		
+		
+		productBIZ.getDetail(item_num);
+		
+		
 		return null;
 	}
+	
+	
+	
+	
+	
+	
+	// 상품삭제 ////////////////////////////////////////////////////////////////
 	@RequestMapping("/delete.do")
 	public ModelAndView Product_delete(@RequestParam("del_number")String name) {
 		int p=productBIZ.getDelProduct(name);
@@ -79,7 +101,7 @@ public class ProductServlet {
 	}
 	
 
-	//사진업로드 AJAX 
+	//사진업로드 AJAX //////////////////////////////////////
 	@RequestMapping(value = "/picup.do",method=RequestMethod.POST)
 	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile) throws Exception{
 		String result = "";

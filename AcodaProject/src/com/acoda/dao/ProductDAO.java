@@ -70,4 +70,26 @@ public class ProductDAO implements IProduct{
 		
 	}
 
+	public List<ProductVO> getDetailinfo(int item_num) {
+		List<ProductVO> list= jdbcTemplate.query(select_detail,new RowMapper<ProductVO>() {
+			@Override
+			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				ProductVO pvo=new ProductVO();
+				pvo.setItem_number(rs.getInt("item_number"));
+				pvo.setProduct_name(rs.getString("product_name"));
+				pvo.setId(rs.getString("id"));
+				pvo.setPrice(rs.getInt("price"));
+				pvo.setHead_count(rs.getInt("head_count"));
+				pvo.setSell_date(rs.getString("sell_date"));
+				pvo.setSchedule(rs.getString("schedule"));
+				pvo.setTrip_date(rs.getString("trip_date"));
+				pvo.setNote(rs.getString("note"));
+				pvo.setPic(rs.getString("pic"));
+				return pvo;
+			} 
+		});
+		return list;
+		
+	}
+
 }

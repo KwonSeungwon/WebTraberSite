@@ -22,17 +22,14 @@
 	<c:forEach var="pr" items="${requestScope.list}">
 			<tr>
 				<td><c:out value="${pr.item_number}"/></td>
-				<td><a href="#"><c:out value="${pr.product_name}"/></a></td>
+				<td><a href="click.do?click_number=pr.item_number"><c:out value="${pr.product_name}"/></a></td>
 				<td><c:out value="${pr.id}"/></td>
 				<td><c:out value="${pr.price}"/></td>
-				<td><c:out value="${pr.head_count }"/></td>
+				<td><c:out value="${pr.head_count}"/></td>
 				<td><c:out value="${pr.sell_date}"/></td>
-			<%-- 	<td><c:out value="${pr.schedule}"/></td>
-				<td><c:out value="${pr.trip_date}"/></td> 
-				<td><c:out value="${pr.note}"/></td>  --%>
-				
-				 <td> <a  href ="delete.do?del_number=${pr.item_number}">삭제  </a></td>
-               <%-- <td> <a  href ="find.do?find_number=${pr.f_number}">수정 </a></td> --%>
+					
+				<td> <a  href ="delete.do?del_number=${pr.item_number}">삭제  </a></td>
+                <td> <a  href ="find.do?find_number=${pr.item_number}">수정 </a></td> 
 			</tr>
 			</c:forEach>
 			</tbody>

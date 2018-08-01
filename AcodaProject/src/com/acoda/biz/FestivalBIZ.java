@@ -26,6 +26,11 @@ public class FestivalBIZ {
 		System.out.println(festivalDAO.getsearch(s).size());
 		return  festivalDAO.getsearch(s);
 	}
+	//click
+	public List<FestivalVO> getClickfestival(String name){
+	System.out.println("여기는 클릭 비즈 : "+name.toString());
+		return festivalDAO.getClickfestival(name);
+	}
 
 	 public int getInsertFestival(FestivalVO vo) {
 
@@ -45,18 +50,9 @@ public class FestivalBIZ {
 	}
 
 	public int getUpdateFestival(FestivalVO vo) {
+		System.out.println("여기는 업데이트 비즈"+festivalDAO.getUpdateFestival(vo));
 		
-		FestivalVO f=new FestivalVO();
-		f.setF_number(vo.getF_number());
-		f.setF_name(vo.getF_name());
-		f.setSeason(vo.getSeason());
-		f.setF_start_date(vo.getF_start_date());
-		f.setF_end_date(vo.getF_end_date());
-		f.setF_local(vo.getF_local());
-		f.setF_contents(vo.getF_contents());
-		f.setUser_number(vo.getUser_number());
-		
-		return festivalDAO.getUpdateFestival(f);
+		return festivalDAO.getUpdateFestival(vo);
 	}
 
 }

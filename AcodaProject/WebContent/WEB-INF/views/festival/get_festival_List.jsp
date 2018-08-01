@@ -1,7 +1,7 @@
 	<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
     <%@ page import="java.util.*,com.acoda.vo.*" %>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +20,7 @@
 	<c:forEach var="fe" items="${requestScope.list}">
 		<tr>
 			<td><c:out value=" ${fe.f_number}" /></td>
-			<td><c:out value=" ${fe.f_name}" /></td>
+			<td><a href="click.do?click_number=${fe.f_number}"><c:out value=" ${fe.f_name}" /></a></td>
 			<td><c:out value=" ${fe.season}" /></td>
 			<td><c:out value=" ${fe.f_start_date}" /></td>
 			<td><c:out value=" ${fe.f_end_date }" /></td>

@@ -45,7 +45,19 @@ public class FestivalVO {
 		this.user_number = user_number;
 	}
 
-
+	
+	//click
+	public FestivalVO(int f_number, String f_name, String season, String f_start_date, String f_end_date,
+			String f_local, String f_contents) {
+		super();
+		this.f_number = f_number;
+		this.f_name = f_name;
+		this.season = season;
+		this.f_start_date = f_start_date;
+		this.f_end_date = f_end_date;
+		this.f_local = f_local;
+		this.f_contents = f_contents;
+	}
 
 	public int getF_number() {
 		return f_number;

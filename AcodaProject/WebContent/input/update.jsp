@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/AcodaProject/festival/update.do" method="get">
+<form action="/AcodaProject/festival/update.do" method="post">
 수정하세요 <br><br><br>
      
     계절:<input type="text" name="season" value="${season}"/><br>

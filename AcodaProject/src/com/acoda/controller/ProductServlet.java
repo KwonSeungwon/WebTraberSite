@@ -60,21 +60,21 @@ public class ProductServlet {
 		
 		System.out.println("상품 추가 컨트롤러");
 		int p=productBIZ.getInsertProduct(vo);//sql문(insert)실행
-		
 	
-		
 		List<ProductVO>list=productBIZ.getAllProduct();//실행된 결과를 목록에 넣어서 보여줌.
 		ModelAndView m=new ModelAndView("/product/list_product","list",list);
 		
 		return m;
 	}
-	//클릭<대기할것.>
+
+	
+	/*	//클릭<대기할것.>
 	@RequestMapping(value="/click.do",method=RequestMethod.GET)
 	public ModelAndView Click_Product(@RequestParam("click_number") int number) {
 		List<ProductVO> pvo=productBIZ.getClickProduct(number);
 		ModelAndView m=new ModelAndView("product/click_product","pvo",pvo);
 		return m;	
-	}
+	}*/
 	//검색
 	@RequestMapping(value="/search.do",method=RequestMethod.GET)
 	public String search(HttpServletRequest req,Model m) {
@@ -95,10 +95,14 @@ public class ProductServlet {
 		ModelAndView mav = new ModelAndView();
 		ProductVO vo = new ProductVO();
 		vo = productBIZ.getDetail(item_num);
-		
 		System.out.println(vo.getPic());
+		String result = "";
+		String a = "../";
+		String sp = vo.getPic();
+		String[] change = sp.split("\\\\");
+		result = a+change[7]+"/"+change[8];
+		vo.setPic(result);
 		mav = new ModelAndView("/product/click_product","clist",vo);
-
 		return mav;
 	}
 	
@@ -154,7 +158,16 @@ public class ProductServlet {
 		return result;
 	}
 
-	
+	//신청서 페이지 이동
+	@RequestMapping(value="/click.do",method=RequestMethod.GET)
+	public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
+/*		int b=buyBIZ.getInsertBuy(vo);*/		
+		InternalResourceView irv = new InternalResourceView("/input/application_form.jsp");
+		ModelAndView m=new ModelAndView(irv,"b",item_number);
+		
+		return m;
+
+	}
 	
 	
 }

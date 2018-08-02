@@ -52,21 +52,21 @@ public class BuyServlet {
 		return mav;
 
 	}
-
-	/*@RequestMapping(value ="/insert.do", method=RequestMethod.GET)
+/*신청서 양식으로 이동은 productServlet에서 함
+	@RequestMapping(value ="/insert.do", method=RequestMethod.GET)
 	public String f_insert(@ModelAttribute FestivalVO vo) {
 		System.out.println("여기는 인서트 추가하는 곳");
 		int r = festivalBIZ.getInsertFestival(vo);
 		return "redirect:/festival/select.do";
-	}*/
+	}
 	@RequestMapping(value="/click.do",method=RequestMethod.POST)
 	public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
-/*		int b=buyBIZ.getInsertBuy(vo);*/		
+		int b=buyBIZ.getInsertBuy(vo);		
 		ModelAndView m=new ModelAndView("/product/application_form","b",item_number);
 		
 		return m;
 
-	}
+	}*/
 	
 
 	public String Buy_insertpage() {

@@ -22,11 +22,15 @@
 	<c:forEach var="pr" items="${requestScope.list}">
 			<tr>
 				<td><c:out value="${pr.item_number}"/></td>
+
 				<td><a href="click.do?click_number=${pr.item_number}"><c:out value="${pr.product_name}"/></a></td>
+
+				<td><a href="click.do?click_number=pr.item_number"><c:out value="${pr.product_name}"/></a></td>
+
 				<td><c:out value="${pr.id}"/></td>
 				<td><c:out value="${pr.price}"/></td>
-				<td><c:out value="${pr.head_count }"/></td>
-				<td><c:out value="${pr.sell_date}"/></td>
+				<td><c:out value="${pr.head_count}"/></td>
+
 			<%-- 	<td><c:out value="${pr.schedule}"/></td>
 				<td><c:out value="${pr.trip_date}"/></td> 
 				<td><c:out value="${pr.note}"/></td>  --%>
@@ -36,6 +40,7 @@
 			<c:if test="${vo.id == pr.id }">
              <td> <a  href ="find.do?find_number=${pr.item_number}">수정 </a></td> 
 			</c:if>
+
 			</tr>
 			</c:forEach>
 			</tbody>

@@ -1,20 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@page import = "java.util.Date"%>
+<%@page import = "java.text.SimpleDateFormat" %>
+        <%@ page import="java.util.*,com.acoda.vo.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3>½ÅÃ»¼­</h3>
-±¹Àû(nationallity):<input type="text" name="nationallity"/>
-»ç¿ë¾ğ¾î(language) :<input type ="text" name="language"/><br>
-ÀÎ¿ø¼ö(fellow_traveler):<input type="text" name="fellow_traveler"/><br>
-Æ¯ÀÌ»çÇ×(unusual):<input type="text" name="unusual"/><br>
+<% MemberVO vo = (MemberVO) session.getAttribute("login");%>
+<h3>ì‹ ì²­ì„œ<input type="hidden" name="application"/></h3>
+<form action="/AcodaProject/UserOdrer/product_buy">
 
-<!--  °¡ÀÌµå ÀÌ¸ŞÀÏ·Î º¸³¾¼ö ÀÖ°Ô,½ÅÃ»ÀÎÀÇ ÀÌ¸§,½ÅÃ»ÀÎÀÇ id,ÁÖ¹®³¯Â¥ controller¿¡¼­ ¼¼¼Ç Ã³¸®  -->
- 	   <input type="submit" value="½ÅÃ» "/>
-       <input type="reset" value="Ãë¼Ò "/>
+ìƒí’ˆë²ˆí˜¸:<a href="click.do?click_number=${pr.item_number}"></a><input type="text" readonly="readonly" name="item_number"/>
+êµ­ì :<input type="text" name="nationallity"/>
+ì‚¬ìš©ì–¸ì–´(language) :<input type ="text" name="language"/><br>
+ì¸ì›ìˆ˜(fellow_traveler):<input type="text" name="fellow_traveler"/><br>
+íŠ¹ì´ì‚¬í•­(unusual):<input type="text" name="unusual"/><br>
+
+<!--  ìƒí’ˆë²ˆí˜¸,íšŒì›ê³ ìœ ë²ˆí˜¸,ê°€ì´ë“œ ì´ë©”ì¼ë¡œ ë³´ë‚¼ìˆ˜ ìˆê²Œ,ì‹ ì²­ì¸ì˜ ì´ë¦„,ì‹ ì²­ì¸ì˜ id,ì£¼ë¬¸ë‚ ì§œ controllerì—ì„œ ì„¸ì…˜ ì²˜ë¦¬  -->
+ 	   <input type="submit" value="ì‹ ì²­ "/>
+       <input type="reset" value="ì·¨ì†Œ "/>
+</form>
 </body>
 </html>

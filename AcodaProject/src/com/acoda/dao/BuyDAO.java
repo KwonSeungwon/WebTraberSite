@@ -22,12 +22,11 @@ public class BuyDAO implements IBuy {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
-	
+
 	public List<BuyVO> getAllBuy(int unumber) {
-		
-		RowMapper<BuyVO> mapper=new RowMapper<BuyVO>() {
-		
+
+		RowMapper<BuyVO> mapper = new RowMapper<BuyVO>() {
+
 			@Override
 			public BuyVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				BuyVO vo = new BuyVO();
@@ -42,20 +41,27 @@ public class BuyDAO implements IBuy {
 				return vo;
 			}
 		};
-		return jdbcTemplate.query(select_buy, mapper, new Object[] {unumber});
+		return jdbcTemplate.query(select_buy, mapper, new Object[] { unumber });
 
 	}
 
 	public int getDelBuy(int itemnum) {
-		
-		int d_result = jdbcTemplate.update(delete_buy,itemnum);
-		
+
+		int d_result = jdbcTemplate.update(delete_buy, itemnum);
+
 		return d_result;
 
 	}
 
 	public int getInsertBuy(BuyVO vo) {
-		return 0;
+
+		int b = jdbcTemplate.update(insert_buy, new Object[] { vo.getOrder_number(), vo.getNationality(),
+				vo.getFellow_traveler(), vo.getLanguage(), vo.getUnusual() });
+		if (b > 0) {
+			return b;
+		} else {
+			return 0;
+		}
 
 	}
 

@@ -55,15 +55,14 @@ public class BuyDAO implements IBuy {
 
 	public int getInsertBuy(BuyVO vo) {
 
-		int b = jdbcTemplate.update(insert_buy, new Object[] { vo.getOrder_number(), vo.getNationality(),
-				vo.getFellow_traveler(), vo.getLanguage(), vo.getUnusual() });
+		int b = jdbcTemplate.update(insert_buy, new Object[] { vo.getOrder_number(),vo.getOrder_day(),vo.getNationality(),
+				vo.getFellow_traveler(), vo.getLanguage(), vo.getUnusual(),vo.getUser_number(),vo.getItem_number() });
 		if (b > 0) {
 			return b;
 		} else {
 			return 0;
+			}
 		}
-
-	}
 
 	public BuyVO getFindBuy(String fine_buy) {
 		return null;

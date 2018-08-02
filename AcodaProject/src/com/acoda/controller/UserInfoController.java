@@ -32,7 +32,7 @@ public class UserInfoController {
 
 	// 인서트 컨트롤러
 	@RequestMapping(value = "/abc.do", method = RequestMethod.POST)
-	public ModelAndView insert(@ModelAttribute("userInfo") MemberVO vo, HttpSession session,
+	public void insert(@ModelAttribute("userInfo") MemberVO vo, HttpSession session,
 			HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
 		System.out.println("컨트롤러 도착" + vo.getUser_number());
@@ -40,17 +40,22 @@ public class UserInfoController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String today = sdf.format(new Date());
 		vo.setJoindate(today);
-		ModelAndView mav = new ModelAndView();
 		if (vo.getRating() == 2) {
-			String result = infoBiz.insert(vo);
-			mav = new ModelAndView("UserView/InsertResult", "myresult", result);
+			infoBiz.insert(vo);
+			infoBiz.logincheck2(vo);
 			session.setAttribute("login", vo);
+			response.sendRedirect("index.jsp");
 		} else if (vo.getRating() == 1) {
-			String result2 = infoBiz.insertNomal(vo);
-			mav = new ModelAndView("UserView/InsertResult", "myresult", result2);
+			infoBiz.insertNomal(vo);
+			infoBiz.logincheck2(vo);
 			session.setAttribute("login", vo);
+			response.sendRedirect("index.jsp");
+		}else {
+			out.println("<script type='text/javascript'>");
+			out.println("alert('미입력된 항목이 있습니다.');");
+			out.println("history.back()");
+			out.println("</script>");
 		}
-		return mav;
 	}
 
 	// 유저리스트 컨트롤러
@@ -64,64 +69,87 @@ public class UserInfoController {
 
 	// 딜리트 컨트롤러
 	@RequestMapping(value = "deleteuser.do", method = RequestMethod.POST)
-	public ModelAndView delete(@ModelAttribute("userInfo") MemberVO vo, HttpServletResponse rep, HttpSession session)
+	public void delete(@ModelAttribute("userInfo") MemberVO vo, HttpServletResponse rep, HttpSession session)
 			throws IOException {
-		System.out.println("받은 아이디 :" + vo.getId() + vo.getPw());
-		ModelAndView mav = new ModelAndView();
-		if (infoBiz.logincheck(vo) == 0) {
-			mav = new ModelAndView("/UserView/DeleteUserResult", "myid", vo);
+		System.out.println("받은 아이디 & 비밀번호 :" + vo.getId() + vo.getPw());
+		if (infoBiz.logincheck(vo) > 0) {
 			infoBiz.delete(vo);
+			PrintWriter out = rep.getWriter();	
 			session.invalidate();
+			rep.sendRedirect("index.jsp");
 			System.out.println("삭제완료");
+
+			out.println("alert('UserInfo delete Complete!');");
+			out.println("</script>");
 
 		} else {
 			PrintWriter out = rep.getWriter();
+			System.out.println("삭제실패");
 			out.println("<script type='text/javascript'>");
 			out.println("alert('Please Check your ID&PW');");
 			out.println("history.back();");
 			out.println("</script>");
-			System.out.println("삭제실패");
 			out.flush();
 			out.close();
 
 		}
-		return mav;
-	}
-
-	@RequestMapping(value = "/idcheck.do", method = RequestMethod.GET)
-	public @ResponseBody  String Idcheck(@RequestParam String id,Model mv,HttpServletResponse response) throws IOException {
-		String result = "";
-		 if(infoBiz.checkId(id) == true) {
-			 result = "good";
-			 mv.addAttribute("login",result);
-			 return result;
-		 }else {
-			 result = "bad";
-			 mv.addAttribute("login",result);
-			 return result;
-
-		 }
 	}
 	
-
-	@RequestMapping(value = "/usercheck.do", method = RequestMethod.GET)
-	public @ResponseBody MemberVO UpdateUser(Model mv, HttpServletResponse response, HttpSession session)
+	@RequestMapping(value = "/idcheck.do", method = RequestMethod.GET)
+	public @ResponseBody String Idcheck(@RequestParam String id, Model mv, HttpServletResponse response)
 			throws IOException {
-		
-		
-		MemberVO vo = (MemberVO) session.getAttribute("login");
-		
-		if(vo.getRating() == 1 ||infoBiz.upadteusercheck(vo) != null) {
-			System.out.println("일반회원" + vo.getRating());			
-			mv.addAttribute("chec",vo);
-			
-		}else if(vo.getRating() == 2 || infoBiz.upadteusercheck(vo) != null) {
-			System.out.println("가이드" + vo.getRating());
-			mv.addAttribute("chec",vo);
-		}
-		
-		return vo;
+		String result = "";
+		if (infoBiz.checkId(id) == true) {
+			result = "good";
+			mv.addAttribute("login", result);
+			return result;
+		} else {
+			result = "bad";
+			mv.addAttribute("login", result);
+			return result;
 
+		}
+	}
+
+	@RequestMapping(value = "/changeGuideuser.do", method = RequestMethod.POST)
+	public void UpdateGuideUser(MemberVO vo, Model mv, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		if (infoBiz.UpdateGuide(vo) > 0) {
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('UserInfo Change Complete!');");
+			out.println("</script>");
+			vo = infoBiz.logincheck2(vo);
+			session.setAttribute("login",vo);
+			response.sendRedirect("index.jsp");
+		} else {
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('UserInfo Change reject!');");
+			out.println("</script>");
+			response.sendRedirect("index.jsp");
+		}
+
+	}
+
+	@RequestMapping(value = "/changeNomaluser.do", method = RequestMethod.POST)
+	public void UpdateNomalUser(MemberVO vo, Model mv, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		if (infoBiz.UpdateNomal(vo) > 0) {
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('UserInfo Change Complete!');");
+			out.println("</script>");
+			vo = infoBiz.logincheck2(vo);
+			session.setAttribute("login",vo);
+			response.sendRedirect("index.jsp");
+		} else {
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('UserInfo Change reject!');");
+			out.println("</script>");
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 }

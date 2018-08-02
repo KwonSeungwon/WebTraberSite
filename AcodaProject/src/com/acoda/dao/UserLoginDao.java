@@ -34,7 +34,7 @@ public class UserLoginDao {
 
 	public MemberVO LoginCheck2(MemberVO vo) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		return vo = sqlSession.selectOne("totalAcount",vo);
+		return vo = sqlSession.selectOne("LoginUserView",vo);
 	
 	}
 

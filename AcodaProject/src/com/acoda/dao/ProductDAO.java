@@ -50,6 +50,7 @@ public class ProductDAO implements IProduct {
 	// 상품추가
 	public int getInsertProduct(ProductVO vo) {
 		System.out.println("상품 추가 다오");
+
 		int p = jdbcTemplate.update(insert_product,
 				new Object[] { vo.getProduct_name(), vo.getUser_number(), vo.getPrice(), vo.getHead_count(),
 						vo.getSell_date(), vo.getSchedule(), vo.getTrip_date(), vo.getNote(),vo.getPic() });
@@ -59,7 +60,7 @@ public class ProductDAO implements IProduct {
 			return 0;
 		}
 	}
-
+		
 	// 클릭
 	public List<ProductVO> getClickProduct(int number) {
 		RowMapper<ProductVO> mapper = new RowMapper<ProductVO>() {

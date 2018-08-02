@@ -13,7 +13,7 @@
 인원수(fellow_traveler):<input type="text" name="fellow_traveler"/><br>
 특이사항(unusual):<input type="text" name="unusual"/><br>
 
-<!--  가이드 이메일로 보낼수 있게,주문날짜 controller에서 처리  -->
+<!--  가이드 이메일로 보낼수 있게,신청인의 이름,신청인의 id,주문날짜 controller에서 세션 처리  -->
  	   <input type="submit" value="신청 "/>
        <input type="reset" value="취소 "/>
 </body>

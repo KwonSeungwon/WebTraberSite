@@ -38,8 +38,7 @@
 				<th>참고사항</th><th><c:out value=" ${clist.note}"/></th>
 			</tr>
 			<tr>	
-				<th>가이드 이미지</th><th><img src="/4.png">
-"/></th>
+				<th>가이드 이미지</th><th><img src="${clist.pic}"></th>
 			</tr>
 </table>
   <a href="/AcodaProject/product/select.do">상품 게시목록</a>

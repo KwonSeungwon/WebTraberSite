@@ -51,9 +51,7 @@ public class ProductServlet {
 		
 		System.out.println("상품 추가 컨트롤러");
 		int p=productBIZ.getInsertProduct(vo);//sql문(insert)실행
-		
 	
-		
 		List<ProductVO>list=productBIZ.getAllProduct();//실행된 결과를 목록에 넣어서 보여줌.
 		ModelAndView m=new ModelAndView("/product/list_product","list",list);
 		
@@ -69,9 +67,16 @@ public class ProductServlet {
 		ModelAndView mav = new ModelAndView();
 		ProductVO vo = new ProductVO();
 		vo = productBIZ.getDetail(item_num);
-		
 		System.out.println(vo.getPic());
+		String result = "";
+		String a = "../";
+		String sp = vo.getPic();
+		String[] change = sp.split("\\\\");
+		result = a+change[7]+"/"+change[8];
+		vo.setPic(result);
 		mav = new ModelAndView("/product/click_product","clist",vo);
+		
+	
 
 		return mav;
 	}

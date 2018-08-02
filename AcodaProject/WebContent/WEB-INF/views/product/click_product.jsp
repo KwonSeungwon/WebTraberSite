@@ -10,32 +10,37 @@
 </head>
 <body>
 <table border="1">
-
 			<tr>
-				<th>상품번호</th><th><c:out value=" ${fe.item_number}"/></th>
+				<th>상품번호</th><th><c:out value=" ${clist.item_number}"/></th>
 			</tr>
 			<tr>
-				<th>상품이름</th><th><c:out value=" ${fe.product_name}"/></th>
+				<th>상품이름</th><th><c:out value=" ${clist.product_name}"/></th>
 			</tr>
 			<tr>	
-				<th>가격</th><th><c:out value=" ${fe.season}"/></th>
+				<th>가격</th><th><c:out value=" ${clist.user_number}"/></th>
 			</tr>	
 			<tr>	
-				<th>수용인원</th><th><c:out value=" ${fe.f_start_date}"/></th>
+				<th>수용인원</th><th><c:out value=" ${clist.price}"/></th>
 			</tr>	
 			<tr>	
-				<th>등록일</th><th><c:out value=" ${fe.f_end_date }"/></th>
+				<th>등록일</th><th><c:out value=" ${clist.head_count}"/></th>
 			</tr>
 			<tr>	
-				<th>상세일정</th><th><c:out value=" ${fe.f_local}"/></th>
+				<th>상세일정</th><th><c:out value=" ${clist.sell_date}"/></th>
 			</tr>
 			<tr>	
-				<th>가이드 날짜</th><th><c:out value=" ${fe.f_contents}"/></th>
+				<th>가이드 날짜</th><th><c:out value=" ${clist.schedule}"/></th>
 			</tr>
 			<tr>	
-				<th>참고사항</th><th><c:out value=" ${fe.f_contents}"/></th>
+				<th>참고사항</th><th><c:out value=" ${clist.trip_date}"/></th>
 			</tr>
-
+			<tr>	
+				<th>참고사항</th><th><c:out value=" ${clist.note}"/></th>
+			</tr>
+			<tr>	
+				<th>가이드 이미지</th><th><img src="/4.png">
+"/></th>
+			</tr>
 </table>
   <a href="/AcodaProject/product/select.do">상품 게시목록</a>
 <a href="/AcodaProject/index.jsp">메인페이지로</a>

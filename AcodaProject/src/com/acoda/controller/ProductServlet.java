@@ -61,17 +61,19 @@ public class ProductServlet {
 	}
 	
 	
-	@RequestMapping(value = "/productdetail.do",method=RequestMethod.POST)
-	public ModelAndView Product_deatail(HttpSession session) {
+	@RequestMapping(value = "/productdetail.do",method=RequestMethod.GET)
+	public ModelAndView Product_deatail(@RequestParam("item_number") int item_num) {
 		
-		MemberVO mvo = (MemberVO) session.getAttribute("login");
-		int item_num = mvo.getUser_number();// 조건을 주기위한 것임
+				
+
+		ModelAndView mav = new ModelAndView();
+		ProductVO vo = new ProductVO();
+		vo = productBIZ.getDetail(item_num);
 		
-		
-		productBIZ.getDetail(item_num);
-		
-		
-		return null;
+		System.out.println(vo.getPic());
+		mav = new ModelAndView("/product/click_product","clist",vo);
+
+		return mav;
 	}
 	
 	

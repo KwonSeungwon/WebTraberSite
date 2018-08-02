@@ -22,7 +22,7 @@
 	<c:forEach var="pr" items="${requestScope.list}">
 			<tr>
 				<td><c:out value="${pr.item_number}"/></td>
-				<td><a href="click.do?click_number=pr.item_number"><c:out value="${pr.product_name}"/></a></td>
+				<td><a href="productdetail.do?item_number=${pr.item_number}"><c:out value="${pr.product_name}"/></a></td>
 				<td><c:out value="${pr.id}"/></td>
 				<td><c:out value="${pr.price}"/></td>
 				<td><c:out value="${pr.head_count}"/></td>

@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
 
 
@@ -70,14 +71,14 @@ public class ProductDAO implements IProduct{
 		
 	}
 
-	public List<ProductVO> getDetailinfo(int item_num) {
-		List<ProductVO> list= jdbcTemplate.query(select_detail,new RowMapper<ProductVO>() {
+	public ProductVO getDetailinfo(int item_num) {
+		RowMapper<ProductVO> mapper=new RowMapper<ProductVO>() {
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO pvo=new ProductVO();
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
-				pvo.setId(rs.getString("id"));
+				pvo.setUser_number(rs.getInt("user_number"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setHead_count(rs.getInt("head_count"));
 				pvo.setSell_date(rs.getString("sell_date"));
@@ -87,8 +88,8 @@ public class ProductDAO implements IProduct{
 				pvo.setPic(rs.getString("pic"));
 				return pvo;
 			} 
-		});
-		return list;
+		};
+		return jdbcTemplate.queryForObject(select_detail, mapper,item_num);
 		
 	}
 

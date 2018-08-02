@@ -11,5 +11,5 @@ public interface IProduct {
 	
 	String click_product="select * from prodcut where item_number=?";
 	
-	String select_detail = "select * from product where item_number = ?";
+	String select_detail ="select * from product where item_number = ?";
 }

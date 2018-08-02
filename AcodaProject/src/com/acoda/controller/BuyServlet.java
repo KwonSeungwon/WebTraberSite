@@ -10,12 +10,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.acoda.biz.BuyBIZ;
 import com.acoda.vo.BuyVO;
+import com.acoda.vo.FestivalVO;
 import com.acoda.vo.MemberVO;
 import com.acoda.vo.Post_BoardVO;
 
@@ -49,11 +52,22 @@ public class BuyServlet {
 		return mav;
 
 	}
-
-	public String Buy_Insert(BuyVO vo) {
-		return null;
-
+/*신청서 양식으로 이동은 productServlet에서 함
+	@RequestMapping(value ="/insert.do", method=RequestMethod.GET)
+	public String f_insert(@ModelAttribute FestivalVO vo) {
+		System.out.println("여기는 인서트 추가하는 곳");
+		int r = festivalBIZ.getInsertFestival(vo);
+		return "redirect:/festival/select.do";
 	}
+	@RequestMapping(value="/click.do",method=RequestMethod.POST)
+	public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
+		int b=buyBIZ.getInsertBuy(vo);		
+		ModelAndView m=new ModelAndView("/product/application_form","b",item_number);
+		
+		return m;
+
+	}*/
+	
 
 	public String Buy_insertpage() {
 		return null;

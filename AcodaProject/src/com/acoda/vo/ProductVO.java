@@ -4,6 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductVO {
 
+
+
 	private MemberVO membervo;
 
 	private int item_number; // 상품번호(P)
@@ -27,7 +29,7 @@ public class ProductVO {
 	}
 
 	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
-			String schedule, String trip_date, String note, String id) {
+			String schedule, String trip_date, String note, String id,String pic) {
 		super();
 		this.item_number = item_number;
 		this.product_name = product_name;
@@ -39,6 +41,7 @@ public class ProductVO {
 		this.trip_date = trip_date;
 		this.note = note;
 		this.id = id;
+		this.pic= pic;
 	}
 
 	// 기본생성자

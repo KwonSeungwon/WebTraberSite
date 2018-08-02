@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceView;
 
+import com.acoda.biz.FestivalBIZ;
 import com.acoda.biz.ProductBIZ;
+
+import com.acoda.vo.FestivalVO;
+
 import com.acoda.vo.MemberVO;
+
 import com.acoda.vo.ProductVO;
 
 @Controller
@@ -55,10 +62,28 @@ public class ProductServlet {
 		return m;
 	}
 
+	/*
+	 * //클릭<대기할것.>
+	 * 
+	 * @RequestMapping(value="/click.do",method=RequestMethod.GET) public
+	 * ModelAndView Click_Product(@RequestParam("click_number") int number) {
+	 * List<ProductVO> pvo=productBIZ.getClickProduct(number); ModelAndView m=new
+	 * ModelAndView("product/click_product","pvo",pvo); return m; }
+	 */
+	// 검색
 	// 상품 디테일 /////////////////////////////////////////////////////////
+
+	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
+	public String search(HttpServletRequest req, Model m) {
+		System.out.println("상품 검색 컨드롤러");
+		String name = req.getParameter("searchkeyword");
+		List<ProductVO> pvo = productBIZ.getSearch_product(name);
+		m.addAttribute("pvo", pvo);
+		return "product/get_product_List";
+	}
+
 	@RequestMapping(value = "/productdetail.do", method = RequestMethod.GET)
 	public ModelAndView Product_deatail(@RequestParam("item_number") int item_num) {
-
 
 		ModelAndView mav = new ModelAndView();
 		ProductVO vo = new ProductVO();
@@ -71,12 +96,10 @@ public class ProductServlet {
 		result = a + change[7] + "/" + change[8];
 		vo.setPic(result);
 		mav = new ModelAndView("/product/click_product", "clist", vo);
-
 		return mav;
 	}
 
 	// 상품삭제 ////////////////////////////////////////////////////////////////
-	@RequestMapping("/delete.do")
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
 		ModelAndView m = new ModelAndView();
@@ -86,6 +109,7 @@ public class ProductServlet {
 			m = new ModelAndView("/product/list_product", "list", list);
 
 			return m;
+
 		} else {
 			return null;
 		}
@@ -118,6 +142,17 @@ public class ProductServlet {
 		}
 		result = path + f_realname;
 		return result;
+
+	}
+
+	// 신청서 페이지 이동
+	@RequestMapping(value = "/click.do", method = RequestMethod.GET)
+	public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
+		/* int b=buyBIZ.getInsertBuy(vo); */
+		InternalResourceView irv = new InternalResourceView("/input/application_form.jsp");
+		ModelAndView m = new ModelAndView(irv, "b", item_number);
+
+		return m;
 
 	}
 

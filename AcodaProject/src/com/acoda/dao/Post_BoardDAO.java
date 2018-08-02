@@ -104,7 +104,8 @@ public class Post_BoardDAO implements IPost_Board {
 	}
 	
 	public int getUpdatePost_Board(Post_BoardVO vo) {
-		return jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
+return 
+	jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
 		
 	}
 	

@@ -15,7 +15,7 @@ public class BuyBIZ {
 	BuyDAO buyDAO;
 	
 	public int getInsertBuy(BuyVO vo) {
-		return 0;
+		return buyDAO.getInsertBuy(vo);
 		
 	}
 	

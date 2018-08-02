@@ -31,7 +31,7 @@
 	<%=vo.getId() + "님 환영합니다!"%>
 	<%
 		} else if(session.getAttribute("login") == null) {
-		%>
+	%>
 	<input type="button" value="로그인"
 		onclick="location.href ='input/login_form.jsp'">
 	<input type="button" value="회원가입"
@@ -39,6 +39,7 @@
 
 	<%
 		}
+		
 	%>
 
 	<h2>게시판기능</h2>

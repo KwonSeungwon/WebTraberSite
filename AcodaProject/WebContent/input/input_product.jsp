@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@page import="com.acoda.vo.MemberVO"%>
 <%@page import = "java.util.Date"%>
 <%@page import = "java.text.SimpleDateFormat" %>
@@ -13,31 +13,33 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$(".pbtn").click(function() {	
-		var F_Data = new FormData($("#fileupform")[0]);		
-		$.ajax({ 
-			url:'/AcodaProject/product/picup.do',
-			data: F_Data, 
-			processData: false, 
-			contentType: false,
-			type : 'POST',
-			datatype : "text",
-			success: function(result){
-				alert("업로드 완료");
-				$('.location').val(result);
+   $(".pbtn").click(function() {   
+      var F_Data = new FormData($("#fileupform")[0]);      
+      $.ajax({ 
+         url:'/AcodaProject/product/picup.do',
+         data: F_Data, 
+         processData: false, 
+         contentType: false,
+         type : 'POST',
+         datatype : "text",
+         success: function(result){
+            alert("업로드 완료");
+            $('.location').val(result);
 
-				}
-			});
-		});
-	});	
+            }
+         });
+      });
+   });   
 </script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#rbtn").submit(function() {	
-		
-		
-		
-		
+	$(".rbtn").submit(function() {	
+		var name = $('.pn').val();
+		if(name == ""){
+			alert("미작성 항목이 있습니다.");
+			history.back();
+		} 
+
 	});
 });
 
@@ -54,7 +56,7 @@ $(document).ready(function() {
 	%>
 	<form action="/AcodaProject/product/insert.do" method="post" enctype="multipart/form-data" id = "fileupform">
 	<!-- 	 상품번호 <input type="text" name="item_number"/><br>  -->
-		상품이름 :<input type="text" name="product_name" /><br> 
+		상품이름 :<input type="text" name="product_name" class = "pn" /><br> 
 		가격  :<input type="text" name="price"/><br> 
 		수용인원 :<input type="text"name="head_count" /><br> 
 		상세일정  :<input type="text" name="schedule" /><br>
@@ -67,7 +69,7 @@ $(document).ready(function() {
 		<input type = "hidden" name ="pic" class = "location">
 		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>
 		
-		<input type="submit" value="등록" id = "rbtn" /> 
+		<input type="submit" value="등록" class = "rbtn" /> 
 		<input type="reset" value="취소 " />
 	</form>
 	<a href="/AcodaProject/product/select.do">상품 목록</a>

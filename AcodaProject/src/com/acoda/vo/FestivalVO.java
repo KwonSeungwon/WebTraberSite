@@ -2,7 +2,7 @@ package com.acoda.vo;
 
 public class FestivalVO {
 	
-	private MemberVO membervo;
+	
 	
 	private int f_number;
 	private String f_name;
@@ -44,8 +44,13 @@ public class FestivalVO {
 		this.f_contents = f_contents;
 		this.user_number = user_number;
 	}
+	
 
 	
+
+	//update
+
+
 	//click
 	public FestivalVO(int f_number, String f_name, String season, String f_start_date, String f_end_date,
 			String f_local, String f_contents) {

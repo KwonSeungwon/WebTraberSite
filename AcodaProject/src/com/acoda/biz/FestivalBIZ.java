@@ -37,11 +37,6 @@ public class FestivalBIZ {
 	      return festivalDAO.getInsertFestival(vo);
 	   }
 
-	public FestivalVO getFindFestival(String name) {
-		System.out.println("여기는 파인드 비즈"+name);
-		return festivalDAO.getFindFestival(name);
-
-	}
 
 	public int getDelFestival(String del_name) {
 		
@@ -51,8 +46,14 @@ public class FestivalBIZ {
 
 	public int getUpdateFestival(FestivalVO vo) {
 		System.out.println("여기는 업데이트 비즈"+festivalDAO.getUpdateFestival(vo));
+
 		
 		return festivalDAO.getUpdateFestival(vo);
 	}
 
+	public FestivalVO getFindFestival(String f_number) {
+		System.out.println("여기는 파인드 비즈"+f_number);
+		return festivalDAO.getFindFestival(f_number);
+
+	}
 }

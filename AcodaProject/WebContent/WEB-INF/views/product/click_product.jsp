@@ -40,8 +40,12 @@
 			<tr>	
 				<th>가이드 이미지</th><th><img src="${clist.pic}"></th>
 			</tr>
+
 </table>
-  <a href="/AcodaProject/product/select.do">상품 게시목록</a>
-<a href="/AcodaProject/index.jsp">메인페이지로</a>
+		
+ 	<a href="/AcodaProject/product/select.do">상품 게시목록</a>
+	<a href="click.do?click_number=${clist.item_number}">구매 신청</a> 
+	
+	<a href="/AcodaProject/index.jsp">메인페이지로</a>
 </body>
 </html>

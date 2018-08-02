@@ -31,6 +31,19 @@ $(document).ready(function() {
 		});
 	});	
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#rbtn").submit(function() {	
+		
+		
+		
+		
+	});
+});
+
+
+
+</script>
 </head>
 <body>
 	<h2>여기는 가이드가 상품을 등록하는 페이지 입니다.</h2>
@@ -45,14 +58,16 @@ $(document).ready(function() {
 		가격  :<input type="text" name="price"/><br> 
 		수용인원 :<input type="text"name="head_count" /><br> 
 		상세일정  :<input type="text" name="schedule" /><br>
-		등록날짜 : <input type="text" name ="sell_date" value = <%=today%>><br> 
 		일정 :<input type="date" name="trip_date" /> <input type="date" name="trip_date"/><br> 
 		참고사항  :<input type="text" name="note" /><br>
 		가이드사진 : <input type = "file" id = "picbu" name = "fileup">
 		<input type = "button" value = "업로드하기" class = "pbtn"><br>
-		<input type = "text" name ="pic" class = "location">
+		
+		<input type="hidden" name ="sell_date" value = <%=today%>><br> 
+		<input type = "hidden" name ="pic" class = "location">
 		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>
-		<input type="submit" value="등록" /> 
+		
+		<input type="submit" value="등록" id = "rbtn" /> 
 		<input type="reset" value="취소 " />
 	</form>
 	<a href="/AcodaProject/product/select.do">상품 목록</a>

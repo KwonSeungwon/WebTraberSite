@@ -78,7 +78,7 @@ public class ProductDAO implements IProduct{
 				ProductVO pvo=new ProductVO();
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
-				pvo.setUser_number(rs.getInt("user_number"));
+				pvo.setId(rs.getString("id"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setHead_count(rs.getInt("head_count"));
 				pvo.setSell_date(rs.getString("sell_date"));

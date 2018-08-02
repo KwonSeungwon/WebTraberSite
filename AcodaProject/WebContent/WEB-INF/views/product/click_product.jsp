@@ -17,22 +17,22 @@
 				<th>상품이름</th><th><c:out value=" ${clist.product_name}"/></th>
 			</tr>
 			<tr>	
-				<th>가격</th><th><c:out value=" ${clist.user_number}"/></th>
+				<th>유저id</th><th><c:out value=" ${clist.id}"/></th>
 			</tr>	
 			<tr>	
-				<th>수용인원</th><th><c:out value=" ${clist.price}"/></th>
+				<th>가격</th><th><c:out value=" ${clist.price}"/></th>
 			</tr>	
 			<tr>	
-				<th>등록일</th><th><c:out value=" ${clist.head_count}"/></th>
+				<th>수용인원</th><th><c:out value=" ${clist.head_count}"/></th>
 			</tr>
 			<tr>	
-				<th>상세일정</th><th><c:out value=" ${clist.sell_date}"/></th>
+				<th>등록일</th><th><c:out value=" ${clist.sell_date}"/></th>
 			</tr>
 			<tr>	
-				<th>가이드 날짜</th><th><c:out value=" ${clist.schedule}"/></th>
+				<th>상세일정</th><th><c:out value=" ${clist.schedule}"/></th>
 			</tr>
 			<tr>	
-				<th>참고사항</th><th><c:out value=" ${clist.trip_date}"/></th>
+				<th>여행날짜</th><th><c:out value=" ${clist.trip_date}"/></th>
 			</tr>
 			<tr>	
 				<th>참고사항</th><th><c:out value=" ${clist.note}"/></th>

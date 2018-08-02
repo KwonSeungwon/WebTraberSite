@@ -59,10 +59,10 @@ public class BuyServlet {
 		int r = festivalBIZ.getInsertFestival(vo);
 		return "redirect:/festival/select.do";
 	}*/
-	@RequestMapping(value="",method=RequestMethod.POST)
-	public ModelAndView Buy_Insert(@RequestParam("click.do") String item_number) {
+	@RequestMapping(value="/click.do",method=RequestMethod.POST)
+	public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
 /*		int b=buyBIZ.getInsertBuy(vo);*/		
-		ModelAndView m=new ModelAndView("/product/product_buy","b",item_number);
+		ModelAndView m=new ModelAndView("/product/application_form","b",item_number);
 		
 		return m;
 

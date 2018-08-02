@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+
 import com.acoda.vo.FestivalVO;
+import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
 
 @Repository
@@ -53,14 +55,14 @@ public class ProductDAO implements IProduct {
 
 		int p = jdbcTemplate.update(insert_product,
 				new Object[] { vo.getProduct_name(), vo.getUser_number(), vo.getPrice(), vo.getHead_count(),
-						vo.getSell_date(), vo.getSchedule(), vo.getTrip_date(), vo.getNote(),vo.getPic() });
+						vo.getSell_date(), vo.getSchedule(), vo.getTrip_date(), vo.getNote(), vo.getPic() });
 		if (p > 0) {
 			return p;
 		} else {
 			return 0;
 		}
 	}
-		
+
 	// 클릭
 	public List<ProductVO> getClickProduct(int number) {
 		RowMapper<ProductVO> mapper = new RowMapper<ProductVO>() {
@@ -85,13 +87,13 @@ public class ProductDAO implements IProduct {
 
 	// 검색
 	public List<ProductVO> getSearch_product(String name) {
-		System.out.println("상품검색 다오"+name.toString());
+		System.out.println("상품검색 다오" + name.toString());
 		RowMapper<ProductVO> mapper = new RowMapper<ProductVO>() {
 
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO pvo = new ProductVO();
-				
+
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
 				pvo.setPrice(rs.getInt("price"));
@@ -102,7 +104,7 @@ public class ProductDAO implements IProduct {
 				return pvo;
 			}
 		};
-		return jdbcTemplate.query(search_product, mapper, new Object[]{ name });
+		return jdbcTemplate.query(search_product, mapper, new Object[] { name });
 	}
 
 	public ProductVO getFindProduct(String find_product) {
@@ -115,14 +117,15 @@ public class ProductDAO implements IProduct {
 
 	}
 
-	public List<ProductVO> getDetailinfo(int item_num){
-		List<ProductVO> list= jdbcTemplate.query(select_detail,new RowMapper<ProductVO>() {
+	public ProductVO getDetailinfo(int item_num) {
+		RowMapper<ProductVO> mapper=new RowMapper<ProductVO>() {
+
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO pvo=new ProductVO();
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
-				pvo.setId(rs.getString("id"));
+				pvo.setUser_number(rs.getInt("user_number"));
 				pvo.setPrice(rs.getInt("price"));
 				pvo.setHead_count(rs.getInt("head_count"));
 				pvo.setSell_date(rs.getString("sell_date"));
@@ -132,9 +135,8 @@ public class ProductDAO implements IProduct {
 				pvo.setPic(rs.getString("pic"));
 				return pvo;
 			} 
-		});
-		return list;
+		};
+		return jdbcTemplate.queryForObject(select_detail, mapper,item_num);
 		
 	}
-
-}
+		}

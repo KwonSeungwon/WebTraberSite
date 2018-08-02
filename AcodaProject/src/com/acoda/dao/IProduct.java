@@ -22,6 +22,9 @@ public interface IProduct {
 
 	
 	
+
 	String select_detail = "select * from product where item_number = ?";
+
+
 
 }

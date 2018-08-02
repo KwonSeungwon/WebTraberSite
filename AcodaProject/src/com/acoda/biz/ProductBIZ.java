@@ -50,7 +50,7 @@ public class ProductBIZ {
 		return 0;
 	}
 
-	public List<ProductVO> getDetail(int item_num) {
+	public ProductVO getDetail(int item_num) {
 
 		return productDAO.getDetailinfo(item_num);
 	}

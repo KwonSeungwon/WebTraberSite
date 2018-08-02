@@ -25,8 +25,6 @@
 
 				<td><a href="click.do?click_number=${pr.item_number}"><c:out value="${pr.product_name}"/></a></td>
 
-				<td><a href="click.do?click_number=pr.item_number"><c:out value="${pr.product_name}"/></a></td>
-
 				<td><c:out value="${pr.id}"/></td>
 				<td><c:out value="${pr.price}"/></td>
 				<td><c:out value="${pr.head_count}"/></td>
@@ -40,7 +38,7 @@
 			<c:if test="${vo.id == pr.id }">
              <td> <a  href ="find.do?find_number=${pr.item_number}">수정 </a></td> 
 			</c:if>
-
+			 <td> <a  href ="">신청서 확인 </a></td> 
 			</tr>
 			</c:forEach>
 			</tbody>

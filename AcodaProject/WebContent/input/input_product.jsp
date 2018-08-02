@@ -31,31 +31,48 @@ $(document).ready(function() {
       });
    });   
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".rbtn").submit(function() {	
+		var name = $('.pn').val();
+		if(name == ""){
+			alert("미작성 항목이 있습니다.");
+			history.back();
+		} 
+
+	});
+});
+
+
+
+</script>
 </head>
 <body>
-   <h2>여기는 가이드가 상품을 등록하는 페이지 입니다.</h2>
-   <%
-      MemberVO vo = (MemberVO) session.getAttribute("login");
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-      String today = sdf.format(new Date());
-   %>
-   <form action="/AcodaProject/product/insert.do" method="post" enctype="multipart/form-data" id = "fileupform">
-   <!--     상품번호 <input type="text" name="item_number"/><br>  -->
-      상품이름 :<input type="text" name="product_name" /><br> 
-      가격  :<input type="text" name="price"/><br> 
-      수용인원 :<input type="text"name="head_count" /><br> 
-      상세일정  :<input type="text" name="schedule" /><br>
-      등록날짜 : <input type="text" name ="sell_date" value = <%=today%>><br> 
-      일정 :<input type="date" name="trip_date" /> <input type="date" name="trip_date"/><br> 
-      참고사항  :<input type="text" name="note" /><br>
-      가이드사진 : <input type = "file" id = "picbu" name = "fileup">
-      <input type = "button" value = "업로드하기" class = "pbtn"><br>
-      <input type = "text" name ="pic" class = "location">
-      <input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>
-      <input type="submit" value="등록" /> 
-      <input type="reset" value="취소 " />
-   </form>
-   <a href="/AcodaProject/product/select.do">상품 목록</a>
-   <a href="/AcodaProject/index.jsp">홈으로</a>
+	<h2>여기는 가이드가 상품을 등록하는 페이지 입니다.</h2>
+	<%
+		MemberVO vo = (MemberVO) session.getAttribute("login");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String today = sdf.format(new Date());
+	%>
+	<form action="/AcodaProject/product/insert.do" method="post" enctype="multipart/form-data" id = "fileupform">
+	<!-- 	 상품번호 <input type="text" name="item_number"/><br>  -->
+		상품이름 :<input type="text" name="product_name" class = "pn" /><br> 
+		가격  :<input type="text" name="price"/><br> 
+		수용인원 :<input type="text"name="head_count" /><br> 
+		상세일정  :<input type="text" name="schedule" /><br>
+		일정 :<input type="date" name="trip_date" /> <input type="date" name="trip_date"/><br> 
+		참고사항  :<input type="text" name="note" /><br>
+		가이드사진 : <input type = "file" id = "picbu" name = "fileup">
+		<input type = "button" value = "업로드하기" class = "pbtn"><br>
+		
+		<input type="hidden" name ="sell_date" value = <%=today%>><br> 
+		<input type = "hidden" name ="pic" class = "location">
+		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>
+		
+		<input type="submit" value="등록" class = "rbtn" /> 
+		<input type="reset" value="취소 " />
+	</form>
+	<a href="/AcodaProject/product/select.do">상품 목록</a>
+	<a href="/AcodaProject/index.jsp">홈으로</a>
 </body>
 </html>

@@ -69,10 +69,13 @@ $(document).ready(function() {
 		var email = $('.testemail').val();
 		var job = $('.jo').val();
 		var birth = $('.bir').val();
-		var rating = $('#rating').val();
-		if(name == "" && sex == "" && id == "" && pw == "" && phone == "" && email == "" && job == "" && birth == "" && val == null){
-			alert("미작성된 항목이 있습니다!")
-			history.go();
+		var rating = $('.ra').val();
+		if(name=="" || sex=="" || id=="" || pw=="" || phone=="" || email=="" || job=="" || birth=="" || rating==""){
+			alert("미작성된 항목이 있습니다!");
+			return false;
+		}else{
+			alert("회원가입을 축하합니다!");
+			return true;
 		}
 		
  	}); 
@@ -89,8 +92,8 @@ $(function() { $("#abutton").postcodifyPopUp();
 	<h3>회원가입</h3> 
 	<form action="/AcodaProject/abc.do" method="POST" id = "infrom">
 	가입유형 : 
-	<input type = "radio" name = "rating" id = "nomal" value = "1" onclick ="this.form.place.disabled=true ; this.form.profile.disabled=true">일반회원 
-	<input type = "radio" name = "rating" id = "guide" value = "2" onclick ="this.form.place.disabled=false ; this.form.profile.disabled=false">가이드회원<br> 
+	<input type = "radio" name = "rating"  class = "ra" id = "nomal" value = "1" onclick ="this.form.place.disabled=true ; this.form.profile.disabled=true">일반회원 
+	<input type = "radio" name = "rating" class = "ra" id = "guide" value = "2" onclick ="this.form.place.disabled=false ; this.form.profile.disabled=false">가이드회원<br> 
 	이름 : <input type="text" name="name" class = "na"><br>
 	성별 : <input type="text" name="sex" class = "se"><br>
 	아이디 : <input type="text" name="id" class = "idtest"/> 

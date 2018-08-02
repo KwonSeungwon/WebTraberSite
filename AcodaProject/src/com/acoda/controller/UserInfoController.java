@@ -52,7 +52,6 @@ public class UserInfoController {
 			response.sendRedirect("index.jsp");
 		}else {
 			out.println("<script type='text/javascript'>");
-			out.println("alert('미입력된 항목이 있습니다.');");
 			out.println("history.back()");
 			out.println("</script>");
 		}

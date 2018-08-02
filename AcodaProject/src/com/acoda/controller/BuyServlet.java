@@ -23,6 +23,7 @@ import com.acoda.vo.MemberVO;
 import com.acoda.vo.Post_BoardVO;
 
 @Controller
+@RequestMapping("/buy")
 public class BuyServlet {
 
 	@Autowired
@@ -67,7 +68,14 @@ public class BuyServlet {
 		return m;
 
 	}*/
+	//신청서에서 들어오는 데이터 저장
+	@RequestMapping(value="insert.do",method=RequestMethod.POST)
+	public ModelAndView Buy_Insert(@RequestParam("a") int a ,BuyVO vo) {
+		int b=buyBIZ.getInsertBuy(vo);
 	
+		return new ModelAndView("/product/select.do","b",b);
+
+	}
 
 	public String Buy_insertpage() {
 		return null;

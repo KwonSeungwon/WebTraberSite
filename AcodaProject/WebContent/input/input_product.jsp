@@ -33,18 +33,6 @@ $(document).ready(function() {
 </script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$(".rbtn").submit(function() {	
-		var name = $('.pn').val();
-		if(name == ""){
-			alert("미작성 항목이 있습니다.");
-			history.back();
-		} 
-
-	});
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
  	$("#fileupform").submit(function() {
 		var pname = $('.pn').val();
 		var price = $('.pr').val();

@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.acoda.dao.BuyDAO;
 import com.acoda.dao.FestivalDAO;
+import com.acoda.vo.BuyVO;
 import com.acoda.vo.FestivalVO;
 
 @Service
@@ -13,6 +15,8 @@ public class FestivalBIZ {
 
 	@Autowired
 	FestivalDAO festivalDAO;
+	@Autowired
+	BuyDAO buyDAO;
 
 	public List<FestivalVO> getAllFestival() {
 		System.out.println("여긴 비즈");
@@ -56,4 +60,5 @@ public class FestivalBIZ {
 		return festivalDAO.getFindFestival(f_number);
 
 	}
+
 }

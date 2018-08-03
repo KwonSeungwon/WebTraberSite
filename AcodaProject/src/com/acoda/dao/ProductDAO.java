@@ -10,8 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 
-import com.acoda.vo.FestivalVO;
-import com.acoda.vo.BuyVO;
+
 import com.acoda.vo.ProductVO;
 
 @Repository
@@ -43,8 +42,8 @@ public class ProductDAO implements IProduct {
 
 	}
 
-	public int getDelProduct(String del_name) {
-		int p = jdbcTemplate.update(delete_product, del_name);
+	public int getDelProduct(String name) {
+		int p = jdbcTemplate.update(delete_product, name);
 		return p;
 
 	}
@@ -139,4 +138,7 @@ public class ProductDAO implements IProduct {
 		return jdbcTemplate.queryForObject(select_detail, mapper,item_num);
 		
 	}
+	
+	
+	
 		}

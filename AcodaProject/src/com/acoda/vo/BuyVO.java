@@ -13,6 +13,35 @@ public class BuyVO {
 	private int fellow_traveler;
 	private String language;
 	private String unusual;
+	private String id;
+	
+	
+	public BuyVO() {
+		super();
+	}
+
+	//»ý¼ºÀÚ
+	public BuyVO(int item_number, int user_number, int order_number, String order_day, String nationality,
+			int fellow_traveler, String language, String unusual, String id) {
+		super();
+		this.item_number = item_number;
+		this.user_number = user_number;
+		this.order_number = order_number;
+		this.order_day = order_day;
+		this.nationality = nationality;
+		this.fellow_traveler = fellow_traveler;
+		this.language = language;
+		this.unusual = unusual;
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public int getItem_number() {
 		return item_number;

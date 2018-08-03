@@ -38,6 +38,11 @@ public class BuyBIZ {
 		return buyDAO.getDelBuy(itemnum);
 
 	}
-	
+	//신청서 목록 보여주는 비즈
+	public List<BuyVO> getApllication_list(int a){
+		return  buyDAO.getApllication_list(a);
+		
+	}
+
 
 }

@@ -32,8 +32,6 @@ public class BuyServlet {
 	// 주문 상품 조회
 	@RequestMapping("/UserOrderList.do")
 	public ModelAndView Buy_Select(HttpSession session, HttpServletResponse response) throws IOException { // 컨트롤러 매개변수는
-																											// 뷰단에서 변수를
-																											// 받아와야함.
 
 		MemberVO mvo = (MemberVO) session.getAttribute("login");
 		int unumber = mvo.getUser_number();
@@ -41,7 +39,7 @@ public class BuyServlet {
 
 		if (unumber > 0) {
 			List<BuyVO> all = buyBIZ.BuyAllSelectBiz(unumber);
-			mav = new ModelAndView("/UserOdrer/UserOrderList", "BuyList", all);
+			mav = new ModelAndView("/UserOrder/UserOrderList", "BuyList", all);
 
 		} else {
 			PrintWriter out = response.getWriter();

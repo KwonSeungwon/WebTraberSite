@@ -9,7 +9,10 @@ public interface IProduct {
 			+ "values(product_seq.nextval,?,?,?,?,?,?,?,?,?)";
 
 	String find_product = "";
-	String update_product = "";
+	String update_product = "update product set PRODUCT_NAME = ?, USER_NUMBER = ?, PRICE = ?, HEAD_COUNT = ?, SELL_DATE = ?, SCHEDULE = ?, TRIP_DATE = ?, NOTE = ?, PIC = ? "
+			+ "where item_number = ? ";
+	
+	String productupdateinfo = "select * from product where item_number=?";
 	String delete_product = "delete from product where item_number=?  ";
 
 	String click_product = "select * from product where item_number=?";

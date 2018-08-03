@@ -44,17 +44,14 @@
 
 	<h2>게시판기능</h2>
 	<br><br>
-	<a href="/AcodaProject/post_board/select.do">전체게시판글보기</a>
     <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
-	<a href="/AcodaProject/post_board/select.do">게시판</a>
 
 	<a href="/AcodaProject/product/select.do">상품게시</a>
-	<a href="/AcodaProject/post_board/select.do">게시판</a>
 	<a href="/AcodaProject/post_board/select_user.do">유저게시판</a><br>
 	<a href="/AcodaProject/post_board/select_hugi.do">후기게시판</a>
 	
 	
-	<a href="/AcodaProject/UserOrderList.do">주문상품보기</a>
+	<a href="/AcodaProject/buy/UserOrderList.do">주문상품보기</a>
 	
 	
 </body>

@@ -26,8 +26,9 @@ public class UserloginController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public void loginCheck(Locale locale, Model model, MemberVO vo, HttpSession session, HttpServletResponse response)
 			throws IOException {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-
 		if(userBiz.logincheck(vo) != 0){
 			vo = userBiz.logincheck2(vo);
 			System.out.println("true");
@@ -38,9 +39,8 @@ public class UserloginController {
 			out.close();
 
 		} else {
-			response.setContentType("text/html; charset=UTF-8");
 			out.println("<script type='text/javascript'>");
-			out.println("alert('Please Check your ID&PW');");
+			out.println("alert('아이디 또는 비밀번호를 확인해주세요!');");
 			out.println("history.back();");
 			out.println("</script>");
 			System.out.println("false");

@@ -13,7 +13,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
     
 </head>
 <body>
@@ -21,7 +21,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.jsp">나들목</a>
+      <a class="navbar-brand" href="index.jsp"> 나들목 </a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.jsp">Home</a></li>
@@ -61,40 +61,10 @@
 </nav>
 
 
-   <%-- <%   
-      if (session.getAttribute("login") != null) {
-   %>
-   <input type="button" value="회원탈퇴"
-      onclick="location.href ='input/UserDelete.jsp'">
-   <input type="button" value="로그아웃"
-      onclick="location.href ='/AcodaProject/logout.do'">
-   <%if(vo.getRating() == 1){ %>
-   <input type="button" value="회원정보수정"
-      onclick="location.href ='input/UserNomalUpdate.jsp'">
-      <%}else if(vo.getRating() == 2){ %>
-   <input type="button" value="회원정보수정"
-      onclick="location.href ='input/UserGuideUpdate.jsp'">
-      <%}else{%>
-      <input type="button" value="회원리스트" onclick="location.href ='Select.do'">
-      <%} %>
-
-   <%
-      } else if(session.getAttribute("login") == null) {
-   %>
-   <input type="button" value="로그인"
-      onclick="location.href ='input/login_form.jsp'">
-   <input type="button" value="회원가입"
-      onclick="location.href ='input/UserInsert.jsp'">
-
-   <%
-      }
-      
-   %> --%>
-   
-   
 <!-- Bootstrap core JavaScript
     ================================================== -->
-    <script src="Resources/js/bootstrap.js"></script>
+	<script src="Resources/js/bootstrap.js"></script>
     <script src="Resources/js/bootstrap.min.js"></script>
+
 </body>
 </html>

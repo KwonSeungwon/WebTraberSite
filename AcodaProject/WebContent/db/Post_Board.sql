@@ -13,7 +13,7 @@ constraint postboard_usernumber_fk foreign key(user_number) references member on
 constraint postboard_p_type_fk foreign key(p_type) references post_type on delete cascade
 );
 
-
+ 
 
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views)

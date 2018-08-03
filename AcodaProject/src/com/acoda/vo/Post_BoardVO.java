@@ -39,7 +39,7 @@ public class Post_BoardVO {
 		}
 		
 		//find
-		public Post_BoardVO(String title, String id, String post_title, String registration_date, int views,int post_number
+		public Post_BoardVO(String title, String id, String post_title,String post_contents, String registration_date, int views,int post_number
 				) {
 			super();
 			this.title = title;
@@ -48,6 +48,7 @@ public class Post_BoardVO {
 			this.registration_date = registration_date;
 			this.views = views;
 			this.id = id;
+			this.post_contents = post_contents;
 			
 		}
 		
@@ -125,6 +126,8 @@ public class Post_BoardVO {
 		this.path = path;
 		this.id = id;
 	}
+
+
 
 	public int getP_type() {
 		return p_type;

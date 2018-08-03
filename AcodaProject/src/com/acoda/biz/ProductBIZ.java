@@ -16,27 +16,43 @@ public class ProductBIZ {
 	ProductDAO productDAO;
 	
 	public List<ProductVO> getAllProduct(){
-		return null;
+		return productDAO.getAllProduct();
 		
 	}
 	
 	public int getInsertProduct(ProductVO vo) {
-		return 0;
+		System.out.println("상품 추가 비즈");
+		return productDAO.getInsertProduct(vo);
 		
+	}
+	//검색
+	public List<ProductVO> getSearch_product(String name){
+		System.out.println("상품검색 비즈"+productDAO.getSearch_product(name).size());
+		return productDAO.getSearch_product(name);
+	}
+	//클릭
+	public List<ProductVO> getClickProduct(int number){
+		return productDAO.getClickProduct(number);
 	}
 	
 	public ProductVO getFindProduct(String name) {
 		return null;
 		
 	}
-	
+	//삭제
 	public int getDelProduct(String del_name) {
-		return 0;
+		
+		return productDAO.getDelProduct(del_name);
 		
 	}
 	
 	public int getUpdateProduct(ProductVO vo) {
 		return 0;
+	}
+
+	public ProductVO getDetail(int item_num) {
+
+		return productDAO.getDetailinfo(item_num);
 	}
 
 }

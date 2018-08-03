@@ -38,6 +38,11 @@ p:password="admin1234">
 
 
 
+<!-- 파일업로드 관련 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+</bean>
+
+
 <!-- 승원 -->
 <bean id = "viewResolver" class = "org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2">
 <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>

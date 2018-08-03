@@ -14,13 +14,8 @@ public class BuyBIZ {
 	@Autowired
 	BuyDAO buyDAO;
 	
-	public List<BuyVO> getAllBuy(){
-		return null;
-		
-	}
-	
 	public int getInsertBuy(BuyVO vo) {
-		return 0;
+		return buyDAO.getInsertBuy(vo);
 		
 	}
 	
@@ -29,13 +24,19 @@ public class BuyBIZ {
 		
 	}
 	
-	public int getDelBuy(String del_name) {
-		return 0;
-		
-	}
 	
 	public int getUpdateBuy(BuyVO vo) {
 		return 0;
+	}
+
+	public List<BuyVO> BuyAllSelectBiz(int unumber) {
+		
+		return buyDAO.getAllBuy(unumber);
+	}
+
+	public int getDelBuy(int itemnum) {
+		return buyDAO.getDelBuy(itemnum);
+
 	}
 	
 

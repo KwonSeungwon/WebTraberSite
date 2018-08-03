@@ -240,6 +240,7 @@ public class Post_BoardVO {
 		this.id = id;
 	}
 
+
 	
 	
 	

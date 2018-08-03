@@ -91,17 +91,14 @@ public class Post_BoardDAO implements IPost_Board {
 		int r = jdbcTemplate.update(delete_post,del_post_number);
 		return r;
 	}
-<<<<<<< HEAD
 	//Update
 	public int getUpdateHugi_Post_Board(Post_BoardVO vo) {
 		return jdbcTemplate.update(update_post_hugi,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),
 				vo.getViews(),vo.getPath(),vo.getPost_number()});
-=======
+		}
 	
 	public int getUpdatePost_Board(Post_BoardVO vo) {
-return 
-	jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+	return jdbcTemplate.update(update_post_user,new Object[] {vo.getUser_number(),vo.getPost_title(),vo.getPost_contents(),vo.getRegistration_date(),vo.getViews(),vo.getPath(),vo.getPost_number()});
 		
 	}
 	public int getUpdateUser_Post_Board(Post_BoardVO vo) {

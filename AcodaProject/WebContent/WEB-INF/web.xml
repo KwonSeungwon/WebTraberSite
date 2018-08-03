@@ -12,11 +12,7 @@
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
-<<<<<<< HEAD
 			<param-value>utf-8</param-value>
-=======
-			<param-value>UTF-8</param-value>
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 		</init-param>
 	</filter>
 	<filter-mapping>

@@ -3,16 +3,12 @@
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*,com.acoda.vo.*" %>
 <%@page import="com.acoda.vo.MemberVO"%>
-<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-=======
 <%
               List<Post_BoardVO> all = (List<Post_BoardVO>)request.getAttribute("all");
               MemberVO vo = (MemberVO) session.getAttribute("login");
 %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

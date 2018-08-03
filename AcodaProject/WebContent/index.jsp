@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.acoda.vo.MemberVO"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,8 +39,8 @@
     <%   
       if (session.getAttribute("login") != null) {
    %>
-	<li><a href="input/UserDelete.jsp"><span class="glyphicon glyphicon-remove"></span> 회원탈퇴</a></li>
-	<li><a href="/AcodaProject/logout.do"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+   <li><a href="input/UserDelete.jsp"><span class="glyphicon glyphicon-remove"></span> 회원탈퇴</a></li>
+   <li><a href="/AcodaProject/logout.do"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
     <%if(vo.getRating() == 1){ %>
     <li><a href="input/UserNomalUpdate.jsp"><span class="glyphicon glyphicon-edit"></span> 회원정보수정</a></li>
     <%}else if(vo.getRating() == 2){ %>
@@ -50,16 +50,48 @@
     <%} %>
     <%
       } else if(session.getAttribute("login") == null) {
-	%>
-	<li><a href="input/login_form.jsp"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+   %>
+   <li><a href="input/login_form.jsp"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
     <li><a href="input/UserInsert.jsp"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
     <%
       }
-   	%>
+      %>
     </ul>
   </div>
 </nav>
- 
+
+
+   <%-- <%   
+      if (session.getAttribute("login") != null) {
+   %>
+   <input type="button" value="회원탈퇴"
+      onclick="location.href ='input/UserDelete.jsp'">
+   <input type="button" value="로그아웃"
+      onclick="location.href ='/AcodaProject/logout.do'">
+   <%if(vo.getRating() == 1){ %>
+   <input type="button" value="회원정보수정"
+      onclick="location.href ='input/UserNomalUpdate.jsp'">
+      <%}else if(vo.getRating() == 2){ %>
+   <input type="button" value="회원정보수정"
+      onclick="location.href ='input/UserGuideUpdate.jsp'">
+      <%}else{%>
+      <input type="button" value="회원리스트" onclick="location.href ='Select.do'">
+      <%} %>
+
+   <%
+      } else if(session.getAttribute("login") == null) {
+   %>
+   <input type="button" value="로그인"
+      onclick="location.href ='input/login_form.jsp'">
+   <input type="button" value="회원가입"
+      onclick="location.href ='input/UserInsert.jsp'">
+
+   <%
+      }
+      
+   %> --%>
+   
+   
 <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="Resources/js/bootstrap.js"></script>

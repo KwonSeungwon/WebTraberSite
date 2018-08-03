@@ -70,6 +70,8 @@ public class UserInfoController {
 	@RequestMapping(value = "deleteuser.do", method = RequestMethod.POST)
 	public void delete(@ModelAttribute("userInfo") MemberVO vo, HttpServletResponse rep, HttpSession session)
 			throws IOException {
+		rep.setCharacterEncoding("UTF-8");
+		rep.setContentType("text/html; charset=UTF-8");
 		System.out.println("받은 아이디 & 비밀번호 :" + vo.getId() + vo.getPw());
 		if (infoBiz.logincheck(vo) > 0) {
 			infoBiz.delete(vo);
@@ -77,15 +79,15 @@ public class UserInfoController {
 			session.invalidate();
 			rep.sendRedirect("index.jsp");
 			System.out.println("삭제완료");
-
-			out.println("alert('UserInfo delete Complete!');");
+			out.println("<script type='text/javascript'>");
+			out.println("alert('회원 탈퇴 완료!!');");
 			out.println("</script>");
 
 		} else {
 			PrintWriter out = rep.getWriter();
 			System.out.println("삭제실패");
 			out.println("<script type='text/javascript'>");
-			out.println("alert('Please Check your ID&PW');");
+			out.println("alert('아이디와 비밀번호를 확인해주세요.');");
 			out.println("history.back();");
 			out.println("</script>");
 			out.flush();
@@ -113,18 +115,20 @@ public class UserInfoController {
 	@RequestMapping(value = "/changeGuideuser.do", method = RequestMethod.POST)
 	public void UpdateGuideUser(MemberVO vo, Model mv, HttpServletResponse response, HttpSession session)
 			throws IOException {
+		PrintWriter out = response.getWriter();
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		if (infoBiz.UpdateGuide(vo) > 0) {
-			PrintWriter out = response.getWriter();
 			out.println("<script type='text/javascript'>");
-			out.println("alert('UserInfo Change Complete!');");
+			out.println("alert('회원정보 수정 완료');");
 			out.println("</script>");
 			vo = infoBiz.logincheck2(vo);
 			session.setAttribute("login",vo);
 			response.sendRedirect("index.jsp");
 		} else {
-			PrintWriter out = response.getWriter();
 			out.println("<script type='text/javascript'>");
-			out.println("alert('UserInfo Change reject!');");
+			out.println("alert('회원정보 수정 실패!');");
+			out.println("history.back();");
 			out.println("</script>");
 			response.sendRedirect("index.jsp");
 		}

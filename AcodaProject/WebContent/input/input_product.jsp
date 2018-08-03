@@ -42,9 +42,27 @@ $(document).ready(function() {
 
 	});
 });
-
-
-
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+ 	$("#fileupform").submit(function() {
+		var pname = $('.pn').val();
+		var price = $('.pr').val();
+		var hcount = $('.hcount').val();
+		var sc = $('.sc').val();
+		var td = $('.td').val();
+		var note = $('.note').val();
+		var location = $('.location').val();
+		if(pname=="" || price=="" || hcount=="" || sc=="" || td=="" || note=="" || location==""){
+			alert("상품등록 내용은 모두 필수로 작성하셔야 합니다.");
+			return false;
+		}else{
+			alert("등록되었습니다.");
+			return true;
+		}
+		
+ 	}); 
+});
 </script>
 </head>
 <body>
@@ -57,11 +75,11 @@ $(document).ready(function() {
 	<form action="/AcodaProject/product/insert.do" method="post" enctype="multipart/form-data" id = "fileupform">
 	<!-- 	 상품번호 <input type="text" name="item_number"/><br>  -->
 		상품이름 :<input type="text" name="product_name" class = "pn" /><br> 
-		가격  :<input type="text" name="price"/><br> 
-		수용인원 :<input type="text"name="head_count" /><br> 
-		상세일정  :<input type="text" name="schedule" /><br>
-		일정 :<input type="date" name="trip_date" /> <input type="date" name="trip_date"/><br> 
-		참고사항  :<input type="text" name="note" /><br>
+		가격  :<input type="text" name="price" class = "pr"/><br> 
+		수용인원 :<input type="text"name="head_count" class = "hcount" /><br> 
+		상세일정  :<input type="text" name="schedule" class = "sc"/><br>
+		일정 :<input type="date" name="trip_date" class = "td" /> <input type="date" name="trip_date"/><br> 
+		참고사항  :<input type="text" name="note" class = "note"/><br>
 		가이드사진 : <input type = "file" id = "picbu" name = "fileup">
 		<input type = "button" value = "업로드하기" class = "pbtn"><br>
 		

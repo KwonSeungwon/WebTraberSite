@@ -6,38 +6,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>업데이트</title>
+<title>후기업데이트</title>
 </head>
 <body>
-<% MemberVO vo = (MemberVO) session.getAttribute("login"); %>
-<h3>
+<%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
+<%
+ java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+ String today = formatter.format(new java.util.Date());
+%>
+<form action="/AcodaProject/post_board/update_hugi.do" method="POST">
+후기게시판 게시글수정<br><br>
 
-<%=session.getAttribute("login") %>
-
-<form action="/AcodaProject/post_board/update_user.do" method="get">
-후기게시판  게시글수정<br><br>
-
-<!-- 게시판타입번호(F) : <input type="text" name="p_type"/><br>
-게시판선택 :<select name="title">
-			<option value="">게시판선택</option>
-			<option value="유저게시판">유저게시판</option>
-			<option value="후기게시판">후기게시판</option>
-		</select><br>
-게시판번호 :  <input type="text" name="title_number"/><br> -->
-회원고유번호 : <input type="text" name="user_number"/><br>
-게시글번호(P) : <input type="text" readonly="readonly" name="post_number" value="${find.post_number}"/><br>
-게시글제목 : <input type="text" name="post_title"/><br>
-게시글내용 : <input type="text" name="post_contents"/><br>
-등록일자 : <input type="text" name="registration_date"/><br>
-조회수 : <input type="text" name="views"/><br>
+<!-- 회원고유번호 : 히든처리 -->
+<input type="text" name="user_number" value="<%=vo.getUser_number()%>"/>
+<!-- 게시글번호(P) : 히든처리  -->
+<input type="text" name="post_number" value="${find.post_number}"/><br>
+게시글제목 : <input type="text" name="post_title" value="${find.post_title}"/><br>
+게시글내용 : <input type="text" name="post_contents" value="${find.post_contents}"/><br>
+<!-- 등록일자 : 히든처리 --><input type="hidden" name="registration_date" value="<%=today.toString()%>"/>
+<!-- 조회수 : <input type="text" name="views"/><br> -->
 사진파일경로 : <input type="text" name="path"/><br>	
 		<input type="submit" value="확인 "/>
        <input type="reset" value="취소 "/>
        
 </form>
-<a href="/AcodaProject/post_board/select_user.do">후기게시판으로 돌아가기</a><br>
+<a href="/AcodaProject/post_board/select_hugi.do">유저게시판으로 돌아가기</a><br>
 <a href="/AcodaProject/index.jsp">홈으로</a>
-</h3>
-
 </body>
 </html>

@@ -43,6 +43,11 @@ public class BuyBIZ {
 		return  buyDAO.getApllication_list(a);
 		
 	}
-
-
+	//신청서의 승낙여부를 업데이트 하는 업데이트문
+	public int geta_UpdateBuy(BuyVO vo) {
+	
+		return buyDAO.geta_UpdateBuy(vo);
+		
+	}
+	
 }

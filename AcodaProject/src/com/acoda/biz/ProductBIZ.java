@@ -51,7 +51,7 @@ public class ProductBIZ {
 	}
 	
 	public int getUpdateProduct(ProductVO vo) {
-		return 0;
+		return productDAO.getUpdateProduct(vo);
 	}
 
 	public ProductVO getDetail(int item_num) {
@@ -60,4 +60,8 @@ public class ProductBIZ {
 	}
 
 
+
+	public ProductVO getproductupdateinfo(int num) {
+		return productDAO.getupdateinfo(num);
+	}
 }

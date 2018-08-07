@@ -34,7 +34,11 @@
 			</tr>
 	</c:forEach>
 </table>
+<<<<<<< HEAD
   <a href="/AcodaProject/festival/select.do">축제글 보기</a>
+=======
+  <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
 </body>
 </html>

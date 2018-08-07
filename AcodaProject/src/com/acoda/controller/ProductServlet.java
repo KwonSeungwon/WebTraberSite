@@ -112,8 +112,37 @@ public class ProductServlet {
 
 	}
 
-	public String Product_update() {
+	//////// 상품 업데이트 //////////////////////////////
+	@RequestMapping("/productupdate.do")
+	public ModelAndView Product_update(@ModelAttribute("find_number") ProductVO vo) {
+
+		int n = productBIZ.getUpdateProduct(vo);
+		if (n > 0) {
+			System.out.println("수정성공");
+		}
+
 		return null;
+	}
+
+	// 특정 상품 리스트 가져오기//////////////////////////////////
+	@RequestMapping("/pupinfo.do")
+	public InternalResourceView Product_getupdateinfo(@RequestParam("item_number") int num,Model m) {
+		ProductVO vo = new ProductVO();
+		vo = productBIZ.getproductupdateinfo(num);
+		String a = vo.getPic();
+		String ppath ="../"; 
+		String[] a1 = a.split("\\\\");
+		ppath += a1[7] +"/"+a1[8];
+		vo.setPic(ppath);
+		
+		InternalResourceView irv = new InternalResourceView("/input/ProductUpdate.jsp");
+		m.addAttribute("ulist",vo);
+		
+
+		
+		
+		return irv;
+
 	}
 
 	// 사진업로드 AJAX //////////////////////////////////////
@@ -153,12 +182,9 @@ public class ProductServlet {
 	}
 	//신청서 확인 페이지로 이동
 	@RequestMapping(value="/aplication.do")
-	public ModelAndView Buy_aplication_page(@RequestParam("aplic_number") int a) {
-		
-	
-		
+	public ModelAndView Buy_aplication_page(@RequestParam("aplic_number") int a) {	
 		//InternalResourceView irv = new InternalResourceView("/input/aplication_confirm.jsp");
-		 List<BuyVO> list=buyBIZ.getApllication_list(a);
+		List<BuyVO> list=buyBIZ.getApllication_list(a);
 		ModelAndView m=new ModelAndView("UserOrder/aplication_confirm","list",list);
 		return m;
 

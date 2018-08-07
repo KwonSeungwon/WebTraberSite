@@ -1,24 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
 <body style="font-size: 2.0em; margin: 150px 150px 150px 150px;">
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
-			<th>ì•„ì´í…œë²ˆí˜¸</th>
-			<th>ì£¼ë¬¸ë²ˆí˜¸</th>
-			<th>ì£¼ë¬¸ë‚ ì§œ</th>
-			<th>êµ­ì </th>
-			<th>ì¸ì›</th>
-			<th>ì‚¬ìš©ì–¸ì–´</th>
-			<th>ê¸°íƒ€ì‚¬í•­</th>
+			<th>¾ÆÀÌÅÛ¹øÈ£</th>
+			<th>ÁÖ¹®¹øÈ£</th>
+			<th>ÁÖ¹®³¯Â¥</th>
+			<th>±¹Àû</th>
+			<th>ÀÎ¿ø</th>
+			<th>»ç¿ë¾ğ¾î</th>
+			<th>±âÅ¸»çÇ×</th>
+			<th>½ÅÃ»¼­ °á°ú</th>
+			<th>¸Ş¼¼Áö</th>
 		</tr>
 		<c:forEach items="${BuyList}" var="BuyList">
 			<tr>
@@ -29,11 +31,13 @@
 				<td>${BuyList.fellow_traveler}</td>
 				<td>${BuyList.language}</td>
 				<td>${BuyList.unusual}</td>
-				<td><a  href ="deleteorder.do?del_itemnum=${BuyList.item_number}"> ì‚­ì œ  </a></td>
+				<td>${BuyList.application}</td>
+				<td>${BuyList.memo}</td>
+				<td><a  href ="deleteorder.do?del_itemnum=${BuyList.item_number}"> »èÁ¦  </a></td>
 			</tr>
 		</c:forEach>
 		</table>
-		<a href="/AcodaProject/index.jsp">í™ˆ í™”ë©´ìœ¼ë¡œ ì´ë™</a>
+		<a href="/AcodaProject/index.jsp">È¨ È­¸éÀ¸·Î ÀÌµ¿</a>
 		<div align="center"></div>
 
 </body>

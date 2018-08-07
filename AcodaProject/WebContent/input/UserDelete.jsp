@@ -9,7 +9,8 @@
 <script type="text/javascript">
 $(document).ready(function() {
  	$("#dform").submit(function() {
- 		alert("회원탈퇴 완료!");
+ 		
+ 		
 	});
 });
 

@@ -31,14 +31,16 @@ public class BuyDAO implements IBuy {
 			@Override
 			public BuyVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				BuyVO vo = new BuyVO();
-				vo.setItem_number(rs.getInt("ITEM_NUMBER"));
-				vo.setUser_number(rs.getInt("USER_NUMBER"));
-				vo.setOrder_number(rs.getInt("ORDER_NUMBER"));
-				vo.setOrder_day(rs.getString("ORDER_DAY"));
-				vo.setNationality(rs.getString("NATIONALITY"));
-				vo.setFellow_traveler(rs.getInt("FELLOW_TRAVELER"));
-				vo.setLanguage(rs.getString("LANGUAGE"));
-				vo.setUnusual(rs.getString("UNUSAL"));
+				vo.setItem_number(rs.getInt("item_number"));
+				vo.setOrder_number(rs.getInt("order_number"));
+				vo.setOrder_day(rs.getString("order_day"));
+				vo.setNationality(rs.getString("nationality"));
+				vo.setFellow_traveler(rs.getInt("fellow_traveler"));
+				vo.setLanguage(rs.getString("language"));
+				vo.setUnusual(rs.getString("unusual"));
+				vo.setApplication(rs.getString("application"));
+				vo.setMemo(rs.getString("memo"));
+				//vo.setUser_number(rs.getInt("user_number"));
 				return vo;
 			}
 		};
@@ -92,10 +94,17 @@ public class BuyDAO implements IBuy {
 	public BuyVO getFindBuy(String fine_buy) {
 		return null;
 
-	}
+	}	
+	//신청서 업데이트 (결과와 거절시 이유)
+	public int geta_UpdateBuy(BuyVO vo) {
+		/*BuyVO vo=new BuyVO();*/
+		int b = jdbcTemplate.update(update_buy,new Object[]{vo.getApplication(),vo.getMemo(),vo.getOrder_number()});
+		System.out.println(b);
+	System.out.println(vo.getApplication());
+	System.out.println(vo.getMemo());
 
-	public int getUpdateBuy(BuyVO vo) {
-		return 0;
+	
+		return b;
 	}
 
 

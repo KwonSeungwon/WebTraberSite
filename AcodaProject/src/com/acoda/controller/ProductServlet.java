@@ -37,6 +37,9 @@ import com.acoda.vo.ProductVO;
 @RequestMapping("/product")
 public class ProductServlet {
 
+	
+	
+	
 	@Autowired
 	ProductBIZ productBIZ;
 
@@ -62,6 +65,8 @@ public class ProductServlet {
 		return m;
 	}
 	
+	
+
 	
 	//////////////// 검색하기  기능 /////////////////////////////////////
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)

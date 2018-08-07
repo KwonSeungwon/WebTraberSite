@@ -9,8 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.acoda.vo.FestivalVO;
-import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
 
 @Repository

@@ -58,15 +58,27 @@ public class ProductServlet {
 
 		return m;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 	// 검색
 	// 상품 디테일 /////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	
 	
 
 	
 	//////////////// 검색하기  기능 /////////////////////////////////////
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -101,8 +113,16 @@ public class ProductServlet {
 		return mav;
 	}
 
+<<<<<<< HEAD
 	// 상품삭제 ////////////////////////////////////////////////////////////////
 	@RequestMapping("delete.do")
+=======
+
+
+
+	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
+	@RequestMapping("delete.do")
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
 		ModelAndView m = new ModelAndView();

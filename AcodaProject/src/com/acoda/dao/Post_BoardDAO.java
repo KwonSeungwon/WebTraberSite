@@ -25,17 +25,18 @@ public class Post_BoardDAO implements IPost_Board {
 	public List<Post_BoardVO> getHugiPost_Board(){
 		List<Post_BoardVO> all = jdbcTemplate.query(select_post_hugi, new RowMapper<Post_BoardVO>() {
 			public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Post_BoardVO vo = new Post_BoardVO(rs.getInt("post_number"),rs.getString("title"), rs.getString("id"),
+				Post_BoardVO vo = new Post_BoardVO(rs.getInt("total"),rs.getInt("post_number"),rs.getString("title"), rs.getString("id"),
 						rs.getString("post_title"), rs.getString("registration_date"), rs.getInt("views"));
 				return vo;
 			}
+			
 		});
 		return all;
 	}
 	public List<Post_BoardVO> getUserPost_Board(){
 		List<Post_BoardVO> all = jdbcTemplate.query(select_post_user, new RowMapper<Post_BoardVO>() {
 			public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Post_BoardVO vo = new Post_BoardVO(rs.getInt("post_number"),rs.getString("title"), rs.getString("id"),
+				Post_BoardVO vo = new Post_BoardVO(rs.getInt("total"),rs.getInt("post_number"),rs.getString("title"), rs.getString("id"),
 						rs.getString("post_title"), rs.getString("registration_date"), rs.getInt("views"));
 				return vo;
 			}
@@ -131,24 +132,26 @@ public class Post_BoardDAO implements IPost_Board {
 	
 	//Search(제목으로검색)
 	public List<Post_BoardVO> getSearch_Post_Board_User(String s){
+		System.out.println("Post_BoardDAO->getSearch_Post_Board_User호출");
 				RowMapper<Post_BoardVO> mapper=new RowMapper<Post_BoardVO>() {
-
 			@Override
 			public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				System.out.println("Post_BoardDAO->getSearch_Post_Board_User->mapRow실행");
 				Post_BoardVO vo=new Post_BoardVO();
-				vo.setPost_number(rs.getInt("post_number"));
 				vo.setPost_title(rs.getString("post_title"));
+				vo.setTotal(rs.getInt("total"));
+				vo.setPost_number(rs.getInt("post_number"));
 				vo.setTitle(rs.getString("title"));
 				vo.setPost_contents(rs.getString("post_contents"));
 				vo.setRegistration_date(rs.getString("registration_date"));
 				vo.setViews(rs.getInt("views"));
 				vo.setPath(rs.getString("path"));
 				vo.setId(rs.getString("id"));
+				System.out.println("mapRow의 vo.toString() = "+vo.toString());
 				return vo;	
 			}
 		};
-		return jdbcTemplate.query(search_post_user, mapper, new Object[] {s});
+		return jdbcTemplate.query(search_post_user, mapper, new Object[] {s,s});
 		
 	}
 	public List<Post_BoardVO> getSearch_Post_Board_Hugi(String s){
@@ -172,10 +175,7 @@ public class Post_BoardDAO implements IPost_Board {
 		return jdbcTemplate.query(search_post_hugi, mapper, new Object[] {s});
 
 	}
-	
-	
-	
-	
+
 	
 	
 	

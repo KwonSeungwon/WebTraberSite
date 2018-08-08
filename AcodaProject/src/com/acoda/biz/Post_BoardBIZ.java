@@ -90,6 +90,7 @@ public class Post_BoardBIZ {
 	
 	//Search(제목으로검색)
 	public List<Post_BoardVO> getSearch_Post_Board_User(String s){
+		System.out.println("Post_BoardBIZ->getSearch_Post_Board_User호출->String s = "+s);
 		return  post_boardDAO.getSearch_Post_Board_User(s);
 	}
 	public List<Post_BoardVO> getSearch_Post_Board_Hugi(String s){

@@ -16,7 +16,7 @@ import com.acoda.vo.Post_BoardVO;
 
 @Repository
 public class Post_BoardDAO implements IPost_Board {
-	
+	 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	//Select(전체목록출력)

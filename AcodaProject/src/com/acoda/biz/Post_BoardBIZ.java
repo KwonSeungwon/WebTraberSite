@@ -11,7 +11,7 @@ import com.acoda.vo.Post_BoardVO;
 
 @Service
 public class Post_BoardBIZ {
-	
+	 
 	
 	@Autowired
 	Post_BoardDAO post_boardDAO;

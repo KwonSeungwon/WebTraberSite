@@ -4,7 +4,7 @@
 <%@ page import="java.util.*,com.acoda.vo.*" %>
 <%@page import="com.acoda.vo.MemberVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%
+<% 
               List<Post_BoardVO> all = (List<Post_BoardVO>)request.getAttribute("all");
               MemberVO vo = (MemberVO) session.getAttribute("login");
               String searchKeyword = (String)session.getAttribute("searchKeyword");

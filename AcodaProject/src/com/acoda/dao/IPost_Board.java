@@ -1,6 +1,7 @@
 package com.acoda.dao;
 
 public interface IPost_Board {
+	
 	/*int p_type; //게시판타입번호(F)
 	String title; //게시판이름
 	int title_number; //게시판번호

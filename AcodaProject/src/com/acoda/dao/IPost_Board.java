@@ -32,5 +32,4 @@ public interface IPost_Board {
 	String search_post_user="select (select count(*) as total from post_board where title_number=2 and post_board.post_title like '%'||?||'%') total,post_number,post_title,title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=2 and post_board.post_title like '%'||?||'%' order by post_board.post_number desc";
 	
 	String update_viewscount="update post_board set views=views+1 where post_number=?";
-	/*and post_board.post_title like '%'||?||'%'*/
 }

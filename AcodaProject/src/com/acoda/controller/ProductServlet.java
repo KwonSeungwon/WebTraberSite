@@ -2,14 +2,10 @@ package com.acoda.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,19 +21,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceView;
 
 import com.acoda.biz.BuyBIZ;
-import com.acoda.biz.FestivalBIZ;
 import com.acoda.biz.ProductBIZ;
 import com.acoda.vo.BuyVO;
-import com.acoda.vo.FestivalVO;
-
-import com.acoda.vo.MemberVO;
-
 import com.acoda.vo.ProductVO;
 
 @Controller
 @RequestMapping("/product")
 public class ProductServlet {
 
+	
+	
+	
 	@Autowired
 	ProductBIZ productBIZ;
 	@Autowired
@@ -64,16 +58,27 @@ public class ProductServlet {
 
 		return m;
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 	// 검색
 	// 상품 디테일 /////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	
+	
+
 	
 	//////////////// 검색하기  기능 /////////////////////////////////////
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -108,11 +113,16 @@ public class ProductServlet {
 		return mav;
 	}
 
+<<<<<<< HEAD
+	// 상품삭제 ////////////////////////////////////////////////////////////////
+	@RequestMapping("delete.do")
+=======
 
 
 
 	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
 	@RequestMapping("delete.do")
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
 		ModelAndView m = new ModelAndView();

@@ -17,7 +17,7 @@ constraint postboard_p_type_fk foreign key(p_type) references post_type on delet
 
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views)
-values(1,'후기게시판',1,6,postboard_seq.nextval,'여행1','후기게시판test',sysdate,1);
+values(1,'후기게시판',1,25,postboard_seq.nextval,'여행','후기게시판test',sysdate,1);
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path)
 values(2,'유저게시판',2,25,postboard_seq.nextval,'불란서','유저게시판test',sysdate,0,'c://img..');

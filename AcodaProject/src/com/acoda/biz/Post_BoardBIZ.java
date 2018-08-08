@@ -46,7 +46,7 @@ public class Post_BoardBIZ {
 		pvo.setViews(vo.getViews());
 		pvo.setPath(vo.getPath());
 		return post_boardDAO.getInsert_HugiPost_Board(pvo);
-	}
+		}
 	//Find
 	public Post_BoardVO getFindPost_Board(String find_post_number) {
 		return post_boardDAO.getFindPost_Board(find_post_number);

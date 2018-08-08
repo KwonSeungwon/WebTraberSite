@@ -12,10 +12,10 @@ public interface IPost_Board {
 	int views; //조회수
 	String path;//사진 파일경로
 	String id*/
-	String select_post_hugi="select post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=1 order by post_board.post_number desc";
+	String select_post_hugi="select (select count(*) as total from post_board where title_number=1 and rownum<=100) total,post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=1 and rownum<=100 order by post_board.post_number desc";
 	String insert_post_hugi="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(1,'후기게시판',1,?,postboard_seq.nextval,?,?,?,0,?)";
 	
-	String select_post_user="select (select count(*) as total from post_board where title_number=2) total,post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=2 order by post_board.post_number desc";
+	String select_post_user="select (select count(*) as total from post_board where title_number=2 and rownum<=100) total,post_number,title,id,post_title,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=2 and rownum<=100 order by post_board.post_number desc";
 	String insert_post_user="insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path) values(2,'유저게시판',2,?,postboard_seq.nextval,?,?,?,0,?)";
 	
 	String find_post="select post_number,title,id,post_title,post_contents,registration_date,views from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_number=?";
@@ -27,7 +27,7 @@ public interface IPost_Board {
 	
 	String click_post="select post_number,post_title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.post_number=?";
 	
-	String search_post_hugi="select post_number,post_title,title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=1 and post_board.post_title like '%'||?||'%' order by post_board.post_number desc";
+	String search_post_hugi="select (select count(*) as total from post_board where title_number=1 and post_board.post_title like '%'||?||'%') total,post_number,post_title,title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=1 and post_board.post_title like '%'||?||'%' order by post_board.post_number desc";
 	String search_post_user="select (select count(*) as total from post_board where title_number=2 and post_board.post_title like '%'||?||'%') total,post_number,post_title,title,post_contents,registration_date,views,path,id from post_board post_board,member member where post_board.user_number=member.user_number and post_board.title_number=2 and post_board.post_title like '%'||?||'%' order by post_board.post_number desc";
 	
 	String update_viewscount="update post_board set views=views+1 where post_number=?";

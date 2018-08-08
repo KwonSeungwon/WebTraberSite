@@ -1,9 +1,7 @@
 package com.acoda.dao;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,17 +44,21 @@ public class Post_BoardDAO implements IPost_Board {
 	}
 	//Insert
 	public int getInsert_HugiPost_Board(Post_BoardVO vo) {
-		int r = jdbcTemplate.update(insert_post_hugi,
-				new Object[] {vo.getUser_number(),vo.getPost_title()
-						,vo.getPost_contents(),vo.getRegistration_date(),vo.getPath()});
-		if (r > 0) {
+		int count = 0;
+		for(int i = 0; i < 100 ;i++) {
+		int r =jdbcTemplate.update(insert_post_hugi,
+				new Object[] {vo.getUser_number(),vo.getPost_title()+Integer.toString(count)
+						,vo.getPost_contents(),vo.getRegistration_date(),vo.getPath()});count++;  }
+
+		/*if (r > 0) {
 			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 r>0");
 			return r;
 		} else {
-			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 else");
+			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 else");*/
 			return 0;
-		} 
-	}
+		/*}*/ 
+		}
+	/*}*/
 	public int getInsert_UserPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post_user,
 				new Object[] {vo.getUser_number(),vo.getPost_title()
@@ -172,7 +174,7 @@ public class Post_BoardDAO implements IPost_Board {
 				return vo;	
 			}
 		};
-		return jdbcTemplate.query(search_post_hugi, mapper, new Object[] {s});
+		return jdbcTemplate.query(search_post_hugi, mapper, new Object[] {s,s});
 
 	}
 

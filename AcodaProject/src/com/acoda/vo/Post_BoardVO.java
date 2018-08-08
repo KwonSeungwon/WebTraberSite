@@ -13,7 +13,6 @@ public class Post_BoardVO {
 	private int views; // 조회수
 	private String path;// 사진 파일경로
 	private int total;// 페이징처리를 위한 컬럼의 총 갯수
-	private String search_keyword;//search로 입력받은 검색어
 
 	private String id;
 
@@ -75,7 +74,7 @@ public class Post_BoardVO {
 		this.path = path;
 		this.total = total;
 		this.id = id;
-		this.search_keyword=search_keyword;
+
 	}
 
 	public Post_BoardVO(int p_type, String title, int title_number, int user_number, String post_title,

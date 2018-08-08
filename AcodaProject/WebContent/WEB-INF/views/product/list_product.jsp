@@ -46,7 +46,7 @@
 					</c:if>
 					<c:if test="${vo.id == pr.id }">
 
-					<td><a href="find.do?find_number=${pr.item_number}">수정 </a></td>
+					<td><a href="pupinfo.do?item_number=${pr.item_number}">수정 </a></td>
 					</c:if>
 					
 					<c:if test="${vo.id == pr.id }">

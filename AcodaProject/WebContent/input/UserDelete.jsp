@@ -9,19 +9,17 @@
 <script type="text/javascript">
 $(document).ready(function() {
  	$("#dform").submit(function() {
- 		
- 		
+	
 	});
 });
 
- 
 </script>
 <body style="font-size:2.0em;margin: 150px 150px 150px 150px;">
 	<h3>회원탈퇴</h3>
 	<h5>아이디와 비밀번호를 다시한번 입력해주세요</h5> 
-	<form action="/AcodaProject/deleteuser.do" method="POST"  id = "dform">
-	회원아이디입력 : <input type="text" name="id"> 
-	비밀번호입력 : <input type="password" name="pw">  	 
+	<form action="/AcodaProject/deleteuser.do" method="POST"  id = "dform" >
+	회원아이디입력 : <input type="text" name="id" required=""> 
+	비밀번호입력 : <input type="password" name="pw" required="">  	 
 	<input type="submit" value="탈퇴하기">
 	<input type="button" value="취소" onclick="location.href ='/AcodaProject/index.jsp'">
 	</form>

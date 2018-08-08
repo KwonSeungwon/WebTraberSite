@@ -1,14 +1,8 @@
 package com.acoda.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +20,6 @@ import com.acoda.biz.ReplyBIZ;
 import com.acoda.vo.Post_BoardVO;
 import com.acoda.vo.ReplyVO;
 
-
-
 @Controller
 @RequestMapping("/post_board")
 public class Post_BoardServlet extends HttpServlet {
@@ -40,15 +32,17 @@ public class Post_BoardServlet extends HttpServlet {
 	
 	//Select(전체목록출력)
 	@RequestMapping("/select_hugi.do")
-	public String post_board_Select_hugi(Model m) {
+	public String post_board_Select_hugi(Model m,HttpSession session) {
 		List<Post_BoardVO> all = post_boardBIZ.getHugiPost_Board();
 		m.addAttribute("all",all);
+		session.removeAttribute("searchKeyword");
 		return "post_boardView/hugi_post_board";
 	}
 	@RequestMapping("/select_user.do")
-	public String post_board_Select_user(Model m) throws Exception {
+	public String post_board_Select_user(Model m,HttpSession session) throws Exception {
 		List<Post_BoardVO> all = post_boardBIZ.getUserPost_Board();
 		m.addAttribute("all",all);
+		session.removeAttribute("searchKeyword"); 
 		return "post_boardView/user_post_board";
 	}
 	
@@ -145,21 +139,21 @@ public class Post_BoardServlet extends HttpServlet {
 	
 	//Search(제목으로검색)
 	@RequestMapping(value="/search_user.do",method=RequestMethod.GET)
-	 public String post_board_search_user(@RequestParam ("search_post_board_user") String s,Model m,HttpSession session) {
+	 public String post_board_search_user(@RequestParam ("searchKeyword") String s,Model m,HttpSession session) {
 			System.out.println("Post_BoardServlet->search_post_board_user(입력받은 검색어) = "+s);
 			session.setAttribute("searchKeyword", s);
-			//세션 삭제는 session removeattribute("세션이름") or invalidate(); <- 모든 세션삭제  - 개인적인 견해로 전자를 추천합니다-
 			List<Post_BoardVO> list= post_boardBIZ.getSearch_Post_Board_User(s);
-			System.out.println("Post_BoardServlet->List<Post_BoardVO> list = "+list.size());
+			System.out.println("Post_BoardServlet->List<Post_BoardVO> list 의 size = "+list.size());
 			m.addAttribute("all",list);
 		return "post_boardView/user_post_board";
 		}
 	@RequestMapping(value="/search_hugi.do",method=RequestMethod.GET)
-	 public String post_board_search_hugi(HttpServletRequest request,Model m) {
-			String s=request.getParameter("search_post_board_hugi");
-			System.out.println("search_post_board_hugi(입력받은 검색어) = "+s);
+	 public String post_board_search_hugi(@RequestParam ("searchKeyword") String s,Model m,HttpSession session) {
+			System.out.println("Post_BoardServlet->search_post_board_hugi(입력받은 검색어) = "+s);
+			session.setAttribute("searchKeyword", s);
 			List<Post_BoardVO> list= post_boardBIZ.getSearch_Post_Board_Hugi(s);
-			m.addAttribute("list",list);
+			System.out.println("Post_BoardServlet->List<Post_BoardVO> list 의 size = "+list.size());
+			m.addAttribute("all",list);
 		return "post_boardView/hugi_post_board";
 		}
 	

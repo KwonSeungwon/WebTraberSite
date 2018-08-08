@@ -4,7 +4,7 @@
 <%@ page import="java.util.*,com.acoda.vo.*" %>
 <%@page import="com.acoda.vo.MemberVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%
+<% 
               List<Post_BoardVO> all = (List<Post_BoardVO>)request.getAttribute("all");
               MemberVO vo = (MemberVO) session.getAttribute("login");
               String searchKeyword = (String)session.getAttribute("searchKeyword");
@@ -17,9 +17,9 @@
 <title>유저게시판 출력</title>
 </head>
 <body>
-<c:set var="vo"  value="${sessionScope.login}" />
+<c:set var="vo"  value="${sessionScope.login}"/>
 로그인 아이디 : <c:out value="${vo.id}"/><br>
-<h1>검색어 : <%=searchKeyword%></h1>
+<h1>검색어 :<%=searchKeyword%></h1>
 <table border="1">
 		<tr>
 			<th>게시글번호</th><th>게시판이름</th><th>작성자</th><th>게시글제목</th><th>작성일</th><th>조회수</th><th>삭제</th><th>수정</th>
@@ -50,41 +50,41 @@
 		 <!-- 페이징처리(시작) -->
 		 <%if(session.getAttribute("searchKeyword")==null){%>
 			<c:if test="${!empty param.start && param.start >(perPage-1) && param.start !=0 }">
-        	  <a href="/AcodaProject/post_board/select_user.do?start=<c:out value="${param.start - perPage}"/>">이전 </a>
+        	  <a href="/AcodaProject/post_board/select_user.do?start=<c:out value="${param.start - perPage}"/>">[이전]</a>
 			</c:if>
    			<c:forEach var="boundaryStart" varStatus="status" begin="0" end="${totalCount - 1}" step="${perPage}">
 				<c:choose>
        		     	<c:when test="${status.count>0 && status.count != pageIndex}">
 						<a href="/AcodaProject/post_board/select_user.do?start=<c:out value='${boundaryStart}'/>">
-							<c:out value="${status.count}"/> |
+							[<c:out value="${status.count}"/>]
 						</a>
 				</c:when>
 				<c:otherwise>
-					<c:out value="${status.count}"/> |
+					[<c:out value="${status.count}"/>]
 				</c:otherwise>
         		</c:choose>
 			</c:forEach>
 			<c:if test="${empty param.start || param.start<(totalCount-perPage)}">
-				<a href="/AcodaProject/post_board/select_user.do?start=<c:out value="${param.start + perPage}"/>">다음 </a>
+				<a href="/AcodaProject/post_board/select_user.do?start=<c:out value="${param.start + perPage}"/>">[다음]</a>
 			</c:if>
 		<%}else{%>
 			<c:if test="${!empty param.start && param.start >(perPage-1) && param.start !=0 }">
-        	  <a href="/AcodaProject/post_board/search_user.do?start=<c:out value="${param.start - perPage}"/>&search_post_board_user=<%=searchKeyword%>">이전 </a>
+        	  <a href="/AcodaProject/post_board/search_user.do?start=<c:out value="${param.start - perPage}"/>&searchKeyword=<%=searchKeyword%>">[이전]</a>
 			</c:if>
    			<c:forEach var="boundaryStart" varStatus="status" begin="0" end="${totalCount - 1}" step="${perPage}">
 				<c:choose>
        		     	<c:when test="${status.count>0 && status.count != pageIndex}">
-						<a href="/AcodaProject/post_board/search_user.do?start=<c:out value='${boundaryStart}'/>&search_post_board_user=<%=searchKeyword%>">
-							<c:out value="${status.count}"/> |
+						<a href="/AcodaProject/post_board/search_user.do?start=<c:out value='${boundaryStart}'/>&searchKeyword=<%=searchKeyword%>">
+							[<c:out value="${status.count}"/>]
 						</a>
 				</c:when>
 				<c:otherwise>
-					<c:out value="${status.count}"/> |
+					[<c:out value="${status.count}"/>]
 				</c:otherwise>
         		</c:choose>
 			</c:forEach>
 			<c:if test="${empty param.start || param.start<(totalCount-perPage)}">
-				<a href="/AcodaProject/post_board/search_user.do?start=<c:out value="${param.start + perPage}"/>&search_post_board_user=<%=searchKeyword%>">다음 </a>
+				<a href="/AcodaProject/post_board/search_user.do?start=<c:out value="${param.start + perPage}"/>&searchKeyword=<%=searchKeyword%>">[다음]</a>
 			</c:if>
 		<%}%>
 		<!-- 페이징처리끝 -->
@@ -92,12 +92,12 @@
 		
 <!-- 검색창 -->
 <form action="/AcodaProject/post_board/search_user.do?start=0" method="get">
-	<input name="search_post_board_user" type="text" id="search_post_board_user"/>
+	<input name="searchKeyword" type="text" id="searchKeyword"/>
 	<input type="submit" value="검색"/>
 </form>
-
-<a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 글작성하기</a>
-<a href="/AcodaProject/index.jsp">메인페이지로</a>
+<a href="/AcodaProject/post_board/select_user.do?start=0">유저게시판 </a><br>
+<a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 글작성하기</a><br>
+<a href="/AcodaProject/index.jsp">메인페이지로</a><br>
 
 </body>
 </html>

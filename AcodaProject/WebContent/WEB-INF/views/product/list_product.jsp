@@ -45,9 +45,14 @@
 					<td><a href="delete.do?del_number=${pr.item_number}">삭제 </a></td>
 					</c:if>
 					<c:if test="${vo.id == pr.id }">
-					<td><input type = "button" value = "수정하기" onclick="location.href='pupinfo.do?item_number=${pr.item_number}'"></td>
+
+					<td><a href="find.do?find_number=${pr.item_number}">수정 </a></td>
 					</c:if>
-					<td><a href="">신청서 확인 </a></td>
+					
+					<c:if test="${vo.id == pr.id }">
+					<td><a href="aplication.do?aplic_number=${pr.item_number}">신청서 확인 </a></td>
+					</c:if>
+
 				</tr>
 			</c:forEach>
 		</tbody>

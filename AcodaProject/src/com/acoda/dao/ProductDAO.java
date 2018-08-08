@@ -9,6 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+
+
+
 import com.acoda.vo.FestivalVO;
 import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
@@ -42,8 +45,8 @@ public class ProductDAO implements IProduct {
 
 	}
 
-	public int getDelProduct(String del_name) {
-		int p = jdbcTemplate.update(delete_product, del_name);
+	public int getDelProduct(String name) {
+		int p = jdbcTemplate.update(delete_product, name);
 		return p;
 
 	}
@@ -105,25 +108,20 @@ public class ProductDAO implements IProduct {
 		return jdbcTemplate.query(search_product, mapper, new Object[] { name });
 	}
 
-	public ProductVO getFindProduct(String find_product) {
-		return null;
 
-	}
 
 	public int getUpdateProduct(ProductVO vo) {
 
 		int f = jdbcTemplate.update(update_product,
-				new Object[] { vo.getProduct_name(), vo.getUser_number(), vo.getPrice(), vo.getHead_count(),
-						vo.getSell_date(), vo.getSchedule(), vo.getTrip_date(), vo.getNote(), vo.getPic(),
-						vo.getItem_number() });
-		System.out.println("여기는 다오 업데이트-->" + f);
+				new Object[] {vo.getProduct_name(),vo.getPrice(),vo.getHead_count(),
+						vo.getSchedule(),vo.getTrip_date(),vo.getNote(),vo.getPic(),vo.getItem_number()});		
 		if (f > 0) {
 			System.out.println("성공");
-			return f;
 		} else {
 			System.out.println("실패");
-			return 0;
 		}
+		
+		return f;
 	}
 
 	public ProductVO getDetailinfo(int item_num) {
@@ -151,8 +149,7 @@ public class ProductDAO implements IProduct {
 
 	public ProductVO getupdateinfo(int num) {
 		RowMapper<ProductVO> mapper=new RowMapper<ProductVO>() {
-			
-	
+
 		@Override
 		public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			ProductVO pvo=new ProductVO();
@@ -167,11 +164,11 @@ public class ProductDAO implements IProduct {
 			pvo.setNote(rs.getString("note"));
 			pvo.setPic(rs.getString("pic"));
 		
+
 		return pvo;
 
 		}
 	};
 	return jdbcTemplate.queryForObject(productupdateinfo, mapper,num);
-	
 		}
 }

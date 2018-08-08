@@ -16,6 +16,7 @@ import com.acoda.biz.BuyBIZ;
 import com.acoda.vo.BuyVO;
 import com.acoda.vo.FestivalVO;
 import com.acoda.vo.MemberVO;
+import com.acoda.vo.ProductVO;
 
 @Repository
 public class BuyDAO implements IBuy {
@@ -30,21 +31,45 @@ public class BuyDAO implements IBuy {
 			@Override
 			public BuyVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				BuyVO vo = new BuyVO();
-				vo.setItem_number(rs.getInt("ITEM_NUMBER"));
-				vo.setUser_number(rs.getInt("USER_NUMBER"));
-				vo.setOrder_number(rs.getInt("ORDER_NUMBER"));
-				vo.setOrder_day(rs.getString("ORDER_DAY"));
-				vo.setNationality(rs.getString("NATIONALITY"));
-				vo.setFellow_traveler(rs.getInt("FELLOW_TRAVELER"));
-				vo.setLanguage(rs.getString("LANGUAGE"));
-				vo.setUnusual(rs.getString("UNUSAL"));
+				vo.setItem_number(rs.getInt("item_number"));
+				vo.setOrder_number(rs.getInt("order_number"));
+				vo.setOrder_day(rs.getString("order_day"));
+				vo.setNationality(rs.getString("nationality"));
+				vo.setFellow_traveler(rs.getInt("fellow_traveler"));
+				vo.setLanguage(rs.getString("language"));
+				vo.setUnusual(rs.getString("unusual"));
+				vo.setApplication(rs.getString("application"));
+				vo.setMemo(rs.getString("memo"));
+				//vo.setUser_number(rs.getInt("user_number"));
 				return vo;
 			}
 		};
 		return jdbcTemplate.query(select_buy, mapper, new Object[] { unumber });
 
 	}
-
+	//신청서 확인(가이드 )
+	public List<BuyVO> getApllication_list(int a) {
+		RowMapper<BuyVO> mapper=new RowMapper<BuyVO>() {
+			
+			@Override
+			public BuyVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BuyVO vo = new BuyVO();
+				
+				vo.setId(rs.getString("id"));
+				vo.setOrder_number(rs.getInt("order_number"));
+				vo.setOrder_day(rs.getString("order_day"));
+				vo.setNationality(rs.getString("nationality"));
+				vo.setFellow_traveler(rs.getInt("fellow_traveler"));
+				vo.setLanguage(rs.getString("language"));
+				vo.setUnusual(rs.getString("unusual"));
+				//vo.setItem_number(rs.getInt("item_number"));
+				//vo.setUser_number(rs.getInt("user_number"));
+				return vo;
+			}
+		};
+		return jdbcTemplate.query(a_select_buy, mapper,new Object[] {a});
+	}
+	
 	public int getDelBuy(int itemnum) {
 
 		int d_result = jdbcTemplate.update(delete_buy, itemnum);
@@ -55,8 +80,9 @@ public class BuyDAO implements IBuy {
 
 	public int getInsertBuy(BuyVO vo) {
 
-		int b = jdbcTemplate.update(insert_buy, new Object[] { vo.getOrder_number(),vo.getOrder_day(),vo.getNationality(),
-				vo.getFellow_traveler(), vo.getLanguage(), vo.getUnusual(),vo.getUser_number(),vo.getItem_number() });
+		int b = jdbcTemplate.update(insert_buy,new Object[] {vo.getOrder_day(),vo.getNationality(),vo.getFellow_traveler(),vo.getLanguage(),
+						 vo.getUnusual(), vo.getUser_number(),vo.getItem_number()});
+		System.out.println("여기는 dao 인서트"+b);
 		if (b > 0) {
 			return b;
 		} else {
@@ -64,13 +90,22 @@ public class BuyDAO implements IBuy {
 			}
 		}
 
+	
 	public BuyVO getFindBuy(String fine_buy) {
 		return null;
 
+	}	
+	//신청서 업데이트 (결과와 거절시 이유)
+	public int geta_UpdateBuy(BuyVO vo) {
+		/*BuyVO vo=new BuyVO();*/
+		int b = jdbcTemplate.update(update_buy,new Object[]{vo.getApplication(),vo.getMemo(),vo.getOrder_number()});
+		System.out.println(b);
+	System.out.println(vo.getApplication());
+	System.out.println(vo.getMemo());
+
+	
+		return b;
 	}
 
-	public int getUpdateBuy(BuyVO vo) {
-		return 0;
-	}
 
 }

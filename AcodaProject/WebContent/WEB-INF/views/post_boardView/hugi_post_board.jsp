@@ -65,6 +65,7 @@
 	<input name="search_post_board_hugi" type="text" id="search_post_board_hugi"/>
 	<input type="submit" value="검색"/>
 </form>
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 <a href="/AcodaProject/post_board/insert_hugi_page.do">후기게시판 글작성하기</a>
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
 

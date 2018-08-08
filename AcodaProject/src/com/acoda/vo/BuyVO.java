@@ -1,5 +1,7 @@
 package com.acoda.vo;
 
+import java.util.List;
+
 public class BuyVO {
 
 	private MemberVO membervo;
@@ -13,6 +15,71 @@ public class BuyVO {
 	private int fellow_traveler;
 	private String language;
 	private String unusual;
+	private String id;
+	private String application;
+	
+	public BuyVO(int order_number, String application, String memo, List<BuyVO> listvo) {
+		super();
+		this.order_number = order_number;
+		this.application = application;
+		this.memo = memo;
+		this.listvo = listvo;
+	}
+
+	public List<BuyVO> getListvo() {
+		return listvo;
+	}
+
+	public void setListvo(List<BuyVO> listvo) {
+		this.listvo = listvo;
+	}
+
+	private String memo;
+	private List<BuyVO> listvo;
+	
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	public String getApplication() {
+		return application;
+	}
+
+	public void setApplication(String application) {
+		this.application = application;
+	}
+
+	public BuyVO() {
+		super();
+	}
+
+	//»ý¼ºÀÚ 
+	public BuyVO(int item_number, int user_number, int order_number, String order_day, String nationality,
+			int fellow_traveler, String language, String unusual, String id, String application, String memo) {
+		super();
+		this.item_number = item_number;
+		this.user_number = user_number;
+		this.order_number = order_number;
+		this.order_day = order_day;
+		this.nationality = nationality;
+		this.fellow_traveler = fellow_traveler;
+		this.language = language;
+		this.unusual = unusual;
+		this.id = id;
+		this.application = application;
+		this.memo = memo;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public int getItem_number() {
 		return item_number;
@@ -73,9 +140,18 @@ public class BuyVO {
 	public String getUnusual() {
 		return unusual;
 	}
+	
 
 	public void setUnusual(String unusual) {
 		this.unusual = unusual;
+	}
+
+	@Override
+	public String toString() {
+		return "BuyVO [membervo=" + membervo + ", productvo=" + productvo + ", item_number=" + item_number
+				+ ", user_number=" + user_number + ", order_number=" + order_number + ", order_day=" + order_day
+				+ ", nationality=" + nationality + ", fellow_traveler=" + fellow_traveler + ", language=" + language
+				+ ", unusual=" + unusual + ", id=" + id + ", application=" + application + ", memo=" + memo + "]";
 	}
 
 }

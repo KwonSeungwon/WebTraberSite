@@ -19,6 +19,8 @@
 			<th>인원</th>
 			<th>사용언어</th>
 			<th>기타사항</th>
+			<th>신청서 결과</th>
+			<th>메세지</th>
 		</tr>
 		<c:forEach items="${BuyList}" var="BuyList">
 			<tr>
@@ -29,6 +31,8 @@
 				<td>${BuyList.fellow_traveler}</td>
 				<td>${BuyList.language}</td>
 				<td>${BuyList.unusual}</td>
+				<td>${BuyList.application}</td>
+				<td>${BuyList.memo}</td>
 				<td><a  href ="deleteorder.do?del_itemnum=${BuyList.item_number}"> 삭제  </a></td>
 			</tr>
 		</c:forEach>

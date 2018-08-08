@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.acoda.dao.BuyDAO;
 import com.acoda.dao.ProductDAO;
+import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
 
 
@@ -14,6 +16,8 @@ public class ProductBIZ {
 	
 	@Autowired
 	ProductDAO productDAO;
+	@Autowired
+	BuyDAO buyDAO;
 	
 	public List<ProductVO> getAllProduct(){
 		return productDAO.getAllProduct();
@@ -40,9 +44,9 @@ public class ProductBIZ {
 		
 	}
 	//ªË¡¶
-	public int getDelProduct(String del_name) {
+	public int getDelProduct(String name) {
 		
-		return productDAO.getDelProduct(del_name);
+		return productDAO.getDelProduct(name);
 		
 	}
 	
@@ -56,8 +60,8 @@ public class ProductBIZ {
 	}
 
 
+
 	public ProductVO getproductupdateinfo(int num) {
 		return productDAO.getupdateinfo(num);
 	}
-
 }

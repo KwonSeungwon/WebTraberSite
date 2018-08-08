@@ -2,14 +2,10 @@ package com.acoda.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,13 +20,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.InternalResourceView;
 
-import com.acoda.biz.FestivalBIZ;
+import com.acoda.biz.BuyBIZ;
 import com.acoda.biz.ProductBIZ;
-
-import com.acoda.vo.FestivalVO;
-
-import com.acoda.vo.MemberVO;
-
+import com.acoda.vo.BuyVO;
 import com.acoda.vo.ProductVO;
 
 @Controller
@@ -42,6 +34,8 @@ public class ProductServlet {
 	
 	@Autowired
 	ProductBIZ productBIZ;
+	@Autowired
+	BuyBIZ buyBIZ;
 
 	/////////// 전체출력이지만 일부만 출력함.////////////////////////////////////////////////////////
 	@RequestMapping("/select.do")
@@ -64,6 +58,10 @@ public class ProductServlet {
 
 		return m;
 	}
+
+	// 검색
+	// 상품 디테일 /////////////////////////////////////////////////////////
+
 	
 	
 
@@ -103,7 +101,7 @@ public class ProductServlet {
 		return mav;
 	}
 
-	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
+	// 상품삭제 ////////////////////////////////////////////////////////////////
 	@RequestMapping("delete.do")
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
@@ -188,5 +186,27 @@ public class ProductServlet {
 		return m;
 
 	}
+	//신청서 확인 페이지로 이동
+	@RequestMapping(value="/aplication.do")
+	public ModelAndView Buy_aplication_page(@RequestParam("aplic_number") int a) {	
+		//InternalResourceView irv = new InternalResourceView("/input/aplication_confirm.jsp");
+		List<BuyVO> list=buyBIZ.getApllication_list(a);
+		ModelAndView m=new ModelAndView("UserOrder/aplication_confirm","list",list);
+		return m;
 
+	}
+
+	/*
+	 * //클릭<대기할것.>
+	 * 
+	 * @RequestMapping(value="/click.do",method=RequestMethod.GET) public
+	 * ModelAndView Click_Product(@RequestParam("click_number") int number) {
+	 * List<ProductVO> pvo=productBIZ.getClickProduct(number); ModelAndView m=new
+	 * ModelAndView("product/click_product","pvo",pvo); return m; }
+	 */
+	
+	/*@RequestMapping(value="/a_f.do")
+	public ModelAndView Click_apllication(@RequestParam("a_f") int a) {
+		List<BuyVO> 
+	}*/
 }

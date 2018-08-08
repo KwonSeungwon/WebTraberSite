@@ -40,8 +40,8 @@ public class ProductDAO implements IProduct {
 
 	}
 
-	public int getDelProduct(String del_name) {
-		int p = jdbcTemplate.update(delete_product, del_name);
+	public int getDelProduct(String name) {
+		int p = jdbcTemplate.update(delete_product, name);
 		return p;
 
 	}
@@ -159,6 +159,7 @@ public class ProductDAO implements IProduct {
 			pvo.setNote(rs.getString("note"));
 			pvo.setPic(rs.getString("pic"));
 		
+
 		return pvo;
 
 		}

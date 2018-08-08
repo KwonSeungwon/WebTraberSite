@@ -73,12 +73,12 @@ public class FestivalServlet {
 	public ModelAndView Festival_find(@RequestParam("find_number") String f_number,Model m) {
 		System.out.println("여기는 파인드" + f_number);
 		FestivalVO v = festivalBIZ.getFindFestival(f_number);
-		m.addAttribute("find",v);	
+		//m.addAttribute("find",v);	
 		InternalResourceView irv = new InternalResourceView("/input/update_festival.jsp");
-		return new ModelAndView(irv);
+		return new ModelAndView(irv,"find",v);
 	}
 	//업데이트
-	@RequestMapping(value="update.do",method=RequestMethod.GET)
+	@RequestMapping(value="update.do",method=RequestMethod.POST)
 	public ModelAndView Festival_update(@ModelAttribute("festivalvo") FestivalVO vo) {
 		System.out.println("여기는 업데이트 서블릿");
 		

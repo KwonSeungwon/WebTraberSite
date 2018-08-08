@@ -19,17 +19,20 @@
 	<h3>
 		신청서<input type="hidden" name="application" />
 	</h3>
-	<form action="/AcodaProject/buy/insert.do?a=${b} "method="post">
+	<form action="/AcodaProject/buy/insert.do?a=${b}" method="post">
 
-		상품번호:<input type="text"  name="item_number" value="${b}" /> 
-		국적:<input type="text" name="nationallity" />
-		사용언어(language) :<input type="text" name="language" /><br>
-		인원수(fellow_traveler):<input type="text" name="fellow_traveler" /><br>
-		특이사항(unusual):<input type="text" name="unusual" /><br>
-		<input type="hidden" name="user_number" value=<%=vo.getUser_number()%>/><!--user_number  -->
-		<input type="hidden" name="ordr_day" value = <%=today%> /><!-- 주문날짜 -->
+		1.상품번호:<input type="text" name="item_number" value="${b}"/> 
+		2.국적:<input type="text" name="nationality" />
+		3.사용언어(language) :<input type="text" name="language" /><br>
+		4.인원수(fellow_traveler):<input type="text" name="fellow_traveler" /><br>
+		5.특이사항(unusual):<input type="text" name="unusual" /><br>
+		6.<input type="text" name="user_number" value=<%=vo.getUser_number()%>><!--user_number  -->
+		7.<input type="text" name="order_day" value=<%=today%> ><!-- 주문날짜 -->
 		<!--  상품번호,회원고유번호,가이드 이메일로 보낼수 있게,신청인의 이름,신청인의 id,주문날짜 controller에서 세션 처리  -->
 		<input type="submit" value="신청 " /> <input type="reset" value="취소 " />
+	
 	</form>
+		<a href="/AcodaProject/product/select.do">상품 게시목록</a>	
+		<a href="/AcodaProject/index.jsp">메인페이지로</a>
 </body>
 </html>

@@ -32,7 +32,7 @@ public class Post_BoardServlet extends HttpServlet {
 	
 	//Select(전체목록출력)
 	@RequestMapping("/select_hugi.do")
-	public String post_board_Select_hugi(Model m,HttpSession session) {
+	public String post_board_Select_hugi(Model m,HttpSession session) throws Exception {
 		List<Post_BoardVO> all = post_boardBIZ.getHugiPost_Board();
 		m.addAttribute("all",all);
 		session.removeAttribute("searchKeyword");

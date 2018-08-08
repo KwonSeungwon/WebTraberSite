@@ -94,6 +94,7 @@ public class Post_BoardBIZ {
 		return  post_boardDAO.getSearch_Post_Board_User(s);
 	}
 	public List<Post_BoardVO> getSearch_Post_Board_Hugi(String s){
+		System.out.println("Post_BoardBIZ->getSearch_Post_Board_HugiÈ£Ãâ->String s = "+s);
 		return  post_boardDAO.getSearch_Post_Board_Hugi(s);
 	}
 	

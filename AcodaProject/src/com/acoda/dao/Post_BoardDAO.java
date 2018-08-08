@@ -44,21 +44,20 @@ public class Post_BoardDAO implements IPost_Board {
 	}
 	//Insert
 	public int getInsert_HugiPost_Board(Post_BoardVO vo) {
-		int count = 0;
-		for(int i = 0; i < 100 ;i++) {
+		
 		int r =jdbcTemplate.update(insert_post_hugi,
-				new Object[] {vo.getUser_number(),vo.getPost_title()+Integer.toString(count)
-						,vo.getPost_contents(),vo.getRegistration_date(),vo.getPath()});count++;  }
+				new Object[] {vo.getUser_number(),vo.getPost_title()
+						,vo.getPost_contents(),vo.getRegistration_date(),vo.getPath()});
 
-		/*if (r > 0) {
+		if (r > 0) {
 			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 r>0");
 			return r;
 		} else {
-			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 else");*/
+			System.out.println("Post_BarodDAO 의 getInsert_HugiPost_Board if문 else");
 			return 0;
-		/*}*/ 
 		}
-	/*}*/
+		
+	}
 	public int getInsert_UserPost_Board(Post_BoardVO vo) {
 		int r = jdbcTemplate.update(insert_post_user,
 				new Object[] {vo.getUser_number(),vo.getPost_title()
@@ -158,13 +157,13 @@ public class Post_BoardDAO implements IPost_Board {
 	}
 	public List<Post_BoardVO> getSearch_Post_Board_Hugi(String s){
 		RowMapper<Post_BoardVO> mapper=new RowMapper<Post_BoardVO>() {
-
 			@Override
 			public Post_BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				System.out.println("Post_BoardDAO->getSearch_Post_Board_Hugi->mapRow실행");
 				Post_BoardVO vo=new Post_BoardVO();
-				vo.setPost_number(rs.getInt("post_number"));
 				vo.setPost_title(rs.getString("post_title"));
+				vo.setTotal(rs.getInt("total"));
+				vo.setPost_number(rs.getInt("post_number"));
 				vo.setTitle(rs.getString("title"));
 				vo.setPost_contents(rs.getString("post_contents"));
 				vo.setRegistration_date(rs.getString("registration_date"));

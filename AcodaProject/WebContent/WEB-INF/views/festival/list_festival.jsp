@@ -12,6 +12,26 @@ dc<%@ page language="java" contentType="text/html; charset=UTF-8"
 <h2>축제 게시판</h2>
 <c:set var="vo"  value="${sessionScope.login}" />
 <h1><c:out value=" ${vo.rating}"/></h1>
+
+<form action="search.do" method="get">
+<table border="1" cellpadding="0" cellspacing="0" width="600">
+<tr>
+<td align="center">
+<select name="searchCondition">
+<option value="title">제목 
+</select>
+<input name="searchkeyword" type="text" id="searchkeyword"/>
+<input type="submit" value="검색"/>
+</td>
+</tr>
+</table>
+</form>
+
+<c:if test="${vo.rating==3}">
+<a href="/AcodaProject/festival/insert_page.do">축제 글작성</a>
+</c:if>
+<a href="/AcodaProject/index.jsp">메인페이지로</a>
+
 <table border="1">
 	<thead style="text-align:center;">
 		<tr>
@@ -37,7 +57,7 @@ dc<%@ page language="java" contentType="text/html; charset=UTF-8"
 			</tbody>
 </table>
 
-<form action="search.do" method="get">
+<%-- <form action="search.do" method="get">
 <table border="1" cellpadding="0" cellspacing="0" width="600">
 <tr>
 <td align="center">
@@ -55,6 +75,6 @@ dc<%@ page language="java" contentType="text/html; charset=UTF-8"
 <a href="/AcodaProject/festival/insert_page.do">축제 글작성</a>
 </c:if>
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
-
+ --%>
 </body>
 </html>

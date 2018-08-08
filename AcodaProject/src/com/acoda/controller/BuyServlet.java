@@ -97,23 +97,26 @@ public class BuyServlet {
 		return null;
 	}
 
-	// 주문 상품 취소
-	@RequestMapping("/deleteorder.do")
-	public ModelAndView Buy_delete(@RequestParam("del_itemnum") int itemnum, HttpServletResponse response,
-			HttpSession session) {
+	// 거절된 신청서만 삭제가능.
+	@RequestMapping(value="delorder.do", method=RequestMethod.GET)
+	public ModelAndView Buy_delete(@RequestParam("del_ordernum") int order_number,HttpSession session) {
 
 		MemberVO mvo = (MemberVO) session.getAttribute("login");
 		int unumber = mvo.getUser_number();
+		
 		ModelAndView mav = new ModelAndView();
-
-		if (buyBIZ.getDelBuy(itemnum) > 0) {
+		
+		System.out.println(order_number);
+		int b=buyBIZ.getDelBuy(order_number);
+		System.out.println(b);
+		
+		if (buyBIZ.getDelBuy(order_number) > 0) {
 			System.out.println("삭제끝");
-			List<BuyVO> all = buyBIZ.BuyAllSelectBiz(unumber);
-			mav = new ModelAndView("/UserOdrer/UserOrderList", "BuyList", all);
-
+	
 		}
+		List<BuyVO> all = buyBIZ.BuyAllSelectBiz(unumber);
+		mav = new ModelAndView("/UserOrder/UserOrderList", "BuyList", all);
 		return mav;
-
 	}
 
 	public String Buy_update() {

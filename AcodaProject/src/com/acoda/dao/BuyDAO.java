@@ -70,11 +70,11 @@ public class BuyDAO implements IBuy {
 		return jdbcTemplate.query(a_select_buy, mapper,new Object[] {a});
 	}
 	
-	public int getDelBuy(int itemnum) {
+	public int getDelBuy(int order_number) {
 
-		int d_result = jdbcTemplate.update(delete_buy, itemnum);
+		int b_del = jdbcTemplate.update(delete_buy,order_number);
 
-		return d_result;
+		return b_del;
 
 	}
 

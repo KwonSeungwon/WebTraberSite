@@ -24,8 +24,8 @@
 시작일 <input type="date" name="f_start_date">~
 마지막일<input type="date" name="f_end_date">
 장소<input type="text" name="f_local"><br>
-내용<input type="text" name="f_contents"><br>
-회원고유번호<input type="text" name="user_number" value=<%=vo.getUser_number()%>>
+내용<textarea rows="2" cols="30" name="f_contents"></textarea><br>
+<input type="hidden" name="user_number" value=<%=vo.getUser_number()%>>
 
     <input type="submit" value="등록" />
        <input type="reset" value="취소 "/>

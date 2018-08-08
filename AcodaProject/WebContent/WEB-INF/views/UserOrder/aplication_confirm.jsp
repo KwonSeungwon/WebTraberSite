@@ -66,8 +66,8 @@ $(document).ready(function() {
 							<td><c:out value=" ${bu.unusual}" /></td>
 							
 							<td><select name="application">
-								<option value="ok">승인
-								<option value="reject">거절
+								<option value="승낙(ok)">승낙
+								<option value="거절(rejection)">거절
 								
 							</select></td>
 							<td><textarea name="memo"></textarea> 

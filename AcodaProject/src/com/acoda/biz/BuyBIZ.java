@@ -34,8 +34,8 @@ public class BuyBIZ {
 		return buyDAO.getAllBuy(unumber);
 	}
 
-	public int getDelBuy(int itemnum) {
-		return buyDAO.getDelBuy(itemnum);
+	public int getDelBuy(int order_number) {
+		return buyDAO.getDelBuy(order_number);
 
 	}
 	//신청서 목록 보여주는 비즈

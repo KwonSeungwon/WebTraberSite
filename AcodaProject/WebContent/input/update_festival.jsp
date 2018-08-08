@@ -18,19 +18,19 @@
    %>
 <form action="/AcodaProject/festival/update.do" method="post">
 수정하세요 <br><br><br>
-     	축제글 번호 : <input type="text" name="f_number" value="${find.f_number}"/><br>
-     	축제 이름 : <input type="text" name="f_name" /><br>
-  	  	계절:<input type="text" name="season" /><br>
- 		축제 시작날짜 : <input type="date" name="f_start_date"/><br>
- 		축제 마지막 날짜 : <input type="date" name="f_end_date"/><br><br>
-	 	축제 장소 : <input type="text" name="f_local" /><br>
-    	축제 내용 : <input type="text" name="f_contents" /><br>
+     	축제글 번호 : <input name="f_number" value="${find.f_number}" required="true" readonly="readonly"/><br>
+     	축제 이름 : <input type="text" name="f_name" required="true" /><br>
+  	  	계절:<input type="text" name="season" required="truev"/><br>
+ 		축제 시작날짜 : <input type="date" name="f_start_date" required="true"/><br>
+ 		축제 마지막 날짜 : <input type="date" name="f_end_date" required="true"/><br><br>
+	 	축제 장소 : <input type="text" name="f_local"  required="true"/><br>
+    	축제 내용 : <input type="text" name="f_contents"  required="true"/><br>
 
      
        <input type="submit" value="확인 "/>
-       <input type="reset" value="취소 "/>
+       <input type="button" value="취소 " onclick="location.href='/AcodaProject/festival/select.do'"/>
  </form>
- <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
+<!--  <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a> -->
  <a href="/AcodaProject/index.jsp">메인페이지로</a>
 </body>
 </html>

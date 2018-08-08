@@ -34,7 +34,7 @@ $(document).ready(function() {
 	</h1>
 	<form action="/AcodaProject/buy/application_update.do"  method="post" >
 <%--<form action="/AcodaProject/buy/application_update.do?order_number=${list.order_number}&item_number=${list.item_number}" method="post">
- --%>		<table border="1">
+--%>		<table border="1">
 
 			<thead style="text-align: center;">
 				<tr>
@@ -51,9 +51,8 @@ $(document).ready(function() {
 					</tr>
 			</thead>
 			<tbody style="text-align: left;">
-<%-- 
-			<c:if test="${item_number == pr.item_number}">  --%>
-					<c:forEach var="bu" items="${list}" varStatus="i">
+<%-- <c:if test="${item_number == pr.item_number}">  --%>
+					<c:forEach var="bu" items="${list}" >
 					
 						<tr>
 							<td>신청서</td>
@@ -75,14 +74,11 @@ $(document).ready(function() {
 						</tr>
 		<input type="hidden" name="order_number" value="${bu.order_number}">
 					</c:forEach>
-			<%--  </c:if>  --%>
-
 			</tbody>
 		</table>
 		<input  type="submit" value="보내기" />
 	</form>
 	<a href="/AcodaProject/product/select.do">상품 게시목록</a>
 	<a href="/AcodaProject/index.jsp">메인페이지로</a>
-
 </body>
 </html>

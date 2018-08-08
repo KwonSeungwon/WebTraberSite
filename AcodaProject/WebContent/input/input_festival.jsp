@@ -19,19 +19,19 @@
 여기는 관리자가 축제 정보를 올리는 게시판입니다. <br><br><hr>
 <form action=" /AcodaProject/festival/insert.do" method="get">
 
-이름 <input type="text" name="f_name"><br>
-계절<input type="text"  name="season"><br>
-시작일 <input type="date" name="f_start_date">~
-마지막일<input type="date" name="f_end_date">
-장소<input type="text" name="f_local"><br>
-내용<textarea rows="2" cols="30" name="f_contents"></textarea><br>
+이름 <input type="text" name="f_name" required=""><br>
+계절<input type="text"  name="season" required="" ><br>
+시작일 <input type="date" name="f_start_date" required="">~
+마지막일<input type="date" name="f_end_date" required="">
+장소<input type="text" name="f_local" required=""><br>
+내용<textarea rows="2" cols="30" name="f_contents" required=""></textarea><br>
 <input type="hidden" name="user_number" value=<%=vo.getUser_number()%>>
 
     <input type="submit" value="등록" />
-       <input type="reset" value="취소 "/>
+       <input type="button" value="취소 " onclick="location.href='/AcodaProject/festival/select.do'"/>
 
 </form>
-<a href="/AcodaProject/festival/select.do">축제글 목록</a>
+<!-- <a href="/AcodaProject/festival/select.do">축제글 목록</a> -->
 <a href ="/AcodaProject/index.jsp">홈으로</a>
 </body>
 </html>

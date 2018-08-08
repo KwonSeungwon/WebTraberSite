@@ -12,7 +12,7 @@
 <body style="font-size: 2.0em; margin: 150px 150px 150px 150px;">
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
-			<th>아이템번호</th>
+			<th>상품번호</th>
 			<th>주문번호</th>
 			<th>주문날짜</th>
 			<th>국적</th>
@@ -33,7 +33,7 @@
 				<td>${BuyList.unusual}</td>
 				<td>${BuyList.application}</td>
 				<td>${BuyList.memo}</td>
-				<c:if test="${BuyList.application =='reject'}">
+				<c:if test="${BuyList.application =='거절(rejection)'}">
 				<td><a href="delorder.do?del_ordernum=${BuyList.order_number}">삭제</a></td>
 				<%-- <td><a  href ="deleteorder.do?del_ordernum=${BuyList.order_number}"> 삭제  </a></td> --%>
 			</c:if>

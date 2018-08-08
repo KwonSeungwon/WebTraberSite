@@ -13,7 +13,7 @@ public interface IBuy {
 	String update_buy="update buy set application=?,memo=? where order_number=?";
 	
 	//거절된 신청서만 삭제가 가능하다.
-	String delete_buy="delete from buy where order_number=? and application='reject' ";
+	String delete_buy="delete from buy where order_number=? and application='거절(rejection)' ";
 	
 	//신청서 확인시 목록보여주기
 	String a_select_buy="select m.id,b.order_number,b.order_day,b.nationality,b.fellow_traveler,"

@@ -29,6 +29,9 @@ import com.acoda.vo.ProductVO;
 @RequestMapping("/product")
 public class ProductServlet {
 
+	
+	
+	
 	@Autowired
 	ProductBIZ productBIZ;
 	@Autowired
@@ -56,7 +59,13 @@ public class ProductServlet {
 
 		return m;
 	}
+// 검색
+	// 상품 디테일 /////////////////////////////////////////////////////////
 
+
+
+	
+	//////////////// 검색하기  기능 /////////////////////////////////////
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -90,6 +99,11 @@ public class ProductServlet {
 		mav = new ModelAndView("/product/click_product", "clist", vo);
 		return mav;
 	}
+
+
+
+
+	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
 	@RequestMapping("delete.do")
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
@@ -112,8 +126,9 @@ public class ProductServlet {
 	public ModelAndView Product_update(@ModelAttribute("find_number") ProductVO vo) {
 		List<ProductVO> list = productBIZ.getAllProduct();
 		ModelAndView mav = new ModelAndView();
+		vo.setTrip_date(vo.getTrip_date().replace(",", "~"));
 		int n = productBIZ.getUpdateProduct(vo);
-		
+		System.out.println(n+"여기는 컨트롤러");
 		if (n > 0) {
 			System.out.println("수정성공");
 			list = productBIZ.getAllProduct();
@@ -123,7 +138,7 @@ public class ProductServlet {
 		return mav;
 	}
 
-	// 특정 상품 리스트 가져오기//////////////////////////////////
+	// 수정전 상품 리스트 가져오기//////////////////////////////////
 	@RequestMapping("/pupinfo.do")
 	public InternalResourceView Product_getupdateinfo(@RequestParam("item_number") int num,Model m) {
 		ProductVO vo = new ProductVO();

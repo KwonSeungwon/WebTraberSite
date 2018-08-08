@@ -3,8 +3,6 @@
 <%@page import="com.acoda.vo.MemberVO"%>
 <%@page import = "java.util.Date"%>
 <%@page import = "java.text.SimpleDateFormat" %>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,7 +46,6 @@ $(document).ready(function() {
 			alert("등록되었습니다.");
 			return true;
 		}
-		
  	}); 
 });
 </script>
@@ -77,9 +74,9 @@ $(document).ready(function() {
 		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>
 		
 		<input type="submit" value="등록" class = "rbtn" /> 
-		<input type="reset" value="취소 " />
+		<input type="button" value="취소 " onclick="location.href='/AcodaProject/product/select.do'" />
 	</form>
-	<a href="/AcodaProject/product/select.do">상품 목록</a>
-	<a href="/AcodaProject/index.jsp">홈으로</a>
+<!-- 	<a href="/AcodaProject/product/select.do">상품 목록</a>-->	
+<a href="/AcodaProject/index.jsp">홈으로</a>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class Post_BoardServlet extends HttpServlet {
 		return "post_boardView/hugi_post_board";
 	}
 	@RequestMapping("/select_user.do")
-	public String post_board_Select_user(Model m) {
+	public String post_board_Select_user(Model m) throws Exception {
 		List<Post_BoardVO> all = post_boardBIZ.getUserPost_Board();
 		m.addAttribute("all",all);
 		return "post_boardView/user_post_board";
@@ -144,11 +145,13 @@ public class Post_BoardServlet extends HttpServlet {
 	
 	//Search(제목으로검색)
 	@RequestMapping(value="/search_user.do",method=RequestMethod.GET)
-	 public String post_board_search_user(HttpServletRequest request,Model m) {
-			String s=request.getParameter("search_post_board_user");
-			System.out.println("search_post_board_user(입력받은 검색어) = "+s);
+	 public String post_board_search_user(@RequestParam ("search_post_board_user") String s,Model m,HttpSession session) {
+			System.out.println("Post_BoardServlet->search_post_board_user(입력받은 검색어) = "+s);
+			session.setAttribute("searchKeyword", s);
+			//세션 삭제는 session removeattribute("세션이름") or invalidate(); <- 모든 세션삭제  - 개인적인 견해로 전자를 추천합니다-
 			List<Post_BoardVO> list= post_boardBIZ.getSearch_Post_Board_User(s);
-			m.addAttribute("list",list);
+			System.out.println("Post_BoardServlet->List<Post_BoardVO> list = "+list.size());
+			m.addAttribute("all",list);
 		return "post_boardView/user_post_board";
 		}
 	@RequestMapping(value="/search_hugi.do",method=RequestMethod.GET)
@@ -157,10 +160,13 @@ public class Post_BoardServlet extends HttpServlet {
 			System.out.println("search_post_board_hugi(입력받은 검색어) = "+s);
 			List<Post_BoardVO> list= post_boardBIZ.getSearch_Post_Board_Hugi(s);
 			m.addAttribute("list",list);
-		return "post_boardView/user_post_board";
+		return "post_boardView/hugi_post_board";
 		}
 	
 	
+	
+	
+
 	
 	
 }

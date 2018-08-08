@@ -1,7 +1,5 @@
 package com.acoda.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,28 +25,22 @@ public class FestivalServlet {
 	//list보여주는곳.
 	@RequestMapping("/select.do")
 	public String f_Select(Model m) {
-		List<FestivalVO> all = festivalBIZ.getAllFestival();
-
-		m.addAttribute("all", all);
-		return "festival/list_festival";
-		
+		m.addAttribute("all", festivalBIZ.getAllFestival());
+		return "festival/list_festival";		
 	}
 	//insert
 	@RequestMapping(value ="/insert.do", method=RequestMethod.GET)
 	public String f_insert(@ModelAttribute FestivalVO vo) {
 		System.out.println("여기는 인서트 추가하는 곳");
-		int r = festivalBIZ.getInsertFestival(vo);
+		festivalBIZ.getInsertFestival(vo);
 		return "redirect:/festival/select.do";
 	}
 	//insert페이지로 넘어감
 	@RequestMapping("/insert_page.do")
 	public ModelAndView Festival_insertpage() {
 		System.out.println("여기서 넘어가는건가?");
-
 		InternalResourceView irv = new InternalResourceView("/input/input_festival.jsp");
-
 		return new ModelAndView(irv);
-
 	}
 
 	//삭제
@@ -56,13 +48,12 @@ public class FestivalServlet {
 	public ModelAndView Festival_delete(@RequestParam("del_number") String name) {
 		System.out.println("여긴 컨트롤러 딜리트");
 		InternalResourceView irv = new InternalResourceView("/festival/select.do");
-		int r = festivalBIZ.getDelFestival(name);
-		if (r > 0) {
+		if (festivalBIZ.getDelFestival(name) > 0) {
 			System.out.println("여기까지느 온다");
 			return new ModelAndView(irv);
 		} else {
 			System.out.println("삭제오류");
-			return null;
+		return null;	
 		}
 	}
 	//파인드
@@ -76,10 +67,9 @@ public class FestivalServlet {
 	}
 	//업데이트
 	@RequestMapping(value="update.do",method=RequestMethod.POST)
-	public ModelAndView Festival_update(@ModelAttribute("festivalvo") FestivalVO vo) {
+	public ModelAndView Festival_update(@ModelAttribute FestivalVO vo) {
 		System.out.println("여기는 업데이트 서블릿");
-		
-	    int f = festivalBIZ.getUpdateFestival(vo);
+	    festivalBIZ.getUpdateFestival(vo);
 		InternalResourceView irv = new InternalResourceView("/festival/select.do");
 		ModelAndView mav=new ModelAndView(irv);
 		return mav;
@@ -87,26 +77,17 @@ public class FestivalServlet {
 	
 	//검색
 	@RequestMapping(value="/search.do",method=RequestMethod.GET)
- public String search(HttpServletRequest request,Model m) {
+ public ModelAndView search(HttpServletRequest request) {
 		String s=request.getParameter("searchkeyword");
-		List<FestivalVO> list= festivalBIZ.getsearch(s);	
 	    System.out.println("여기는 서치");
-		
-		m.addAttribute("list",list);
-		
-		
-	return "festival/get_festival_List";
+		ModelAndView m =new ModelAndView("/festival/list_festival","all",festivalBIZ.getsearch(s));
+	return m;
 	}
 
 	@RequestMapping(value="/click.do",method=RequestMethod.GET)
 	public String festival_click(@RequestParam("click_number") String name ,Model m) {
 		 System.out.println("여기는 클릭 컨트롤러"+festivalBIZ.getClickfestival(name).size());
-		List<FestivalVO> vo=festivalBIZ.getClickfestival(name);
-		m.addAttribute("click", vo);
-		
+		m.addAttribute("click", festivalBIZ.getClickfestival(name));
 		return "festival/click_festival";
-		
 	}
-	
-
 }

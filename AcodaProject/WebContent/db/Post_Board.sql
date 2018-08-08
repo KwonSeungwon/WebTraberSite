@@ -20,7 +20,7 @@ insert into post_board(p_type,title,title_number,user_number,post_number,post_ti
 values(1,'후기게시판',1,6,postboard_seq.nextval,'여행1','후기게시판test',sysdate,1);
 
 insert into post_board(p_type,title,title_number,user_number,post_number,post_title,post_contents,registration_date,views,path)
-values(2,'유저게시판',2,5,postboard_seq.nextval,'불란서','유저게시판test',sysdate,0,'c://img..');
+values(2,'유저게시판',2,25,postboard_seq.nextval,'불란서','유저게시판test',sysdate,0,'c://img..');
 
 -------------------------
 create table post_type(
@@ -107,4 +107,10 @@ insert into member values(member_seq.nextval,2,'최씨','man','b','b', '111-11-221
 insert into member(user_number,rating,name,sex,id,pw,phone,address,email,join_date,birth,job) values(member_seq.nextval,1,'강준','man','E','EE', '010-000-0011', '경기도 의정부', 'gl@vvv.zz', sysdate,'1998-01-09','프로그래머');
 insert into member(user_number,rating,name,sex,id,pw,phone,address,email,join_date,birth,job) values(member_seq.nextval,1,'홍준','man','Q','QQ', '010-000-0012', '서울시 잠실', 'kl@vvv.zz', sysdate,'1998-02-09','DBA');
 insert into member(user_number,rating,name,sex,id,pw,phone,address,email,join_date,birth,job) values(member_seq.nextval,3,'이준','man','J','JJ', '010-000-0013', '서울시 동대문', 'bl@vvv.zz', sysdate,'1990-02-09','강사');
+
+
+
+
+
+
 

@@ -34,8 +34,7 @@
 			</tr>
 	</c:forEach>
 </table>
-  <a href="/AcodaProject/festival/select.do">축제글 보기</a>
-  <a href="/AcodaProject/festival/select.do">축제 게시판 보기</a>
-<a href="/AcodaProject/index.jsp">메인페이지로</a>
+  <a href="/AcodaProject/festival/select.do">축제글 목록</a>
+  <a href="/AcodaProject/index.jsp">메인페이지로</a>
 </body>
 </html>

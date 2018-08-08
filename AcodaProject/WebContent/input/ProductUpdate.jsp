@@ -56,7 +56,7 @@ $(document).ready(function() {
 <%
 ProductVO vo = (ProductVO) request.getAttribute("ulist");
 String date = vo.getTrip_date();
-String result[] = date.split(",");
+String result[] = date.split("~");
 String a = result[0];
 String b = result[1];
 

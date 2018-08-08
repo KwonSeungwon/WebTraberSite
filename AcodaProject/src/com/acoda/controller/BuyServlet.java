@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,7 +66,7 @@ public class BuyServlet {
 	
 	//신청서에서 들어오는 데이터 저장
 	@RequestMapping(value="/insert.do",method=RequestMethod.POST)
-	public String Buy_Insert(HttpSession session,BuyVO vo) {
+	public String Buy_Insert(HttpSession session,@ModelAttribute BuyVO vo) {
 		 
 		int b=buyBIZ.getInsertBuy(vo);
 		/*List<ProductVO> list=productBIZ.getAllProduct();

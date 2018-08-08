@@ -166,7 +166,7 @@ public class ProductServlet {
 	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile) throws Exception {
 		String result = "";
 		String f_realname = "";
-		String path = "C:\\Users\\Playdata\\git\\Encore_1jooo\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
+		String path = "C:\\Users\\Playdata\\git\\Encore_1jofix\\AcodaProject\\WebContent\\img"; // 파일 저장경로
 		File dir = new File(path);
 		if (!dir.isDirectory()) {
 			dir.mkdir();

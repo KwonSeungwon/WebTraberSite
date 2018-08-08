@@ -95,9 +95,9 @@
 	<input name="search_post_board_user" type="text" id="search_post_board_user"/>
 	<input type="submit" value="검색"/>
 </form>
-
-<a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 글작성하기</a>
-<a href="/AcodaProject/index.jsp">메인페이지로</a>
+<a href="/AcodaProject/post_board/select_user.do?start=0"> 유저게시판 </a><br>
+<a href="/AcodaProject/post_board/insert_user_page.do">유저게시판 글작성하기</a><br>
+<a href="/AcodaProject/index.jsp">메인페이지로</a><br>
 
 </body>
 </html>

@@ -25,8 +25,10 @@ public class FestivalServlet {
 	//list보여주는곳.
 	@RequestMapping("/select.do")
 	public String f_Select(Model m) {
+
 		m.addAttribute("all", festivalBIZ.getAllFestival());
 		return "festival/list_festival";		
+
 	}
 	//insert
 	@RequestMapping(value ="/insert.do", method=RequestMethod.GET)

@@ -59,13 +59,11 @@ public class ProductServlet {
 
 		return m;
 	}
+
 // 검색
-	// 상품 디테일 /////////////////////////////////////////////////////////
-
-
 
 	
-	//////////////// 검색하기  기능 /////////////////////////////////////
+
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -99,8 +97,6 @@ public class ProductServlet {
 		mav = new ModelAndView("/product/click_product", "clist", vo);
 		return mav;
 	}
-
-
 
 
 	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
@@ -159,7 +155,7 @@ public class ProductServlet {
 	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile) throws Exception {
 		String result = "";
 		String f_realname = "";
-		String path = "C:\\Users\\Playdata\\git\\Encore_1jooo\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
+		String path = "C:\\Users\\Playdata\\git\\Encore_1jofix\\AcodaProject\\WebContent\\img"; // 파일 저장경로
 		File dir = new File(path);
 		if (!dir.isDirectory()) {
 			dir.mkdir();
@@ -171,7 +167,6 @@ public class ProductServlet {
 			MultipartFile mult = uploadFile.getFile(upload);
 			f_realname = mult.getOriginalFilename();
 			System.out.println("리얼네임은 :" + f_realname);
-
 			mult.transferTo(new File(path + f_realname));
 		}
 		result = path + f_realname;

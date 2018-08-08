@@ -12,8 +12,12 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 </head>
+
 <body>
 <%MemberVO vo = (MemberVO) session.getAttribute("login"); %>
 <nav class="navbar navbar-inverse">
@@ -26,7 +30,7 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"> 게시판 <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="/AcodaProject/post_board/select_user.do?start=0"> 유저게시판 </a></li>
-          <li><a href="/AcodaProject/post_board/select_hugi.do"> 후기게시판 </a></li>
+          <li><a href="/AcodaProject/post_board/select_hugi.do?start=0"> 후기게시판 </a></li>
         </ul>
       </li>
       <li><a href="/AcodaProject/festival/select.do"> 축제정보 </a></li>

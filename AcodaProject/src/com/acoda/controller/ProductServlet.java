@@ -178,7 +178,6 @@ public class ProductServlet {
 			MultipartFile mult = uploadFile.getFile(upload);
 			f_realname = mult.getOriginalFilename();
 			System.out.println("리얼네임은 :" + f_realname);
-
 			mult.transferTo(new File(path + f_realname));
 		}
 		result = path + f_realname;

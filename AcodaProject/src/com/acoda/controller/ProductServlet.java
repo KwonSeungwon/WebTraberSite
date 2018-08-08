@@ -61,24 +61,17 @@ public class ProductServlet {
 
 		return m;
 	}
-<<<<<<< HEAD
+
 
 // 검색
-=======
+
 	// 검색
 	// 상품 디테일 /////////////////////////////////////////////////////////
 
 
 	
-	
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-	
-<<<<<<< HEAD
 
-=======
-	//////////////// 검색하기  기능 /////////////////////////////////////
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -100,13 +93,11 @@ public class ProductServlet {
 		System.out.println(vo.getPic());
 		mav = new ModelAndView("/product/click_product", "clist", vo);
 		return mav;
-<<<<<<< HEAD
-	}
-=======
+
 	}
 
 
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+
 
 
 
@@ -170,7 +161,7 @@ public class ProductServlet {
 		MemberVO vo = (MemberVO) session.getAttribute("login");
 		String result = "";
 		String f_realname = "";
-		String path = "C:\\Users\\Playdata\\git\\Encore_1jofix\\AcodaProject\\WebContent\\img"; // 파일 저장경로
+		String path = "C:\\Users\\Playdata\\git\\Encore_1jo-7\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
 		File dir = new File(path);
 		if (!dir.isDirectory()) {
 			dir.mkdir();
@@ -181,11 +172,10 @@ public class ProductServlet {
 			MultipartFile mult = uploadFile.getFile(upload);
 			f_realname = mult.getOriginalFilename();
 			mult.transferTo(new File(path +vo.getId()+f_realname));
-			result = path + vo.getId() + f_realname;
-
 			System.out.println("리얼네임은 :" + f_realname);
-			mult.transferTo(new File(path + f_realname));
 		}
+		
+		result = path + vo.getId() + f_realname;
 		
 		String abc[] = result.split("\\\\");
 		String a = "../";

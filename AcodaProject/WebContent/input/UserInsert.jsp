@@ -183,10 +183,9 @@ input.upload {
 	<input type="password" name="pw" class = "ppw" placeholder="비밀번호를 입력하세요">	
 	</div>
 	</div>
-	
-	
-	
-	핸드폰번호 : <input type="text" name="phone" class = "phh">		
+
+	핸드폰번호 : <input type="text" name="phone" class = "phh">	
+		
 	우편번호<input type="text" name="address" readonly="readonly" class="postcodify_postcode5"/>
 	<button type="button" id = "abutton">검색</button><br />
 	도로명 주소<input type="text" name="address" class="postcodify_address"/><br />

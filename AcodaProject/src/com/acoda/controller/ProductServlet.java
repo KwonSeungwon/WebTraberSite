@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.view.InternalResourceView;
 import com.acoda.biz.BuyBIZ;
 import com.acoda.biz.ProductBIZ;
 import com.acoda.vo.BuyVO;
+import com.acoda.vo.MemberVO;
 import com.acoda.vo.ProductVO;
 
 @Controller
@@ -59,11 +61,24 @@ public class ProductServlet {
 
 		return m;
 	}
+<<<<<<< HEAD
 
 // 검색
+=======
+	// 검색
+	// 상품 디테일 /////////////////////////////////////////////////////////
+
 
 	
+	
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
+	
+<<<<<<< HEAD
+
+=======
+	//////////////// 검색하기  기능 /////////////////////////////////////
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
 		System.out.println("상품 검색 컨드롤러");
@@ -78,28 +93,24 @@ public class ProductServlet {
 	////////////// 상품 상세정보 ///////////////////////////////////////////////
 	@RequestMapping(value = "/productdetail.do", method = RequestMethod.GET)
 	public ModelAndView Product_deatail(@RequestParam("item_number") int item_num) {
-
+		
 		ModelAndView mav = new ModelAndView();
 		ProductVO vo = new ProductVO();
 		vo = productBIZ.getDetail(item_num);
 		System.out.println(vo.getPic());
-		String result = "";
-		String a = "../";
-		String sp = vo.getPic();
-		String[] change = sp.split("\\\\");
-		for(int i = 0 ;i<change.length ; i++) {
-			if(change[i].equals("img")) {
-				result = a+change[i]+"/"+change[i+1];
-			}
-				
-		}
-		vo.setPic(result);
 		mav = new ModelAndView("/product/click_product", "clist", vo);
 		return mav;
+<<<<<<< HEAD
+	}
+=======
 	}
 
 
-	////////////// 상품삭제 ////////////////////////////////////////////////////////////////
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+
+
+
+
 	@RequestMapping("delete.do")
 	public ModelAndView Product_delete(@RequestParam("del_number") String name) {
 		int p = productBIZ.getDelProduct(name);
@@ -128,8 +139,9 @@ public class ProductServlet {
 		if (n > 0) {
 			System.out.println("수정성공");
 			list = productBIZ.getAllProduct();
-			mav = new ModelAndView("/product/list_product","list",list);
 		}
+		mav = new ModelAndView("/product/list_product","list",list);
+
 
 		return mav;
 	}
@@ -152,7 +164,10 @@ public class ProductServlet {
 
 	// 사진업로드 AJAX //////////////////////////////////////
 	@RequestMapping(value = "/picup.do", method = RequestMethod.POST)
-	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile) throws Exception {
+	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile,HttpSession session,
+			HttpServletRequest rep) throws Exception {
+		
+		MemberVO vo = (MemberVO) session.getAttribute("login");
 		String result = "";
 		String f_realname = "";
 		String path = "C:\\Users\\Playdata\\git\\Encore_1jofix\\AcodaProject\\WebContent\\img"; // 파일 저장경로
@@ -160,16 +175,28 @@ public class ProductServlet {
 		if (!dir.isDirectory()) {
 			dir.mkdir();
 		}
-
 		Iterator<String> files = uploadFile.getFileNames();
 		while (files.hasNext()) {
 			String upload = files.next();
 			MultipartFile mult = uploadFile.getFile(upload);
 			f_realname = mult.getOriginalFilename();
+			mult.transferTo(new File(path +vo.getId()+f_realname));
+			result = path + vo.getId() + f_realname;
+
 			System.out.println("리얼네임은 :" + f_realname);
 			mult.transferTo(new File(path + f_realname));
 		}
-		result = path + f_realname;
+		
+		String abc[] = result.split("\\\\");
+		String a = "../";
+		for(int i = 0 ;i<abc.length ; i++) {
+			if(abc[i].equals("img")) {
+				result = a+abc[i]+"/"+abc[i+1];
+			}
+				
+		}
+		
+		System.out.println(result);
 		return result;
 
 	}
@@ -194,17 +221,4 @@ public class ProductServlet {
 
 	}
 
-	/*
-	 * //클릭<대기할것.>
-	 * 
-	 * @RequestMapping(value="/click.do",method=RequestMethod.GET) public
-	 * ModelAndView Click_Product(@RequestParam("click_number") int number) {
-	 * List<ProductVO> pvo=productBIZ.getClickProduct(number); ModelAndView m=new
-	 * ModelAndView("product/click_product","pvo",pvo); return m; }
-	 */
-	
-	/*@RequestMapping(value="/a_f.do")
-	public ModelAndView Click_apllication(@RequestParam("a_f") int a) {
-		List<BuyVO> 
-	}*/
 }

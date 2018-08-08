@@ -59,11 +59,6 @@ String date = vo.getTrip_date();
 String result[] = date.split("~");
 String a = result[0];
 String b = result[1];
-
-String pict = vo.getPic();
-String ppath ="../"; 
-String[] a1 = pict.split("\\\\");
-ppath += a1[7] +"/"+a1[8];
 %>
 
 <h3>상품 수정 페이지</h3>
@@ -74,10 +69,10 @@ ppath += a1[7] +"/"+a1[8];
 		상세일정  :<input type="text" name="schedule" class = "sc" value = "${ulist.schedule}"/><br>
 		일정 :<input type="date" name="trip_date" class = "td" value = <%=a%> /> <input type="date" name="trip_date" value =<%=b%> ><br> 
 		참고사항  :<input type="text" name="note" class = "note" value = "${ulist.note}"/><br>
-		사진 : <img src = <%=ppath%> height="200px" ><br>
+		사진 : <img src = "${ulist.pic}" height="200px" ><br>
 		가이드사진 : <input type = "file" id = "picbu" name = "fileup"><br>
 	
-		경로 : <input type = "text" name ="pic" class = "location" value=<%=pict%>> <input type = "button" value = "사진교체" class = "pbtn"><br>
+		경로 : <input type = "text" name ="pic" class = "location" value="${ulist.pic}"> <input type = "button" value = "사진교체" class = "pbtn"><br>
 		아이템번호 :<input type= "text" name="item_number" class = "pn" value = "${ulist.item_number}">
 		
 		<input type="submit" value="수정하기" class = "rbtn" /> 

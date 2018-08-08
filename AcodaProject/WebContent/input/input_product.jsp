@@ -23,6 +23,7 @@ $(document).ready(function() {
          success: function(result){
             alert("업로드 완료");
             $('.location').val(result);
+            $("#my_image").attr("src",result);
 
             }
          });
@@ -66,9 +67,8 @@ $(document).ready(function() {
 		<!-- <input type="text" name="schedule" class = "sc"/><br> -->
 		일정 :<input type="date" name="trip_date" class = "td" /> <input type="date" name="trip_date"/><br> 
 		참고사항  :<input type="text" name="note" class = "note"/><br>
-		가이드사진 : <input type = "file" id = "picbu" name = "fileup">
-		<input type = "button" value = "업로드하기" class = "pbtn"><br>
-		
+		가이드사진 : <input type = "file" id = "picbu" name = "fileup"> <input type = "button" value = "업로드하기" class = "pbtn"><br>		
+		올린사진 : <img id = "my_image" src ="" height="200"/><br>
 		<input type="hidden" name ="sell_date" value = <%=today%>><br> 
 		<input type = "hidden" name ="pic" class = "location">
 		<input type="hidden"name="user_number" value=<%=vo.getUser_number()%>><br>

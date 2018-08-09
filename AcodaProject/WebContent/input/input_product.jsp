@@ -11,7 +11,14 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-   $(".pbtn").click(function() {   
+   $(".pbtn").click(function() {
+	   if ($("#picbu").val() != "") {
+			var ext = $('#picbu').val().split('.').pop().toLowerCase();
+			if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+				alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
+				return false;
+			}
+		}
       var F_Data = new FormData($("#fileupform")[0]);      
       $.ajax({ 
          url:'/AcodaProject/product/picup.do',

@@ -1,6 +1,9 @@
 package com.acoda.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +27,9 @@ public class FestivalServlet {
 
 	//list보여주는곳.
 	@RequestMapping("/select.do")
-	public String f_Select(Model m) {
-
+	public String f_Select(Model m,HttpSession session)throws Exception {
 		m.addAttribute("all", festivalBIZ.getAllFestival());
+		session.removeAttribute("searchKeyword");
 		return "festival/list_festival";		
 
 	}
@@ -79,11 +82,11 @@ public class FestivalServlet {
 	
 	//검색
 	@RequestMapping(value="/search.do",method=RequestMethod.GET)
- public ModelAndView search(HttpServletRequest request) {
-		String s=request.getParameter("searchkeyword");
-	    System.out.println("여기는 서치");
-		ModelAndView m =new ModelAndView("/festival/list_festival","all",festivalBIZ.getsearch(s));
-	return m;
+ public String Festival_search(@RequestParam ("searchKeyword") String s,Model m,HttpSession session) {
+		session.setAttribute("searchKeyword", s);
+		List<FestivalVO> list = festivalBIZ.getSearch(s);
+		m.addAttribute("all",list);
+	return "festival/list_festival";
 	}
 
 	@RequestMapping(value="/click.do",method=RequestMethod.GET)

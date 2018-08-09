@@ -29,7 +29,7 @@
           <li><a href="/AcodaProject/post_board/select_hugi.do?start=0"> 후기게시판 </a></li>
         </ul>
       </li>
-      <li><a href="/AcodaProject/festival/select.do"> 축제정보 </a></li>
+      <li><a href="/AcodaProject/festival/select.do?start=0"> 축제정보 </a></li>
       <li><a href="/AcodaProject/product/select.do"> 상품게시판 </a></li>
       <li><a href="/AcodaProject/buy/UserOrderList.do"> 주문상품보기 </a></li>
     </ul>

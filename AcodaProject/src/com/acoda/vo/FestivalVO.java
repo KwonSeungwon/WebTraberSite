@@ -12,6 +12,7 @@ public class FestivalVO {
 	private String f_local;
 	private String f_contents;
 	private int user_number;
+	private int total;
 	
 	
 	
@@ -48,11 +49,22 @@ public class FestivalVO {
 
 	
 
-	//update
+	//search
+	public FestivalVO(int total,int f_number,String f_name,String season,String f_start_date,String f_end_date,String f_local) {
+		
+		this.total=total;
+		this.f_number=f_number;
+		this.f_name=f_name;
+		this.season=season;
+		this.f_start_date = f_start_date;
+		this.f_end_date = f_end_date;
+		this.f_local = f_local;
+		
+	}
+	
 
-
-	//click
-	public FestivalVO(int f_number, String f_name, String season, String f_start_date, String f_end_date,
+	//selectall,click
+	public FestivalVO(int total,int f_number, String f_name, String season, String f_start_date, String f_end_date,
 			String f_local, String f_contents) {
 		super();
 		this.f_number = f_number;
@@ -62,6 +74,7 @@ public class FestivalVO {
 		this.f_end_date = f_end_date;
 		this.f_local = f_local;
 		this.f_contents = f_contents;
+		this.total=total;
 	}
 
 	public int getF_number() {
@@ -156,8 +169,16 @@ public class FestivalVO {
 		this.user_number = user_number;
 	}
 
+	public int getTotal() {
+		return total;
+	}
 
+	public void setTotal(int total) {
+		this.total = total;
+	}
 
+	
+	
 	
 
 	

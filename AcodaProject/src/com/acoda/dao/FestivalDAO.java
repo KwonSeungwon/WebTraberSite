@@ -23,7 +23,7 @@ public class FestivalDAO implements IFestival {
 			@Override
 			public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				FestivalVO vo = new FestivalVO();
-				System.out.println(rs.getInt("f_number"));
+				vo.setTotal(rs.getInt("total"));
 				vo.setF_number(rs.getInt("f_number"));
 				vo.setF_name(rs.getString("f_name"));
 				vo.setSeason(rs.getString("season"));
@@ -39,15 +39,13 @@ public class FestivalDAO implements IFestival {
 	}
 
 	// 검색
-	public List<FestivalVO> getsearch(String s) {
-
-		System.out.println("여기서 검색");
-		System.out.println(s);
+	public List<FestivalVO> getSearch(String s) {
 		RowMapper<FestivalVO> mapper = new RowMapper<FestivalVO>() {
 
 			@Override
 			public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				FestivalVO vo = new FestivalVO();
+				vo.setTotal(rs.getInt("total"));
 				System.out.println(rs.getInt("f_number"));
 				vo.setF_number(rs.getInt("f_number"));
 				vo.setF_name(rs.getString("f_name"));
@@ -58,7 +56,7 @@ public class FestivalDAO implements IFestival {
 				return vo;
 			}
 		};
-		return jdbcTemplate.query(search_festival, mapper, new Object[] { s });
+		return jdbcTemplate.query(search_festival, mapper, new Object[] { s ,s});
 
 	}
 

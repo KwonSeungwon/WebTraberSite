@@ -42,9 +42,7 @@ public class ProductServlet {
 	/////////// 전체출력이지만 일부만 출력함.////////////////////////////////////////////////////////
 	@RequestMapping("/select.do")
 	public String Product_Select(Model m) {
-
-		List<ProductVO> list = productBIZ.getAllProduct();
-		m.addAttribute("list", list);
+		m.addAttribute("list",  productBIZ.getAllProduct());
 		return "product/list_product";
 	}
 
@@ -61,8 +59,6 @@ public class ProductServlet {
 
 		return m;
 	}
-
-
 // 검색
 
 	// 검색
@@ -70,15 +66,18 @@ public class ProductServlet {
 
 
 	
+	
+
+	
 
 
+	//////////////// 검색하기  기능 /////////////////////////////////////
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
-	public String search(HttpServletRequest req, Model m) {
-		System.out.println("상품 검색 컨드롤러");
-		String name = req.getParameter("searchkeyword");
-		List<ProductVO> pvo = productBIZ.getSearch_product(name);
-		m.addAttribute("pvo", pvo);
-		return "product/get_product_List";
+	public String search(@RequestParam("searchKeyword") String name ,HttpSession session,Model m) {
+		session.setAttribute("searchKeyword", name);
+		productBIZ.getSearch_product(name);
+		m.addAttribute("list",productBIZ.getSearch_product(name));
+		return "product/list_product";
 	}
 	
 	
@@ -95,6 +94,7 @@ public class ProductServlet {
 		return mav;
 
 	}
+
 
 
 

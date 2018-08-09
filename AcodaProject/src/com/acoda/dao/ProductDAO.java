@@ -23,6 +23,7 @@ public class ProductDAO implements IProduct {
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO pvo = new ProductVO();
+				pvo.setTotal(rs.getInt("total"));
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
 				pvo.setId(rs.getString("id"));
@@ -89,7 +90,7 @@ public class ProductDAO implements IProduct {
 			@Override
 			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ProductVO pvo = new ProductVO();
-
+				pvo.setTotal(rs.getInt("total"));
 				pvo.setItem_number(rs.getInt("item_number"));
 				pvo.setProduct_name(rs.getString("product_name"));
 				pvo.setPrice(rs.getInt("price"));
@@ -100,7 +101,7 @@ public class ProductDAO implements IProduct {
 				return pvo;
 			}
 		};
-		return jdbcTemplate.query(search_product, mapper, new Object[] { name });
+		return jdbcTemplate.query(search_product, mapper, new Object[] { name,name });
 	}
 
 

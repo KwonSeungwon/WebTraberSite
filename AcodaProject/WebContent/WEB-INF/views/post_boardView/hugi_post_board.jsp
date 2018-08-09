@@ -71,12 +71,12 @@
 			</c:if>
 		<%}else{%>
 			<c:if test="${!empty param.start && param.start >(perPage-1) && param.start !=0 }">
-        	  <a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value="${param.start - perPage}"/>&search_post_board_hugi=<%=searchKeyword%>">[이전]</a>
+        	  <a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value="${param.start - perPage}"/>&searchKeyword=<%=searchKeyword%>">[이전]</a>
 			</c:if>
    			<c:forEach var="boundaryStart" varStatus="status" begin="0" end="${totalCount - 1}" step="${perPage}">
 				<c:choose>
        		     	<c:when test="${status.count>0 && status.count != pageIndex}">
-						<a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value='${boundaryStart}'/>&search_post_board_hugi=<%=searchKeyword%>">
+						<a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value='${boundaryStart}'/>&searchKeyword=<%=searchKeyword%>">
 							[<c:out value="${status.count}"/>]
 						</a>
 				</c:when>
@@ -86,7 +86,7 @@
         		</c:choose>
 			</c:forEach>
 			<c:if test="${empty param.start || param.start<(totalCount-perPage)}">
-				<a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value="${param.start + perPage}"/>&search_post_board_hugi=<%=searchKeyword%>">[다음]</a>
+				<a href="/AcodaProject/post_board/search_hugi.do?start=<c:out value="${param.start + perPage}"/>&searchKeyword=<%=searchKeyword%>">[다음]</a>
 			</c:if>
 		<%}%>
 		<!-- 페이징처리끝 -->

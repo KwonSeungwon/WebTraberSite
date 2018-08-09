@@ -19,6 +19,7 @@ public class ProductVO {
 	private String note;// 참고사항
 	private String id;
 	private String pic;
+	private int total;
 
 	public String getPic() {
 		return pic;
@@ -27,9 +28,17 @@ public class ProductVO {
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
+	public int getTotal() {
+		return total;
+	}
 
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	// 모든 매개변수를 가진 생성자
 	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
-			String schedule, String trip_date, String note, String id,String pic) {
+			String schedule, String trip_date, String note, String id,String pic, int total) {
 		super();
 		this.item_number = item_number;
 		this.product_name = product_name;
@@ -42,6 +51,8 @@ public class ProductVO {
 		this.note = note;
 		this.id = id;
 		this.pic= pic;
+		this.total=total;
+	
 	}
 
 	// 기본생성자

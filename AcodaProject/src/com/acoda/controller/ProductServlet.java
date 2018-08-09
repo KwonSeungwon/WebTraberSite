@@ -64,7 +64,22 @@ public class ProductServlet {
 		return m;
 	}
 
+<<<<<<< HEAD
+=======
+// 검색
+	// 검색
+	// 상품 디테일 /////////////////////////////////////////////////////////
 
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+
+<<<<<<< HEAD
+=======
+	
+	
+
+	
+
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 	//////////////// 검색하기  기능 /////////////////////////////////////
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, Model m) {
@@ -87,8 +102,12 @@ public class ProductServlet {
 		System.out.println(vo.getPic());
 		mav = new ModelAndView("/product/click_product", "clist", vo);
 		return mav;
+<<<<<<< HEAD
 	}
 
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 
 

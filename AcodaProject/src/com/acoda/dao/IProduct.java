@@ -2,9 +2,15 @@ package com.acoda.dao;
 
 public interface IProduct {
 
+<<<<<<< HEAD
       //리스트 페이징 처리완료
    String select_product = "select (select count(*)  from product where  rownum<=100) total,item_number,product_name,id,price,head_count,sell_date,schedule,trip_date,note,pic "
          + "from product p,member m where p.user_number=m.user_number order by item_number desc";
+=======
+		//리스트 페이징 처리완료
+	String select_product = "select (select count(*)  from product where  rownum<=100) total,item_number,product_name,id,price,head_count,sell_date,schedule,trip_date,note,pic "
+			+ "from product p,member m where p.user_number=m.user_number order by item_number desc";
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    String insert_product = "insert into product(item_number,product_name,user_number,price,head_count,sell_date,schedule,trip_date,note,pic)"
          + "values(product_seq.nextval,?,?,?,?,?,?,?,?,?)";
@@ -19,7 +25,12 @@ public interface IProduct {
 
    String select_detail = "select item_number,product_name,price,head_count,sell_date,schedule,trip_date,note,pic,id from product p, member m where p.user_number=m.user_number and item_number = ?";
 
+<<<<<<< HEAD
    String search_product = "select(select count(*)  from product where  rownum<=100 and product_name  like '%'||?||'%') total, item_number,product_name,id,price,head_count,sell_date,trip_date"
          + " from product p,member m where  p.user_number=m.user_number and product_name  like '%'||?||'%' ";
+=======
+	String search_product = "select(select count(*)  from product where  rownum<=100 and product_name  like '%'||?||'%') total, item_number,product_name,id,price,head_count,sell_date,trip_date"
+			+ " from product p,member m where  p.user_number=m.user_number and product_name  like '%'||?||'%' ";
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 }

@@ -70,7 +70,8 @@ $(document).ready(function() {
 		상품이름 :<input type="text" name="product_name" class = "pn" /><br> 
 		가격  :<input type="text" name="price" class = "pr"/><br> 
 		수용인원 :<input type="text"name="head_count" class = "hcount" /><br> 
-		상세일정  :<textarea rows="3" cols="20" name="schedule"></textarea>
+		상세일정  :<input type="text" name="schedule" class="sc"/>
+		<!-- <textarea rows="3" cols="20" name="schedule"></textarea> -->
 		<!-- <input type="text" name="schedule" class = "sc"/><br> -->
 		일정 :<input type="date" name="trip_date" class = "td" /> <input type="date" name="trip_date"/><br> 
 		참고사항  :<input type="text" name="note" class = "note"/><br>

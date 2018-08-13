@@ -21,17 +21,33 @@ public class ProductVO {
       return pic;
    }
 
+<<<<<<< HEAD
    public void setPic(String pic) {
       this.pic = pic;
    }
    public int getTotal() {
       return total;
    }
+=======
+	private int item_number; // 상품번호(P)
+	private String product_name; // 상품이름
+	private int user_number; // 회원고유번호(F)
+	private int price; // 가격
+	private int head_count; // 수용인원
+	private String sell_date; // 등록일
+	private String schedule; // 상세일정
+	private String trip_date; // 여행기간
+	private String note;// 참고사항
+	private String id;
+	private String pic;
+	private int total;
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    public void setTotal(int total) {
       this.total = total;
    }
 
+<<<<<<< HEAD
    // 모든 매개변수를 가진 생성자
    public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
          String schedule, String trip_date, String note, String id,String pic, int total) {
@@ -50,6 +66,37 @@ public class ProductVO {
       this.total=total;
    
    }
+=======
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	// 모든 매개변수를 가진 생성자
+	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
+			String schedule, String trip_date, String note, String id,String pic, int total) {
+		super();
+		this.item_number = item_number;
+		this.product_name = product_name;
+		this.user_number = user_number;
+		this.price = price;
+		this.head_count = head_count;
+		this.sell_date = sell_date;
+		this.schedule = schedule;
+		this.trip_date = trip_date;
+		this.note = note;
+		this.id = id;
+		this.pic= pic;
+		this.total=total;
+	
+	}
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    // 기본생성자
    public ProductVO() {

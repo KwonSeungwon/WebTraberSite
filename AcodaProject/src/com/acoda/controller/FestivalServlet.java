@@ -25,12 +25,21 @@ public class FestivalServlet {
    @Autowired
    FestivalBIZ festivalBIZ;
 
+<<<<<<< HEAD
    //list보여주는곳.
    @RequestMapping("/select.do")
    public String f_Select(Model m,HttpSession session)throws Exception {
       m.addAttribute("all", festivalBIZ.getAllFestival());
       session.removeAttribute("searchKeyword");
       return "festival/list_festival";      
+=======
+	//list보여주는곳.
+	@RequestMapping("/select.do")
+	public String f_Select(Model m,HttpSession session)throws Exception {
+		m.addAttribute("all", festivalBIZ.getAllFestival());
+		session.removeAttribute("searchKeyword");
+		return "festival/list_festival";		
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    }
    //insert
@@ -48,6 +57,7 @@ public class FestivalServlet {
       return new ModelAndView(irv);
    }
 
+<<<<<<< HEAD
    //삭제
    @RequestMapping(value = "/delete.do", method = RequestMethod.GET)
    public ModelAndView Festival_delete(@RequestParam("del_number") String name) {
@@ -88,6 +98,48 @@ public class FestivalServlet {
       m.addAttribute("all",list);
    return "festival/list_festival";
    }
+=======
+	//삭제
+	@RequestMapping(value = "/delete.do", method = RequestMethod.GET)
+	public ModelAndView Festival_delete(@RequestParam("del_number") String name) {
+		System.out.println("여긴 컨트롤러 딜리트");
+		InternalResourceView irv = new InternalResourceView("/festival/select.do");
+		if (festivalBIZ.getDelFestival(name) > 0) {
+			System.out.println("여기까지느 온다");
+			return new ModelAndView(irv);
+		} else {
+			System.out.println("삭제오류");
+		return null;	
+		}
+	}
+	//파인드
+	@RequestMapping(value = "/find.do", method = RequestMethod.GET)
+	public ModelAndView Festival_find(@RequestParam("find_number") String f_number,Model m) {
+		System.out.println("여기는 파인드" + f_number);
+		FestivalVO v = festivalBIZ.getFindFestival(f_number);
+		//m.addAttribute("find",v);	
+		InternalResourceView irv = new InternalResourceView("/input/update_festival.jsp");
+		return new ModelAndView(irv,"find",v);
+	}
+	//업데이트
+	@RequestMapping(value="update.do",method=RequestMethod.POST)
+	public ModelAndView Festival_update(@ModelAttribute FestivalVO vo) {
+		System.out.println("여기는 업데이트 서블릿");
+	    festivalBIZ.getUpdateFestival(vo);
+		InternalResourceView irv = new InternalResourceView("/festival/select.do");
+		ModelAndView mav=new ModelAndView(irv);
+		return mav;
+	}
+	
+	//검색
+	@RequestMapping(value="/search.do",method=RequestMethod.GET)
+ public String Festival_search(@RequestParam ("searchKeyword") String s,Model m,HttpSession session) {
+		session.setAttribute("searchKeyword", s);
+		List<FestivalVO> list = festivalBIZ.getSearch(s);
+		m.addAttribute("all",list);
+	return "festival/list_festival";
+	}
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    @RequestMapping(value="/click.do",method=RequestMethod.GET)
    public String festival_click(@RequestParam("click_number") String name ,Model m) {

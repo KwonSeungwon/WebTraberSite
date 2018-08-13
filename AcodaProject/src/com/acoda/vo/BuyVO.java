@@ -4,8 +4,6 @@ import java.util.List;
 
 public class BuyVO {
 
-	private MemberVO membervo;
-	private ProductVO productvo;
 
 	private int item_number;
 	private int user_number;
@@ -146,12 +144,6 @@ public class BuyVO {
 		this.unusual = unusual;
 	}
 
-	@Override
-	public String toString() {
-		return "BuyVO [membervo=" + membervo + ", productvo=" + productvo + ", item_number=" + item_number
-				+ ", user_number=" + user_number + ", order_number=" + order_number + ", order_day=" + order_day
-				+ ", nationality=" + nationality + ", fellow_traveler=" + fellow_traveler + ", language=" + language
-				+ ", unusual=" + unusual + ", id=" + id + ", application=" + application + ", memo=" + memo + "]";
-	}
+	
 
 }

@@ -1,9 +1,6 @@
 package com.acoda.vo;
 
 public class MemberVO {
-
-	
-	private Member_TypeVO member_typevo;
 	
 	private int user_number ; //회원고유번호(P)
 	private int rating; //등급코드(F)

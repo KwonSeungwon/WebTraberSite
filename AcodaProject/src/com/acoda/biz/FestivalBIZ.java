@@ -15,8 +15,6 @@ public class FestivalBIZ {
 
 	@Autowired
 	FestivalDAO festivalDAO;
-	@Autowired
-	BuyDAO buyDAO;
 
 	public List<FestivalVO> getAllFestival() {
 		System.out.println("여긴 비즈");
@@ -25,10 +23,10 @@ public class FestivalBIZ {
 
 	}
 	//검색
-	public List<FestivalVO> getsearch(String s){
+	public List<FestivalVO> getSearch(String s){
 		System.out.println("여기서 검색한다....");
-		System.out.println(festivalDAO.getsearch(s).size());
-		return  festivalDAO.getsearch(s);
+		System.out.println(festivalDAO.getSearch(s).size());
+		return  festivalDAO.getSearch(s);
 	}
 	//click
 	public List<FestivalVO> getClickfestival(String name){

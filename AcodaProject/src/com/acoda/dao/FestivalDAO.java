@@ -18,7 +18,6 @@ public class FestivalDAO implements IFestival {
    @Autowired
    JdbcTemplate jdbcTemplate;
 
-<<<<<<< HEAD
    public List<FestivalVO> getAllFestival() {
       List<FestivalVO> all = jdbcTemplate.query(select_festival, new RowMapper<FestivalVO>() {
          @Override
@@ -34,29 +33,11 @@ public class FestivalDAO implements IFestival {
             return vo;
          }
       });
-=======
-	public List<FestivalVO> getAllFestival() {
-		List<FestivalVO> all = jdbcTemplate.query(select_festival, new RowMapper<FestivalVO>() {
-			@Override
-			public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				FestivalVO vo = new FestivalVO();
-				vo.setTotal(rs.getInt("total"));
-				vo.setF_number(rs.getInt("f_number"));
-				vo.setF_name(rs.getString("f_name"));
-				vo.setSeason(rs.getString("season"));
-				vo.setF_start_date(rs.getString("f_start_date"));
-				vo.setF_end_date(rs.getString("f_end_date"));
-				vo.setF_local(rs.getString("f_local"));
-				return vo;
-			}
-		});
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
       return all;
 
    }
 
-<<<<<<< HEAD
    // 검색
    public List<FestivalVO> getSearch(String s) {
       RowMapper<FestivalVO> mapper = new RowMapper<FestivalVO>() {
@@ -76,31 +57,8 @@ public class FestivalDAO implements IFestival {
          }
       };
       return jdbcTemplate.query(search_festival, mapper, new Object[] { s ,s});
-=======
-	// 검색
-	public List<FestivalVO> getSearch(String s) {
-		RowMapper<FestivalVO> mapper = new RowMapper<FestivalVO>() {
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-<<<<<<< HEAD
    }
-=======
-			@Override
-			public FestivalVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				FestivalVO vo = new FestivalVO();
-				vo.setTotal(rs.getInt("total"));
-				System.out.println(rs.getInt("f_number"));
-				vo.setF_number(rs.getInt("f_number"));
-				vo.setF_name(rs.getString("f_name"));
-				vo.setSeason(rs.getString("season"));
-				vo.setF_start_date(rs.getString("f_start_date"));
-				vo.setF_end_date(rs.getString("f_end_date"));
-				vo.setF_local(rs.getString("f_local"));
-				return vo;
-			}
-		};
-		return jdbcTemplate.query(search_festival, mapper, new Object[] { s ,s});
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    // 클릭
    public List<FestivalVO> getClickfestival(String name) {

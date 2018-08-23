@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,com.acoda.vo.*" %>
-<<<<<<< HEAD
 <% 
-=======
-<% 
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
+ 
               /* List<Post_BoardVO> all = (List<Post_BoardVO>)request.getAttribute("click");
               MemberVO vo = (MemberVO) session.getAttribute("login"); */
               /* List<ReplyVO> replyall = (List<ReplyVO>)request.getAttribute("replyall"); */
@@ -26,7 +23,6 @@
 %>
 <c:set var="vo"  value="${sessionScope.login}" />
 <table border="1" align="center" width="500px" height="auto">
-<<<<<<< HEAD
    <c:forEach var="se" items="${requestScope.click}">
       <tr>
          <th>글번호</th><th><c:out value="${se.post_number}"/></th>
@@ -92,7 +88,6 @@
       <input type="submit" value="입력"/>
    </form>
    <hr>
-=======
 	<c:forEach var="se" items="${requestScope.click}">
 		<tr>
 			<th>글번호</th><th><c:out value="${se.post_number}"/></th>
@@ -157,7 +152,6 @@
 		<input type="submit" value="입력"/>
 	</form>
 	<hr>
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 <a href="/AcodaProject/index.jsp">메인페이지로</a>
 
 </body>

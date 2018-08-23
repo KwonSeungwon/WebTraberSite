@@ -17,16 +17,15 @@ public class FestivalBIZ {
 	FestivalDAO festivalDAO;
 
 	public List<FestivalVO> getAllFestival() {
+		System.out.println("여긴 비즈");
+		System.out.println(festivalDAO.getAllFestival().toString());
 		return festivalDAO.getAllFestival();
 
 	}
 	//검색
 	public List<FestivalVO> getSearch(String s){
-<<<<<<< HEAD
 		System.out.println("여기서 검색한다....");
 		System.out.println(festivalDAO.getSearch(s).size());
-=======
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 		return  festivalDAO.getSearch(s);
 	}
 	//click

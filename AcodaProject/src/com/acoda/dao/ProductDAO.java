@@ -20,7 +20,6 @@ public class ProductDAO implements IProduct {
    public List<ProductVO> getAllProduct() {
       List<ProductVO> list = jdbcTemplate.query(select_product, new RowMapper<ProductVO>() {
 
-<<<<<<< HEAD
          @Override
          public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
             ProductVO pvo = new ProductVO();
@@ -39,26 +38,6 @@ public class ProductDAO implements IProduct {
          }
       });
       return list;
-=======
-			@Override
-			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				ProductVO pvo = new ProductVO();
-				pvo.setTotal(rs.getInt("total"));
-				pvo.setItem_number(rs.getInt("item_number"));
-				pvo.setProduct_name(rs.getString("product_name"));
-				pvo.setId(rs.getString("id"));
-				pvo.setPrice(rs.getInt("price"));
-				pvo.setHead_count(rs.getInt("head_count"));
-				pvo.setSell_date(rs.getString("sell_date"));
-				pvo.setSchedule(rs.getString("schedule"));
-				pvo.setTrip_date(rs.getString("trip_date"));
-				pvo.setNote(rs.getString("note"));
-				pvo.setPic(rs.getString("pic"));
-				return pvo;
-			}
-		});
-		return list;
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    }
 
@@ -108,7 +87,6 @@ public class ProductDAO implements IProduct {
       System.out.println("상품검색 다오" + name.toString());
       RowMapper<ProductVO> mapper = new RowMapper<ProductVO>() {
 
-<<<<<<< HEAD
          @Override
          public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
             ProductVO pvo = new ProductVO();
@@ -125,24 +103,6 @@ public class ProductDAO implements IProduct {
       };
       return jdbcTemplate.query(search_product, mapper, new Object[] { name,name });
    }
-=======
-			@Override
-			public ProductVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				ProductVO pvo = new ProductVO();
-				pvo.setTotal(rs.getInt("total"));
-				pvo.setItem_number(rs.getInt("item_number"));
-				pvo.setProduct_name(rs.getString("product_name"));
-				pvo.setPrice(rs.getInt("price"));
-				pvo.setId(rs.getString("id"));
-				pvo.setHead_count(rs.getInt("head_count"));
-				pvo.setSell_date(rs.getString("sell_date"));
-				pvo.setTrip_date(rs.getString("trip_date"));
-				return pvo;
-			}
-		};
-		return jdbcTemplate.query(search_product, mapper, new Object[] { name,name });
-	}
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 
 

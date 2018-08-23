@@ -1,7 +1,6 @@
 package com.acoda.vo;
 
 public class FestivalVO {
-<<<<<<< HEAD
    
    
    
@@ -17,29 +16,9 @@ public class FestivalVO {
    
    
    
-   public FestivalVO() {
-      super();
-   }
-=======
-	
-	
-	
-	private int f_number;
-	private String f_name;
-	private String season;
-	private String f_start_date;
-	private String f_end_date;
-	private String f_local;
-	private String f_contents;
-	private int user_number;
-	private int total;
-	
-	
-	
 	public FestivalVO() {
 		super();
 	}
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    public FestivalVO(int f_number, String f_name, String season, String f_start_date, String f_end_date,
          String f_local, String f_contents, int user_number) {
@@ -70,21 +49,8 @@ public class FestivalVO {
 
    
 
-<<<<<<< HEAD
-   //search
-   public FestivalVO(int total,int f_number,String f_name,String season,String f_start_date,String f_end_date,String f_local) {
-      
-      this.total=total;
-      this.f_number=f_number;
-      this.f_name=f_name;
-      this.season=season;
-      this.f_start_date = f_start_date;
-      this.f_end_date = f_end_date;
-      this.f_local = f_local;
-      
-   }
+
    
-=======
 	//search
 	public FestivalVO(int total,int f_number,String f_name,String season,String f_start_date,String f_end_date,String f_local) {
 		
@@ -98,27 +64,12 @@ public class FestivalVO {
 		
 	}
 	
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-<<<<<<< HEAD
-   //selectall,click
-   public FestivalVO(int total,int f_number, String f_name, String season, String f_start_date, String f_end_date,
-         String f_local, String f_contents) {
-      super();
-      this.f_number = f_number;
-      this.f_name = f_name;
-      this.season = season;
-      this.f_start_date = f_start_date;
-      this.f_end_date = f_end_date;
-      this.f_local = f_local;
-      this.f_contents = f_contents;
-      this.total=total;
-   }
+
 
    public int getF_number() {
       return f_number;
    }
-=======
 	//selectall,click
 	public FestivalVO(int total,int f_number, String f_name, String season, String f_start_date, String f_end_date,
 			String f_local, String f_contents) {
@@ -132,11 +83,6 @@ public class FestivalVO {
 		this.f_contents = f_contents;
 		this.total=total;
 	}
-
-	public int getF_number() {
-		return f_number;
-	}
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
 
 
@@ -226,35 +172,15 @@ public class FestivalVO {
       this.user_number = user_number;
    }
 
-<<<<<<< HEAD
    public int getTotal() {
       return total;
    }
-=======
-	public int getTotal() {
-		return total;
-	}
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-<<<<<<< HEAD
+
    public void setTotal(int total) {
       this.total = total;
    }
-=======
-	public void setTotal(int total) {
-		this.total = total;
-	}
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-<<<<<<< HEAD
-   
-   
-   
-=======
-	
-	
-	
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
    
 

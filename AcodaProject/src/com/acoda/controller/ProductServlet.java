@@ -2,6 +2,8 @@ package com.acoda.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -112,7 +114,6 @@ public class ProductServlet {
          m = new ModelAndView("/product/list_product", "list", list);
 
          return m;
-<<<<<<< HEAD
 
       } else {
          return null;
@@ -153,10 +154,7 @@ public class ProductServlet {
       return irv;
 
    }
-=======
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 
-<<<<<<< HEAD
 	// 사진업로드 AJAX //////////////////////////////////////
 	@RequestMapping(value = "/picup.do", method = RequestMethod.POST)
 	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile, HttpSession session, Model m)
@@ -197,115 +195,8 @@ public class ProductServlet {
 		}
 		System.out.println(result);
 		return result;
-=======
-      } else {
-         return null;
-      }
 
-   }
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
-
-   //////// 상품 업데이트 //////////////////////////////////////////
-   @RequestMapping("/productupdate.do")
-   public ModelAndView Product_update(@ModelAttribute("find_number") ProductVO vo) {
-      List<ProductVO> list = productBIZ.getAllProduct();
-      ModelAndView mav = new ModelAndView();
-      vo.setTrip_date(vo.getTrip_date().replace(",", "~"));
-      int n = productBIZ.getUpdateProduct(vo);
-      System.out.println(n+"여기는 컨트롤러");
-      if (n > 0) {
-         System.out.println("수정성공");
-         list = productBIZ.getAllProduct();
-      }
-      mav = new ModelAndView("/product/list_product","list",list);
-
-<<<<<<< HEAD
-   // 신청서 페이지 이동
-   @RequestMapping(value = "/click.do", method = RequestMethod.GET)
-   public ModelAndView Buy_Insert(@RequestParam("click_number") String item_number) {
-      /* int b=buyBIZ.getInsertBuy(vo); */
-      InternalResourceView irv = new InternalResourceView("/input/application_form.jsp");
-      ModelAndView m = new ModelAndView(irv, "b", item_number);
-=======
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
-
-<<<<<<< HEAD
-      return m;
-=======
-      return mav;
-   }
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
-
-<<<<<<< HEAD
-   }
-   //신청서 확인 페이지로 이동
-   @RequestMapping(value="/aplication.do")
-   public ModelAndView Buy_aplication_page(@RequestParam("aplic_number") int a) {   
-      //InternalResourceView irv = new InternalResourceView("/input/aplication_confirm.jsp");
-      List<BuyVO> list=buyBIZ.getApllication_list(a);
-      ModelAndView m=new ModelAndView("UserOrder/aplication_confirm","list",list);
-      return m;
-=======
-   // 수정전 상품 리스트 가져오기//////////////////////////////////
-   @RequestMapping("/pupinfo.do")
-   public InternalResourceView Product_getupdateinfo(@RequestParam("item_number") int num,Model m) {
-      ProductVO vo = new ProductVO();
-      vo = productBIZ.getproductupdateinfo(num);
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
-
-<<<<<<< HEAD
-   }
-=======
-      InternalResourceView irv = new InternalResourceView("/input/ProductUpdate.jsp");
-      m.addAttribute("ulist",vo);
-      
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
-
-<<<<<<< HEAD
-=======
-      
-      
-      return irv;
-
-   }
-
-   // 사진업로드 AJAX //////////////////////////////////////
-   @RequestMapping(value = "/picup.do", method = RequestMethod.POST)
-   public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile,HttpSession session,
-         HttpServletRequest rep) throws Exception {
-      
-      MemberVO vo = (MemberVO) session.getAttribute("login");
-      String result = "";
-      String f_realname = "";
-      String path = "C:\\Users\\Playdata\\git\\Encore_1jo-7\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
-      File dir = new File(path);
-      if (!dir.isDirectory()) {
-         dir.mkdir();
-      }
-      Iterator<String> files = uploadFile.getFileNames();
-      while (files.hasNext()) {
-         String upload = files.next();
-         MultipartFile mult = uploadFile.getFile(upload);
-         f_realname = mult.getOriginalFilename();
-         mult.transferTo(new File(path +vo.getId()+f_realname));
-         System.out.println("리얼네임은 :" + f_realname);
-      }
-      
-      result = path + vo.getId() + f_realname;
-      
-      String abc[] = result.split("\\\\");
-      String a = "../";
-      for(int i = 0 ;i<abc.length ; i++) {
-         if(abc[i].equals("img")) {
-            result = a+abc[i]+"/"+abc[i+1];
-         }
-            
-      }
-      
-      System.out.println(result);
-      return result;
-
-   }
+	}
 
    // 신청서 페이지 이동
    @RequestMapping(value = "/click.do", method = RequestMethod.GET)
@@ -327,5 +218,4 @@ public class ProductServlet {
 
    }
 
->>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
 }

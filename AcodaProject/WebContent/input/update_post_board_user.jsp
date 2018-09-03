@@ -8,13 +8,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>유저업데이트</title>
 </head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+   $(".pbtn").click(function() {
+	   if ($("#picbu").val() != "") {
+			var ext = $('#picbu').val().split('.').pop().toLowerCase();
+			if ($.inArray(ext, [ 'gif', 'png', 'jpg', 'jpeg' ]) == -1) {
+				alert('gif,png,jpg,jpeg 파일만 업로드 할수 있습니다.');
+				return false;
+			}
+		}
+      var F_Data = new FormData($("#fileupform")[0]);      
+      $.ajax({ 
+         url:'/AcodaProject/product/picup.do',
+         data: F_Data, 
+         processData: false, 
+         contentType: false,
+         type : 'POST',
+         datatype : "text",
+         success: function(result){
+            alert("업로드 완료");
+            $('.uloacation').val(result);
+            $("#my_image").attr("src",result);
+            }
+         });
+      });
+   });   
+</script>
 <body>
 <%MemberVO vo = (MemberVO)session.getAttribute("login"); %>
 <%
  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
  String today = formatter.format(new java.util.Date());
 %>
-<form action="/AcodaProject/post_board/update_user.do" method="POST">
+<form action="/AcodaProject/post_board/update_user.do" enctype="multipart/form-data" id = "fileupform" method="POST">
 유저게시판 게시글수정<br><br>
 
 <!-- 회원고유번호 : 히든처리 -->
@@ -25,9 +53,11 @@
 게시글내용 : <input type="text" name="post_contents" value="${find.post_contents}"/><br>
 <!-- 등록일자 : 히든처리 --><input type="hidden" name="registration_date" value="<%=today.toString()%>"/>
 <!-- 조회수 : <input type="text" name="views"/><br> -->
-사진파일경로 : <input type="text" name="path"/><br>	
-		<input type="submit" value="확인 "/>
-       <input type="reset" value="취소 "/>
+		   <img id = "my_image" src ="${find.path}">
+		   <input type = "file" id = "picbu" name = "fileup"> <input type = "button" value = "사진수정" class = "pbtn"><br>
+		   <input type = "text" name = "path" value ="${find.path}" class = "uloacation"/>
+			<input type="submit" value="확인 "/>
+      		<input type="reset" value="취소 "/>
        
 </form>
 <a href="/AcodaProject/post_board/select_user.do">유저게시판으로 돌아가기</a><br>

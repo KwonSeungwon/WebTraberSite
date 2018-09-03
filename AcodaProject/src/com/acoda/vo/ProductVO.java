@@ -4,10 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductVO {
 
-
-
-	private MemberVO membervo;
-
 	private int item_number; // 상품번호(P)
 	private String product_name; // 상품이름
 	private int user_number; // 회원고유번호(F)
@@ -28,6 +24,7 @@ public class ProductVO {
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
+
 	public int getTotal() {
 		return total;
 	}
@@ -38,7 +35,7 @@ public class ProductVO {
 
 	// 모든 매개변수를 가진 생성자
 	public ProductVO(int item_number, String product_name, int user_number, int price, int head_count, String sell_date,
-			String schedule, String trip_date, String note, String id,String pic, int total) {
+			String schedule, String trip_date, String note, String id, String pic, int total) {
 		super();
 		this.item_number = item_number;
 		this.product_name = product_name;
@@ -50,9 +47,9 @@ public class ProductVO {
 		this.trip_date = trip_date;
 		this.note = note;
 		this.id = id;
-		this.pic= pic;
-		this.total=total;
-	
+		this.pic = pic;
+		this.total = total;
+
 	}
 
 	// 기본생성자

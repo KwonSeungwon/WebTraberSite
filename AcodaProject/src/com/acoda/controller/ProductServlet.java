@@ -2,6 +2,8 @@ package com.acoda.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -153,43 +155,48 @@ public class ProductServlet {
 
    }
 
-   // 사진업로드 AJAX //////////////////////////////////////
-   @RequestMapping(value = "/picup.do", method = RequestMethod.POST)
-   public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile,HttpSession session,
-         HttpServletRequest rep) throws Exception {
-      
-      MemberVO vo = (MemberVO) session.getAttribute("login");
-      String result = "";
-      String f_realname = "";
-      String path = "C:\\Users\\Playdata\\git\\Encore_1jo-7\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
-      File dir = new File(path);
-      if (!dir.isDirectory()) {
-         dir.mkdir();
-      }
-      Iterator<String> files = uploadFile.getFileNames();
-      while (files.hasNext()) {
-         String upload = files.next();
-         MultipartFile mult = uploadFile.getFile(upload);
-         f_realname = mult.getOriginalFilename();
-         mult.transferTo(new File(path +vo.getId()+f_realname));
-         System.out.println("리얼네임은 :" + f_realname);
-      }
-      
-      result = path + vo.getId() + f_realname;
-      
-      String abc[] = result.split("\\\\");
-      String a = "../";
-      for(int i = 0 ;i<abc.length ; i++) {
-         if(abc[i].equals("img")) {
-            result = a+abc[i]+"/"+abc[i+1];
-         }
-            
-      }
-      
-      System.out.println(result);
-      return result;
+	// 사진업로드 AJAX //////////////////////////////////////
+	@RequestMapping(value = "/picup.do", method = RequestMethod.POST)
+	public @ResponseBody String Product_Select(MultipartHttpServletRequest uploadFile, HttpSession session, Model m)
+			throws Exception {
+		int count = 0;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd-ss");
+		String dd = sdf.format(new Date());
+		MemberVO vo = (MemberVO) session.getAttribute("login");
+		String result = "";
+		String f_realname = "";
+		String path = "C:\\Users\\Playdata\\git\\Encore_1jooo\\AcodaProject\\WebContent\\img\\"; // 파일 저장경로
+		File dir = new File(path);
+		if (!dir.isDirectory()) {
+			dir.mkdir();
+		}
 
-   }
+		Iterator<String> files = uploadFile.getFileNames();
+		while (files.hasNext()) {
+			System.out.println(files.hasNext());
+			String upload = files.next();
+			MultipartFile mult = uploadFile.getFile(upload);
+			f_realname = mult.getOriginalFilename();
+			mult.transferTo(new File(path + vo.getId() + "_" + dd + "_" +f_realname));
+			result = path + vo.getId() + "_" + dd + "_" + f_realname;
+			count++;
+		}
+		// int tcount = StringUtils.countMatches(result, "img"); 문자열에 해당 문자 개수 세주는거임
+		// 유용할듯
+		if (count == 1) {
+			String abc[] = result.split("\\\\");
+			String a = "../";
+			for (int i = 0; i < abc.length; i++) {
+				if (abc[i].equals("img")) {
+					result = a + abc[i] + "/" + abc[i + 1];
+				}
+			}
+
+		}
+		System.out.println(result);
+		return result;
+
+	}
 
    // 신청서 페이지 이동
    @RequestMapping(value = "/click.do", method = RequestMethod.GET)

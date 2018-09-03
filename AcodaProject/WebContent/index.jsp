@@ -21,9 +21,16 @@
 
 }
 .carousel {
+<<<<<<< HEAD
 	position: fixed;
 }
  .carousel-control.right,.carousel-control.left{
+=======
+   position: fixed;
+}
+ .carousel-control.right,.carousel-control.left
+ {
+>>>>>>> branch 'master' of https://github.com/KwonSeungwon/Encore_1jo.git
     background-image:none;
     color:#f4511e;
   }

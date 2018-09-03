@@ -1,11 +1,7 @@
 package com.acoda.vo;
 
 public class ReplyVO {
-	
-	private MemberVO membervo;
-	private Post_BoardVO post_boardvo;
-	
-	
+
 	private int post_number; //게시글번호(F)
 	private int r_number; //댓글번호(P)
 	private int user_number; //회원고유번호(F)

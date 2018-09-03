@@ -139,9 +139,9 @@ input.upload {
 <div class="container">
 	<div class="row">
     <div class="col-md-8">
-      <section>      
-        <h1 class="entry-title"><span>회원가입</span> </h1>
-		<hr>
+     <section>      
+     <h1 class="entry-title"><span>회원가입</span> </h1>
+	<hr>
 	<form action="/AcodaProject/abc.do" method="POST" id = "infrom" class ="form-horizontal" enctype="multipart/form-data">
 	<div class="form-group">
 	<label class="control-label col-sm-3">가입유형<span class="text-danger">*</span></label>
@@ -157,7 +157,7 @@ input.upload {
 	<div class="form-group">
 	<label class="control-label col-sm-3">이름<span class="text-danger">*</span></label>
 	<div class="col-md-8 col-sm-9">
-	<input type="text" name="name" class = "na" placeholder="이름을 입력해주세요">
+	<input type="text" name="name" class = "na" placeholder="이름입력">
 	</div>
 	</div>
 	<div class="form-group">
@@ -174,30 +174,77 @@ input.upload {
 	<div class="form-group">
 	<label class="control-label col-sm-3">아이디<span class="text-danger">*</span></label>
 	<div class="col-md-8 col-sm-9">
-	<input type="text" name="id" class = "idtest" placeholder="아이디를 입력하세요"/><input type="text"  readonly="readonly" class = "idt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;">
+	<input type="text" name="id" class = "idtest" placeholder="사용할 아이디 입력"/><input type="text"  readonly="readonly" class = "idt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;">
 	</div>
 	</div>
 	<div class="form-group">
 	<label class="control-label col-sm-3">비밀번호<span class="text-danger">*</span></label>
 	<div class="col-md-8 col-sm-9">
-	<input type="password" name="pw" class = "ppw" placeholder="비밀번호를 입력하세요">	
+	<input type="password" name="pw" class = "ppw" placeholder="비밀번호 입력">	
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">핸드폰번호<span class="text-danger">*</span></label>
+	<div class="col-md-8 col-sm-9">
+	<input type="text" name="phone" class = "phh" placeholder="핸드폰 번호 입력">	
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">우편번호<span class="text-danger"></span></label>
+	<div class="col-md-8 col-sm-9">	
+	<input type="text" name="address" readonly="readonly" class="postcodify_postcode5" placeholder="주소를 검색해주세요"/> <button type="button" id = "abutton" class="btn btn-primary">검색</button>
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">도로명주소<span class="text-danger" ></span></label>
+	<div class="col-md-8 col-sm-9">	
+	<input type="text"  readonly= "readonly" class="postcodify_address" placeholder="자동완성 됩니다"/>
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">상세주소<span class="text-danger">*</span></label>
+	<div class="col-md-8 col-sm-9">	
+	<input type="text" name="address" placeholder="상세주소 입력"/>
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">이메일주소<span class="text-danger">*</span> 	
+	</label> 
+	<div class="col-md-8 col-sm-9">	
+	<input type="text" name="email" class = "testemail" placeholder="이메일 주소 입력"> <input type="text"  readonly="readonly" class = "emailt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"> 
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">직업<span class="text-danger">*</span></label>
+	<div class="col-md-8 col-sm-9">	
+	<input type="text" name="job" class = "jo" placeholder="직업 입력"> 
+	</div>
+	</div>	
+	<div class="form-group">
+	<label class="control-label col-sm-3">생년월일<span class="text-danger">*</span></label>
+	<div class="col-md-8 col-sm-9">
+	<input type="date" name="birth" class = "bir">
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">소개<span class="text-danger"></span></label>
+	<div class="col-md-8 col-sm-9">​
+	<input type="text" name="profile" class = "pt" >
+	</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3">지역<span class="text-danger"></span></label>
+	<div class="col-md-8 col-sm-9">
+	<input 	type="text" name="place" ><br>
 	</div>
 	</div>
 
-	핸드폰번호 : <input type="text" name="phone" class = "phh">	
-		
-	우편번호<input type="text" name="address" readonly="readonly" class="postcodify_postcode5"/>
-	<button type="button" id = "abutton">검색</button><br />
-	도로명 주소<input type="text" name="address" class="postcodify_address"/><br />
-	상세주소 <input type="text" name="address"/><br />
-	이메일 : <input type="text" name="email" class = "testemail"> 
-	<input type="text"  readonly="readonly" class = "emailt" style="width:400px; background-color:transparent;border:0 solid black;text-align:left;"><br>	
-	직업 : <input type="text" name="job" class = "jo"><br> 	
-	생년월일 : <input type="date" name="birth" class = "bir"><br>​
-	프로필 : <input type="text" name="profile" class = "pt"><br> 
-	지역 : <input 	type="text" name="place"><br>
-	<input type="submit" value="등록" id = "sub">
-	<input type="reset" value="재작성">
+	<div class="form-group">
+    <div class="col-xs-offset-3 col-xs-10">
+	<input type="submit" value="등록" id = "sub" class="btn btn-primary">
+	<input type="reset" value="재작성" class="btn btn-primary">
+	</div>
+	</div>
 	</form>
 
 	</section>

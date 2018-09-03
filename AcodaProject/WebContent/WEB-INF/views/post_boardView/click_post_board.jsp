@@ -44,6 +44,14 @@
 		<tr>
 			<th>사진경로</th><th><c:out value="${se.path}"/></th>
 		</tr>
+		<c:if test="${vo.id==se.id || vo.rating==3}">
+		<tr>
+			<th colspan="2">		
+				<a href ="/AcodaProject/post_board/delete_user.do?del_post_number=${se.post_number}">삭제하기</a><br>
+   				<a href ="/AcodaProject/post_board/find_user.do?find_post_number=${se.post_number}">수정하기</a>
+   			</th>
+		</tr>
+		</c:if>
 	</c:forEach>
 		<tr>
 			<th colspan="2">댓글</th>
@@ -74,8 +82,6 @@
 	</c:forEach>
 	
 </table>	
-	****댓글입력****
-	<hr>
 	<form action="/AcodaProject/reply/insert.do" method="POST">
 		<c:forEach var="se" items="${requestScope.click}">
 		<!-- 게시글번호(나중에 히든처리) :  --><input type="hidden" name="post_number" value="${se.post_number}"/>
@@ -85,8 +91,7 @@
 		</c:forEach>
 		<input type="submit" value="입력"/>
 	</form>
-	<hr>
-<a href="/AcodaProject/index.jsp">메인페이지로</a>
+	
 
 </body>
 </html>

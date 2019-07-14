@@ -12,5 +12,3 @@ Database : Oracle 10g
 
 
 Production periode : 2018.07.01 ~ 
-
-Boys be ambitious !!!
